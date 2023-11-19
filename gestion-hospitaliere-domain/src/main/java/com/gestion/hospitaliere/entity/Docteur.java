@@ -1,10 +1,10 @@
 package com.gestion.hospitaliere.entity;
 
+import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 
-import javax.persistence.Entity;
 
 @Entity
 public class Docteur {
@@ -12,4 +12,5 @@ public class Docteur {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
 }

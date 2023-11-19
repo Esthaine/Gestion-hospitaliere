@@ -4,7 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3b938b37-665c-420b-be54-a56fb2b9d9bf" name="Changes" comment="Iniatialisation du projet" />
+    <list default="true" id="3b938b37-665c-420b-be54-a56fb2b9d9bf" name="Changes" comment="Iniatialisation du projet">
+      <change afterPath="$PROJECT_DIR$/gestion-hospitaliere-domain/src/main/java/com/gestion/hospitaliere/config/DaoConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gestion-hospitaliere-domain/src/main/java/com/gestion/hospitaliere/dao/DoctorRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gestion-hospitaliere-domain/src/main/java/com/gestion/hospitaliere/dao/JpaPersistence.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dbnavigator.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dbnavigator.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gestion-hospitaliere-domain/src/main/java/com/gestion/hospitaliere/entity/Docteur.java" beforeDir="false" afterPath="$PROJECT_DIR$/gestion-hospitaliere-domain/src/main/java/com/gestion/hospitaliere/entity/Docteur.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -13,6 +21,7 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="Interface" />
         <option value="Class" />
       </list>
     </option>
@@ -35,7 +44,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "jdk.selected.JAVA_MODULE": "20",
-    "settings.editor.selected.configurable": "org.jetbrains.plugins.github.ui.GithubSettingsConfigurable"
+    "settings.editor.selected.configurable": "reference.settings.project.maven.ignored.files"
   }
 }]]></component>
   <component name="RunAnythingCache">
@@ -89,7 +98,14 @@
       <option name="project" value="LOCAL" />
       <updated>1700248920039</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Iniatialisation du projet">
+      <created>1700249051914</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1700249051914</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
