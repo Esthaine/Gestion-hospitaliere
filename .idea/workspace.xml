@@ -4,14 +4,32 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3b938b37-665c-420b-be54-a56fb2b9d9bf" name="Changes" comment="Iniatialisation du projet">
-      <change afterPath="$PROJECT_DIR$/gestion-hospitaliere-domain/src/main/java/com/gestion/hospitaliere/config/DaoConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gestion-hospitaliere-domain/src/main/java/com/gestion/hospitaliere/dao/DoctorRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gestion-hospitaliere-domain/src/main/java/com/gestion/hospitaliere/dao/JpaPersistence.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dbnavigator.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dbnavigator.xml" afterDir="false" />
+    <list default="true" id="3b938b37-665c-420b-be54-a56fb2b9d9bf" name="Changes" comment="Persistence added">
+      <change afterPath="$PROJECT_DIR$/gestion-hospitaliere-persistence/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gestion-hospitaliere-persistence/db1.mv.db" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gestion-hospitaliere-persistence/src/main/resources/META-INF/persistence.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gestion-hospitaliere-persistence/src/test/java/com/gestion/hospitaliere/AppTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gestion-hospitaliere-service-v2/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gestion-hospitaliere-service-v2/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gestion-hospitaliere-service-v2/src/main/java/com/gestion/hospitaliere/App.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gestion-hospitaliere-service-v2/src/test/java/com/gestion/hospitaliere/AppTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gestion-hospitaliere-domain/src/main/java/com/gestion/hospitaliere/entity/Docteur.java" beforeDir="false" afterPath="$PROJECT_DIR$/gestion-hospitaliere-domain/src/main/java/com/gestion/hospitaliere/entity/Docteur.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gestion-hospitaliere-domain/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gestion-hospitaliere-domain/src/main/java/com/gestion/hospitaliere/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/gestion-hospitaliere-persistence/src/main/java/com/gestion/hospitaliere/App.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gestion-hospitaliere-domain/src/main/java/com/gestion/hospitaliere/entity/Docteur.java" beforeDir="false" afterPath="$PROJECT_DIR$/gestion-hospitaliere-persistence/src/main/java/com/gestion/hospitaliere/entity/Docteur.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gestion-hospitaliere-domain/src/main/java/com/gestion/hospitaliere/entity/Patient.java" beforeDir="false" afterPath="$PROJECT_DIR$/gestion-hospitaliere-persistence/src/main/java/com/gestion/hospitaliere/entity/Patient.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gestion-hospitaliere-domain/src/main/java/com/gestion/hospitaliere/entity/Person.java" beforeDir="false" afterPath="$PROJECT_DIR$/gestion-hospitaliere-persistence/src/main/java/com/gestion/hospitaliere/entity/Person.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gestion-hospitaliere-domain/src/main/java/com/gestion/hospitaliere/entity/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/gestion-hospitaliere-persistence/src/main/java/com/gestion/hospitaliere/entity/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gestion-hospitaliere-domain/src/main/resources/META-INF/persistence.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gestion-hospitaliere-domain/src/test/java/com/gestion/hospitaliere/AppTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gestion-hospitaliere-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/gestion-hospitaliere-persistence/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gestion-hospitaliere-service/src/main/java/com/gestion/hospitaliere/service/AuthentificationService.java" beforeDir="false" afterPath="$PROJECT_DIR$/gestion-hospitaliere-service-v2/src/main/java/com/gestion/hospitaliere/service/AuthentificationService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gestion-hospitaliere-service/src/main/java/com/gestion/hospitaliere/service/IAuthentificationService.java" beforeDir="false" afterPath="$PROJECT_DIR$/gestion-hospitaliere-service-v2/src/main/java/com/gestion/hospitaliere/service/IAuthentificationService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gestion-hospitaliere-ws/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/gestion-hospitaliere-ws/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -32,6 +50,13 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="useMavenConfig" value="true" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
   <component name="ProjectId" id="2YJPhstfYJJ6dGswWK127dtGNOf" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
@@ -43,22 +68,66 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "jdk.selected.JAVA_MODULE": "20",
+    "SONARLINT_PRECOMMIT_ANALYSIS": "true",
+    "git-widget-placeholder": "master",
+    "ignore.preview.features.used": "true",
+    "jdk.selected.JAVA_MODULE": "17",
+    "last_opened_file_path": "C:/Users/Y9GRK3826/IdeaProjects/Gestion-hospitaliere/gestion-hospitaliere-domain",
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
     "settings.editor.selected.configurable": "reference.settings.project.maven.ignored.files"
   }
 }]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Y9GRK3826\IdeaProjects\Gestion-hospitaliere\gestion-hospitaliere-domain" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Y9GRK3826\IdeaProjects\Gestion-hospitaliere\gestion-hospitaliere-persistence" />
+    </key>
+  </component>
   <component name="RunAnythingCache">
     <option name="myCommands">
-      <command value="mvn clean" />
       <command value="mvn clean verify" />
-      <command value="mvn clean install" />
+      <command value="mvn clean" />
       <command value="mvn clean package" />
+      <command value="mvn clean " />
+      <command value="mvn clean install" />
     </option>
   </component>
-  <component name="RunManager">
-    <configuration name="App" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="Application.App (2)">
+    <configuration name="App (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.gestion.hospitaliere.App" />
-      <module name="gestion-hospitaliere-domain" />
+      <module name="gestion-hospitaliere-service-v2" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.gestion.hospitaliere.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="App (2)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.gestion.hospitaliere.App" />
+      <module name="gestion-hospitaliere-persistence" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.gestion.hospitaliere.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="App" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="ALTERNATIVE_JRE_PATH" value="17" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
+      <option name="MAIN_CLASS_NAME" value="com.gestion.hospitaliere.App" />
+      <module name="gestion-hospitaliere" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="com.gestion.hospitaliere.*" />
@@ -71,6 +140,8 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.App (2)" />
+        <item itemvalue="Application.App (1)" />
         <item itemvalue="Application.App" />
       </list>
     </recent_temporary>
@@ -98,14 +169,23 @@
       <option name="project" value="LOCAL" />
       <updated>1700248920039</updated>
     </task>
-    <task id="LOCAL-00003" summary="Iniatialisation du projet">
-      <created>1700249051914</created>
+    <task id="LOCAL-00003" summary="Persistence added">
+      <option name="closed" value="true" />
+      <created>1700354419272</created>
       <option name="number" value="00003" />
       <option name="presentableId" value="LOCAL-00003" />
       <option name="project" value="LOCAL" />
-      <updated>1700249051914</updated>
+      <updated>1700354419272</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Persistence added">
+      <option name="closed" value="true" />
+      <created>1700407600277</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1700407600277</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -121,6 +201,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Iniatialisation du projet" />
-    <option name="LAST_COMMIT_MESSAGE" value="Iniatialisation du projet" />
+    <MESSAGE value="Persistence added" />
+    <option name="LAST_COMMIT_MESSAGE" value="Persistence added" />
   </component>
 </project>
