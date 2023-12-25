@@ -12,19 +12,13 @@ public class Resultats_examens {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private Examen examen;
+//    private Examen examen;
     private String valeur;
     private String unite;
     private String interpretation;
     private String reference;
 
-    public Resultats_examens(Long id, Examen examen, String valeur, String unite, String interpretation, String reference) {
-        this.id = id;
-        this.examen = examen;
-        this.valeur = valeur;
-        this.unite = unite;
-        this.interpretation = interpretation;
-        this.reference = reference;
+    public Resultats_examens() {
     }
 
     public Long getId() {
@@ -34,14 +28,14 @@ public class Resultats_examens {
     public void setId(Long id) {
         this.id = id;
     }
-
-    public Examen getExamen() {
-        return examen;
-    }
-
-    public void setExamen(Examen examen) {
-        this.examen = examen;
-    }
+//
+//    public Examen getExamen() {
+//        return examen;
+//    }
+//
+//    public void setExamen(Examen examen) {
+//        this.examen = examen;
+//    }
 
     public String getValeur() {
         return valeur;

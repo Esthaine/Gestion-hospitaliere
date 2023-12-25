@@ -6,7 +6,7 @@ import jakarta.persistence.Id;
 
 import jakarta.persistence.Entity;
 
-import java.time.LocalDate;
+import java.util.Date;
 
 @Entity
 public class Symptomes {
@@ -14,23 +14,15 @@ public class Symptomes {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private Patient patient;
+//    private Patient patient;
     private String description;
-    private LocalDate date;
+    private Date date;
     private String gravite;
     private String type;
     private String duree;
     private String traitement;
 
-    public Symptomes(Long id, Patient patient, String description, LocalDate date, String gravite, String type, String duree, String traitement) {
-        this.id = id;
-        this.patient = patient;
-        this.description = description;
-        this.date = date;
-        this.gravite = gravite;
-        this.type = type;
-        this.duree = duree;
-        this.traitement = traitement;
+    public Symptomes() {
     }
 
     public Long getId() {
@@ -41,13 +33,13 @@ public class Symptomes {
         this.id = id;
     }
 
-    public Patient getPatient() {
-        return patient;
-    }
-
-    public void setPatient(Patient patient) {
-        this.patient = patient;
-    }
+//    public Patient getPatient() {
+//        return patient;
+//    }
+//
+//    public void setPatient(Patient patient) {
+//        this.patient = patient;
+//    }
 
     public String getDescription() {
         return description;
@@ -57,11 +49,11 @@ public class Symptomes {
         this.description = description;
     }
 
-    public LocalDate getDate() {
+    public Date getDate() {
         return date;
     }
 
-    public void setDate(LocalDate date) {
+    public void setDate(Date date) {
         this.date = date;
     }
 

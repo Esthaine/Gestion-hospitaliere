@@ -6,8 +6,7 @@ import jakarta.persistence.Id;
 
 import jakarta.persistence.Entity;
 
-import java.time.LocalDate;
-import java.time.LocalDateTime;
+import java.util.Date;
 
 @Entity
 public class AntecedentMedical {
@@ -15,19 +14,13 @@ public class AntecedentMedical {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private Patient patient;
+//    private Patient patient;
     private String description;
-    private LocalDate dateDebut;
-    private LocalDate dateFin;
+    private Date dateDebut;
+    private Date dateFin;
     private String type;
 
-    public AntecedentMedical(Long id, Patient patient, String description, LocalDate dateDebut, LocalDate dateFin, String type) {
-        this.id = id;
-        this.patient = patient;
-        this.description = description;
-        this.dateDebut = dateDebut;
-        this.dateFin = dateFin;
-        this.type = type;
+    public AntecedentMedical() {
     }
 
     public Long getId() {
@@ -38,13 +31,13 @@ public class AntecedentMedical {
         this.id = id;
     }
 
-    public Patient getPatient() {
-        return patient;
-    }
-
-    public void setPatient(Patient patient) {
-        this.patient = patient;
-    }
+//    public Patient getPatient() {
+//        return patient;
+//    }
+//
+//    public void setPatient(Patient patient) {
+//        this.patient = patient;
+//    }
 
     public String getDescription() {
         return description;
@@ -54,19 +47,19 @@ public class AntecedentMedical {
         this.description = description;
     }
 
-    public LocalDate getDateDebut() {
+    public Date getDateDebut() {
         return dateDebut;
     }
 
-    public void setDateDebut(LocalDate dateDebut) {
+    public void setDateDebut(Date dateDebut) {
         this.dateDebut = dateDebut;
     }
 
-    public LocalDate getDateFin() {
+    public Date getDateFin() {
         return dateFin;
     }
 
-    public void setDateFin(LocalDate dateFin) {
+    public void setDateFin(Date dateFin) {
         this.dateFin = dateFin;
     }
 

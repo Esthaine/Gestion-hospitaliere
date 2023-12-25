@@ -13,16 +13,11 @@ public class Ville {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String nom;
-    private Region region;
+//    private Region region;
     private String codePostal;
     private long population;
 
-    public Ville(Long id, String nom, Region region, String codePostal, long population) {
-        this.id = id;
-        this.nom = nom;
-        this.region = region;
-        this.codePostal = codePostal;
-        this.population = population;
+    public Ville() {
     }
 
     public Long getId() {
@@ -41,13 +36,13 @@ public class Ville {
         this.nom = nom;
     }
 
-    public Region getRegion() {
-        return region;
-    }
-
-    public void setRegion(Region region) {
-        this.region = region;
-    }
+//    public Region getRegion() {
+//        return region;
+//    }
+//
+//    public void setRegion(Region region) {
+//        this.region = region;
+//    }
 
     public String getCodePostal() {
         return codePostal;

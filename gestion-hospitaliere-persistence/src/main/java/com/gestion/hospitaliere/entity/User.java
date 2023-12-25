@@ -1,13 +1,11 @@
 package com.gestion.hospitaliere.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
-import java.time.LocalDate;
+import java.util.Date;
 
 @Entity
+@Table(name = "USERS")
 public class User {
 
     @Id
@@ -19,26 +17,12 @@ public class User {
     private String motDePasse;
     private String email;
     private String telephone;
-    private LocalDate dateOfBirth;
+    private Date dateOfBirth;
     private String adresse;
     private String role;
-    private LocalDate dateCreation;
-    private LocalDate derniereConnexion;
+    private Date dateCreation;
+    private Date derniereConnexion;
 
-    public User(Long id, String username, String eyeColor, String nomUtilisateur, String motDePasse, String email, String telephone, LocalDate dateOfBirth, String adresse, String role, LocalDate dateCreation, LocalDate derniereConnexion) {
-        this.id = id;
-        this.username = username;
-        this.eyeColor = eyeColor;
-        this.nomUtilisateur = nomUtilisateur;
-        this.motDePasse = motDePasse;
-        this.email = email;
-        this.telephone = telephone;
-        this.dateOfBirth = dateOfBirth;
-        this.adresse = adresse;
-        this.role = role;
-        this.dateCreation = dateCreation;
-        this.derniereConnexion = derniereConnexion;
-    }
 
     public String getNomUtilisateur() {
         return nomUtilisateur;
@@ -72,11 +56,11 @@ public class User {
         this.telephone = telephone;
     }
 
-    public LocalDate getDateOfBirth() {
+    public Date getDateOfBirth() {
         return dateOfBirth;
     }
 
-    public void setDateOfBirth(LocalDate dateOfBirth) {
+    public void setDateOfBirth(Date dateOfBirth) {
         this.dateOfBirth = dateOfBirth;
     }
 
@@ -96,19 +80,19 @@ public class User {
         this.role = role;
     }
 
-    public LocalDate getDateCreation() {
+    public Date getDateCreation() {
         return dateCreation;
     }
 
-    public void setDateCreation(LocalDate dateCreation) {
+    public void setDateCreation(Date dateCreation) {
         this.dateCreation = dateCreation;
     }
 
-    public LocalDate getDerniereConnexion() {
+    public Date getDerniereConnexion() {
         return derniereConnexion;
     }
 
-    public void setDerniereConnexion(LocalDate derniereConnexion) {
+    public void setDerniereConnexion(Date derniereConnexion) {
         this.derniereConnexion = derniereConnexion;
     }
 

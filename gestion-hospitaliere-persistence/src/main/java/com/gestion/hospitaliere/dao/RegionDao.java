@@ -1,7 +1,7 @@
 package com.gestion.hospitaliere.dao;
 
 import com.gestion.hospitaliere.config.Persistence;
-import com.gestion.hospitaliere.entity.User;
+import com.gestion.hospitaliere.entity.Region;
 import jakarta.persistence.Query;
 
 import java.util.ArrayList;
@@ -9,23 +9,23 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Stream;
 
-public class UserDao implements JpaRepository<User>{
+public class RegionDao implements JpaRepository<Region>{
 
     private Persistence persistence;
 
-    public UserDao(Persistence persistence) {
+    public RegionDao(Persistence persistence) {
         this.persistence = persistence;
     }
 
     @Override
-    public User save(User user) {
+    public Region save(Region region) {
         try{
 
-            if (user != null){
+            if (region != null){
                 persistence.entityManager().getTransaction().begin();
-                persistence.entityManager().persist(user);
+                persistence.entityManager().persist(region);
                 persistence.entityManager().getTransaction().commit();
-                return user;
+                return region;
             }
         }catch (Exception e){
             System.out.printf("Message : " + e.getMessage());
@@ -34,17 +34,17 @@ public class UserDao implements JpaRepository<User>{
     }
 
     @Override
-    public List<User> findAll() {
-        Query query = persistence.entityManager().createQuery("Select u From User u");
+    public List<Region> findAll() {
+        Query query = persistence.entityManager().createQuery("Select r From Region r");
         return query.getResultList();
     }
 
     @Override
-    public User findById(Long id) {
+    public Region findById(Long id) {
         try{
-            User user = persistence.entityManager().find(User.class, id);
-            if (user != null)
-                return user;
+            Region region = persistence.entityManager().find(Region.class, id);
+            if (region != null)
+                return region;
 
         }catch (Exception e){
             System.out.printf("Error " + e.getMessage());
@@ -53,7 +53,7 @@ public class UserDao implements JpaRepository<User>{
     }
 
     @Override
-    public User deleteById(Long id) {
+    public Region deleteById(Long id) {
         try{
 
         }catch (Exception e){
@@ -63,35 +63,36 @@ public class UserDao implements JpaRepository<User>{
     }
 
     @Override
-    public List<User> saveAll(User... users) {
-        List<User> users1  = new ArrayList<>();
+    public List<Region> saveAll(Region... regions) {
+        List<Region> regions1  = new ArrayList<>();
         try{
             persistence.entityManager().getTransaction().begin();
-            Arrays.stream(users).forEach(user -> {
-                persistence.entityManager().persist(user);
-                users1.add(user);
+            Arrays.stream(regions).forEach(region -> {
+                persistence.entityManager().persist(region);
+                regions1.add(region);
             });
             persistence.entityManager().getTransaction().commit();
 
         }catch (Exception e){
             System.out.println();
         }
-        return users1;
+        return regions1;
+
     }
 
     @Override
-    public List<User> deleteMany(Long... ids) {
-        List<User> users = new ArrayList<>();
+    public List<Region> deleteMany(Long... ids) {
+        List<Region> regions = new ArrayList<>();
         try{
             Stream.of(ids).forEach(id ->{
-                User user = findById(id);
-                if (user != null){
+                Region region = findById(id);
+                if (region != null){
                     persistence.entityManager().getTransaction().begin();
-                    Query deleteQuery = persistence.entityManager().createQuery("Delete u From User where u.id");
+                    Query deleteQuery = persistence.entityManager().createQuery("Delete r From Region where r.id");
                     deleteQuery.setParameter("id", id);
-                    int deletedUser = deleteQuery.getFirstResult();
-                    if (deletedUser > 0){
-                        users.add(user);
+                    int deletedRegion = deleteQuery.getFirstResult();
+                    if (deletedRegion > 0){
+                        regions.add(region);
                     }
                     persistence.entityManager().getTransaction().commit();
                 }
@@ -99,14 +100,14 @@ public class UserDao implements JpaRepository<User>{
         }catch (Exception e){
             System.out.println("Error: " + e.getMessage());
         }
-        return users;
+        return regions;
     }
 
     @Override
-    public List<User> deleteMany(User... users) {
+    public List<Region> deleteMany(Region... regions) {
         try{
         }catch (Exception e){
-           System.out.println("Error: " + e.getMessage());
+            System.out.println("Error: " + e.getMessage());
         }
         return null;
     }

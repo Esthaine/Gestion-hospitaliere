@@ -15,10 +15,7 @@ public class Docteur {
     private String specialite;
     private String role;
 
-    public Docteur(Long id, String specialite, String role) {
-        this.id = id;
-        this.specialite = specialite;
-        this.role = role;
+    public Docteur() {
     }
 
     public Long getId() {

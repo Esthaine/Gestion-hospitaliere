@@ -1,7 +1,7 @@
 package com.gestion.hospitaliere.dao;
 
 import com.gestion.hospitaliere.config.Persistence;
-import com.gestion.hospitaliere.entity.User;
+import com.gestion.hospitaliere.entity.Symptomes;
 import jakarta.persistence.Query;
 
 import java.util.ArrayList;
@@ -9,23 +9,22 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Stream;
 
-public class UserDao implements JpaRepository<User>{
+public class SymptomesDao implements JpaRepository<Symptomes>{
 
     private Persistence persistence;
 
-    public UserDao(Persistence persistence) {
+    public SymptomesDao(Persistence persistence) {
         this.persistence = persistence;
     }
-
     @Override
-    public User save(User user) {
+    public Symptomes save(Symptomes symptomes) {
         try{
 
-            if (user != null){
+            if (symptomes != null){
                 persistence.entityManager().getTransaction().begin();
-                persistence.entityManager().persist(user);
+                persistence.entityManager().persist(symptomes);
                 persistence.entityManager().getTransaction().commit();
-                return user;
+                return symptomes;
             }
         }catch (Exception e){
             System.out.printf("Message : " + e.getMessage());
@@ -34,17 +33,17 @@ public class UserDao implements JpaRepository<User>{
     }
 
     @Override
-    public List<User> findAll() {
-        Query query = persistence.entityManager().createQuery("Select u From User u");
+    public List<Symptomes> findAll() {
+        Query query = persistence.entityManager().createQuery("Select s From Symptomes s");
         return query.getResultList();
     }
 
     @Override
-    public User findById(Long id) {
+    public Symptomes findById(Long id) {
         try{
-            User user = persistence.entityManager().find(User.class, id);
-            if (user != null)
-                return user;
+            Symptomes symptomes = persistence.entityManager().find(Symptomes.class, id);
+            if (symptomes != null)
+                return symptomes;
 
         }catch (Exception e){
             System.out.printf("Error " + e.getMessage());
@@ -53,7 +52,7 @@ public class UserDao implements JpaRepository<User>{
     }
 
     @Override
-    public User deleteById(Long id) {
+    public Symptomes deleteById(Long id) {
         try{
 
         }catch (Exception e){
@@ -63,35 +62,35 @@ public class UserDao implements JpaRepository<User>{
     }
 
     @Override
-    public List<User> saveAll(User... users) {
-        List<User> users1  = new ArrayList<>();
+    public List<Symptomes> saveAll(Symptomes... symptomess) {
+        List<Symptomes> symptomes1  = new ArrayList<>();
         try{
             persistence.entityManager().getTransaction().begin();
-            Arrays.stream(users).forEach(user -> {
-                persistence.entityManager().persist(user);
-                users1.add(user);
+            Arrays.stream(symptomess).forEach(symptomes -> {
+                persistence.entityManager().persist(symptomes);
+                symptomes1.add(symptomes);
             });
             persistence.entityManager().getTransaction().commit();
 
         }catch (Exception e){
             System.out.println();
         }
-        return users1;
+        return symptomes1;
     }
 
     @Override
-    public List<User> deleteMany(Long... ids) {
-        List<User> users = new ArrayList<>();
+    public List<Symptomes> deleteMany(Long... ids) {
+        List<Symptomes> symptomess = new ArrayList<>();
         try{
             Stream.of(ids).forEach(id ->{
-                User user = findById(id);
-                if (user != null){
+                Symptomes symptomes = findById(id);
+                if (symptomes != null){
                     persistence.entityManager().getTransaction().begin();
-                    Query deleteQuery = persistence.entityManager().createQuery("Delete u From User where u.id");
+                    Query deleteQuery = persistence.entityManager().createQuery("Delete s From Symptomes where s.id");
                     deleteQuery.setParameter("id", id);
-                    int deletedUser = deleteQuery.getFirstResult();
-                    if (deletedUser > 0){
-                        users.add(user);
+                    int deletedSymptomes = deleteQuery.getFirstResult();
+                    if (deletedSymptomes > 0){
+                        symptomess.add(symptomes);
                     }
                     persistence.entityManager().getTransaction().commit();
                 }
@@ -99,14 +98,14 @@ public class UserDao implements JpaRepository<User>{
         }catch (Exception e){
             System.out.println("Error: " + e.getMessage());
         }
-        return users;
+        return symptomess;
     }
 
     @Override
-    public List<User> deleteMany(User... users) {
+    public List<Symptomes> deleteMany(Symptomes... symptomes) {
         try{
         }catch (Exception e){
-           System.out.println("Error: " + e.getMessage());
+            System.out.println("Error: " + e.getMessage());
         }
         return null;
     }

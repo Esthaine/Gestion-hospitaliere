@@ -6,8 +6,7 @@ import jakarta.persistence.Id;
 
 import jakarta.persistence.Entity;
 
-import java.time.LocalDate;
-import java.time.LocalDateTime;
+import java.util.Date;
 
 @Entity
 public class Rendez_vous {
@@ -15,19 +14,13 @@ public class Rendez_vous {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private LocalDateTime dateHeure;
-    private Patient patient;
-    private Dapartement departement;
+    private Date dateHeure;
+//    private Patient patient;
+//    private Dapartement departement;
     private String type;
     private String description;
 
-    public Rendez_vous(Long id, LocalDateTime dateHeure, Patient patient, Dapartement departement, String type, String description) {
-        this.id = id;
-        this.dateHeure = dateHeure;
-        this.patient = patient;
-        this.departement = departement;
-        this.type = type;
-        this.description = description;
+    public Rendez_vous() {
     }
 
     public Long getId() {
@@ -38,29 +31,29 @@ public class Rendez_vous {
         this.id = id;
     }
 
-    public LocalDateTime getDateHeure() {
+    public Date getDateHeure() {
         return dateHeure;
     }
 
-    public void setDateHeure(LocalDateTime dateHeure) {
+    public void setDateHeure(Date dateHeure) {
         this.dateHeure = dateHeure;
     }
 
-    public Patient getPatient() {
-        return patient;
-    }
-
-    public void setPatient(Patient patient) {
-        this.patient = patient;
-    }
-
-    public Dapartement getDepartement() {
-        return departement;
-    }
-
-    public void setDepartement(Dapartement departement) {
-        this.departement = departement;
-    }
+//    public Patient getPatient() {
+//        return patient;
+//    }
+//
+//    public void setPatient(Patient patient) {
+//        this.patient = patient;
+//    }
+//
+//    public Dapartement getDepartement() {
+//        return departement;
+//    }
+//
+//    public void setDepartement(Dapartement departement) {
+//        this.departement = departement;
+//    }
 
     public String getType() {
         return type;

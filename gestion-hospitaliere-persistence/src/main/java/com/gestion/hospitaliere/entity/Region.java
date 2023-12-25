@@ -12,15 +12,11 @@ public class Region {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private Pays pays;
+//    private Pays pays;
     private String code;
     private long population;
 
-    public Region(Long id, Pays pays, String code, long population) {
-        this.id = id;
-        this.pays = pays;
-        this.code = code;
-        this.population = population;
+    public Region() {
     }
 
     public Long getId() {
@@ -31,13 +27,13 @@ public class Region {
         this.id = id;
     }
 
-    public Pays getPays() {
-        return pays;
-    }
-
-    public void setPays(Pays pays) {
-        this.pays = pays;
-    }
+//    public Pays getPays() {
+//        return pays;
+//    }
+//
+//    public void setPays(Pays pays) {
+//        this.pays = pays;
+//    }
 
     public String getCode() {
         return code;

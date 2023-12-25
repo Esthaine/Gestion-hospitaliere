@@ -6,7 +6,7 @@ import jakarta.persistence.Id;
 
 import jakarta.persistence.Entity;
 
-import java.time.LocalDate;
+import java.util.Date;
 
 @Entity
 
@@ -15,19 +15,13 @@ public class Decision {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private Patient patient;
-    private Docteur docteur;
-    private String description;
-    private LocalDate date;
+//    private Patient patient;
+//    private Docteur docteur;
+   private String description;
+    private Date date;
     private String type;
 
-    public Decision(Long id, Patient patient, Docteur docteur, String description, LocalDate date, String type) {
-        this.id = id;
-        this.patient = patient;
-        this.docteur = docteur;
-        this.description = description;
-        this.date = date;
-        this.type = type;
+    public Decision() {
     }
 
     public Long getId() {
@@ -38,21 +32,21 @@ public class Decision {
         this.id = id;
     }
 
-    public Patient getPatient() {
-        return patient;
-    }
+//    public Patient getPatient() {
+//        return patient;
+//    }
+//
+//    public void setPatient(Patient patient) {
+//        this.patient = patient;
+//    }
+//
+//    public Docteur getDocteur() {
+//        return docteur;
+//    }
 
-    public void setPatient(Patient patient) {
-        this.patient = patient;
-    }
-
-    public Docteur getDocteur() {
-        return docteur;
-    }
-
-    public void setDocteur(Docteur docteur) {
-        this.docteur = docteur;
-    }
+//    public void setDocteur(Docteur docteur) {
+//        this.docteur = docteur;
+//    }
 
     public String getDescription() {
         return description;
@@ -62,11 +56,11 @@ public class Decision {
         this.description = description;
     }
 
-    public LocalDate getDate() {
+    public Date getDate() {
         return date;
     }
 
-    public void setDate(LocalDate date) {
+    public void setDate(Date date) {
         this.date = date;
     }
 

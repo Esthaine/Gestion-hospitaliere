@@ -6,7 +6,7 @@ import jakarta.persistence.Id;
 
 import jakarta.persistence.Entity;
 
-import java.time.LocalDate;
+import java.util.Date;
 
 @Entity
 public class Traitement {
@@ -14,25 +14,16 @@ public class Traitement {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private Patient patient;
-    private Docteur docteur;
+//    private Patient patient;
+//    private Docteur docteur;
     private String description;
-    private LocalDate dateDebut;
-    private LocalDate dateFin;
+    private Date dateDebut;
+    private Date dateFin;
     private String type;
     private String dosage;
     private String commentaires;
 
-    public Traitement(Long id, Patient patient, Docteur docteur, String description, LocalDate dateDebut, LocalDate dateFin, String type, String dosage, String commentaires) {
-        this.id = id;
-        this.patient = patient;
-        this.docteur = docteur;
-        this.description = description;
-        this.dateDebut = dateDebut;
-        this.dateFin = dateFin;
-        this.type = type;
-        this.dosage = dosage;
-        this.commentaires = commentaires;
+    public Traitement() {
     }
 
     public Long getId() {
@@ -43,21 +34,21 @@ public class Traitement {
         this.id = id;
     }
 
-    public Patient getPatient() {
-        return patient;
-    }
-
-    public void setPatient(Patient patient) {
-        this.patient = patient;
-    }
-
-    public Docteur getDocteur() {
-        return docteur;
-    }
-
-    public void setDocteur(Docteur docteur) {
-        this.docteur = docteur;
-    }
+//    public Patient getPatient() {
+//        return patient;
+//    }
+//
+//    public void setPatient(Patient patient) {
+//        this.patient = patient;
+//    }
+//
+//    public Docteur getDocteur() {
+//        return docteur;
+//    }
+//
+//    public void setDocteur(Docteur docteur) {
+//        this.docteur = docteur;
+//    }
 
     public String getDescription() {
         return description;
@@ -67,19 +58,19 @@ public class Traitement {
         this.description = description;
     }
 
-    public LocalDate getDateDebut() {
+    public Date getDateDebut() {
         return dateDebut;
     }
 
-    public void setDateDebut(LocalDate dateDebut) {
+    public void setDateDebut(Date dateDebut) {
         this.dateDebut = dateDebut;
     }
 
-    public LocalDate getDateFin() {
+    public Date getDateFin() {
         return dateFin;
     }
 
-    public void setDateFin(LocalDate dateFin) {
+    public void setDateFin(Date dateFin) {
         this.dateFin = dateFin;
     }
 

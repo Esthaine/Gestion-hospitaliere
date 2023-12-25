@@ -18,13 +18,7 @@ public class Pays {
     private long population;
     private String langue;
 
-    public Pays(Long id, String nom, String codeIso, String capitale, long population, String langue) {
-        this.id = id;
-        this.nom = nom;
-        this.codeIso = codeIso;
-        this.capitale = capitale;
-        this.population = population;
-        this.langue = langue;
+    public Pays() {
     }
 
     public Long getId() {

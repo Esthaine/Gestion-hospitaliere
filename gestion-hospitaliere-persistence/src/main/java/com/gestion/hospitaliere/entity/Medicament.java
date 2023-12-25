@@ -6,7 +6,7 @@ import jakarta.persistence.Id;
 
 import jakarta.persistence.Entity;
 
-import java.time.LocalDate;
+import java.util.Date;
 
 @Entity
 public class Medicament {
@@ -19,18 +19,10 @@ public class Medicament {
     private String posologie;
     private int stock;
     private double prixUnitaire;
-    private LocalDate datePeremption;
+    private Date datePeremption;
     private String categorie;
 
-    public Medicament(Long id, String nom, String description, String posologie, int stock, double prixUnitaire, LocalDate datePeremption, String categorie) {
-        this.id = id;
-        this.nom = nom;
-        this.description = description;
-        this.posologie = posologie;
-        this.stock = stock;
-        this.prixUnitaire = prixUnitaire;
-        this.datePeremption = datePeremption;
-        this.categorie = categorie;
+    public Medicament() {
     }
 
     public Long getId() {
@@ -81,11 +73,11 @@ public class Medicament {
         this.prixUnitaire = prixUnitaire;
     }
 
-    public LocalDate getDatePeremption() {
+    public Date getDatePeremption() {
         return datePeremption;
     }
 
-    public void setDatePeremption(LocalDate datePeremption) {
+    public void setDatePeremption(Date datePeremption) {
         this.datePeremption = datePeremption;
     }
 

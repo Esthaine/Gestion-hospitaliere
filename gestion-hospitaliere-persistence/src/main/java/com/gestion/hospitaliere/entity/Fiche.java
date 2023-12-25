@@ -6,7 +6,7 @@ import jakarta.persistence.Id;
 
 import jakarta.persistence.Entity;
 
-import java.time.LocalDate;
+import java.util.Date;
 
 @Entity
 public class Fiche {
@@ -15,11 +15,15 @@ public class Fiche {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String description;
-    private LocalDate dateCreation;
-    private LocalDate dateMiseAjour;
+    private Date dateCreation;
+    private Date dateMiseAjour;
     private String status;
-    private Patient patient;
-    private Dapartement departement;
+    //private Patient patient;
+    //private Dapartement departement;
+
+
+    public Fiche() {
+    }
 
     public Long getId() {
         return id;
@@ -37,19 +41,19 @@ public class Fiche {
         this.description = description;
     }
 
-    public LocalDate getDateCreation() {
+    public Date getDateCreation() {
         return dateCreation;
     }
 
-    public void setDateCreation(LocalDate dateCreation) {
+    public void setDateCreation(Date dateCreation) {
         this.dateCreation = dateCreation;
     }
 
-    public LocalDate getDateMiseAjour() {
+    public Date getDateMiseAjour() {
         return dateMiseAjour;
     }
 
-    public void setDateMiseAjour(LocalDate dateMiseAjour) {
+    public void setDateMiseAjour(Date dateMiseAjour) {
         this.dateMiseAjour = dateMiseAjour;
     }
 
@@ -61,29 +65,21 @@ public class Fiche {
         this.status = status;
     }
 
-    public Patient getPatient() {
-        return patient;
-    }
+//    public Patient getPatient() {
+//        return patient;
+//    }
+//
+//    public void setPatient(Patient patient) {
+//        this.patient = patient;
+//    }
+//
+//    public Dapartement getDepartement() {
+//        return departement;
+//    }
+//
+//    public void setDepartement(Dapartement departement) {
+//        this.departement = departement;
+//    }
 
-    public void setPatient(Patient patient) {
-        this.patient = patient;
-    }
 
-    public Dapartement getDepartement() {
-        return departement;
-    }
-
-    public void setDepartement(Dapartement departement) {
-        this.departement = departement;
-    }
-
-    public Fiche(Long id, String description, LocalDate dateCreation, LocalDate dateMiseAjour, String status, Patient patient, Dapartement departement) {
-        this.id = id;
-        this.description = description;
-        this.dateCreation = dateCreation;
-        this.dateMiseAjour = dateMiseAjour;
-        this.status = status;
-        this.patient = patient;
-        this.departement = departement;
-    }
 }

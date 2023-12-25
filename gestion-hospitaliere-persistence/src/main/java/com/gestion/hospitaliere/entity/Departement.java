@@ -7,7 +7,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Entity;
 
 @Entity
-public class Dapartement {
+public class Departement {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -21,16 +21,7 @@ public class Dapartement {
     private String specialite;
     private String nombreLits;
 
-    public Dapartement(Long id, String description, String responsable, String equipement, String email, String adresse, String telephone, String specialite, String nombreLits) {
-        this.id = id;
-        this.description = description;
-        this.responsable = responsable;
-        this.equipement = equipement;
-        this.email = email;
-        this.adresse = adresse;
-        this.telephone = telephone;
-        this.specialite = specialite;
-        this.nombreLits = nombreLits;
+    public Departement() {
     }
 
     public Long getId() {

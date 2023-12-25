@@ -1,11 +1,8 @@
 package com.gestion.hospitaliere.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
-import java.time.LocalDate;
+import java.util.Date;
 
 @Entity
 public class Patient {
@@ -17,17 +14,17 @@ public class Patient {
     private String contact;
     private String genre;
     private String emails;
-    private LocalDate dateOfBirth;
+    private Date dateOfBirth;
 
-    public LocalDate getDateOfBirth() {
+    public Date getDateOfBirth() {
         return dateOfBirth;
     }
 
-    public void setDateOfBirth(LocalDate dateOfBirth) {
+    public void setDateOfBirth(Date dateOfBirth) {
         this.dateOfBirth = dateOfBirth;
     }
 
-    public Patient(LocalDate dateOfBirth) {
+    public Patient(Date dateOfBirth) {
         this.dateOfBirth = dateOfBirth;
     }
 
@@ -71,12 +68,6 @@ public class Patient {
         this.emails = emails;
     }
 
-    public Patient(Long id, String adresse, String contact, String genre, String emails) {
-        this.id = id;
-        this.adresse = adresse;
-        this.contact = contact;
-        this.genre = genre;
-        this.emails = emails;
-
+    public Patient() {
     }
 }
