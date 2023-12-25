@@ -1,7 +1,7 @@
 package com.gestion.hospitaliere.dao;
 
 import com.gestion.hospitaliere.config.Persistence;
-import com.gestion.hospitaliere.entity.Rendez_vous;
+import com.gestion.hospitaliere.entity.RendezVous;
 import jakarta.persistence.Query;
 
 import java.util.ArrayList;
@@ -9,22 +9,22 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Stream;
 
-public class Rendez_vousDao implements JpaRepository<Rendez_vous>{
+public class RendezVousDao implements JpaRepository<RendezVous>{
 
     private Persistence persistence;
 
-    public Rendez_vousDao(Persistence persistence) {
+    public RendezVousDao(Persistence persistence) {
         this.persistence = persistence;
     }
     @Override
-    public Rendez_vous save(Rendez_vous rendez_vous) {
+    public RendezVous save(RendezVous rendezVous) {
         try{
 
-            if (rendez_vous != null){
+            if (rendezVous != null){
                 persistence.entityManager().getTransaction().begin();
-                persistence.entityManager().persist(rendez_vous);
+                persistence.entityManager().persist(rendezVous);
                 persistence.entityManager().getTransaction().commit();
-                return rendez_vous;
+                return rendezVous;
             }
         }catch (Exception e){
             System.out.printf("Message : " + e.getMessage());
@@ -33,17 +33,17 @@ public class Rendez_vousDao implements JpaRepository<Rendez_vous>{
     }
 
     @Override
-    public List<Rendez_vous> findAll() {
-        Query query = persistence.entityManager().createQuery("Select ren From Rendez_vous ren");
+    public List<RendezVous> findAll() {
+        Query query = persistence.entityManager().createQuery("Select ren From RendezVous ren");
         return query.getResultList();
     }
 
     @Override
-    public Rendez_vous findById(Long id) {
+    public RendezVous findById(Long id) {
         try{
-            Rendez_vous rendez_vous = persistence.entityManager().find(Rendez_vous.class, id);
-            if (rendez_vous != null)
-                return rendez_vous;
+            RendezVous rendezVous = persistence.entityManager().find(RendezVous.class, id);
+            if (rendezVous != null)
+                return rendezVous;
 
         }catch (Exception e){
             System.out.printf("Error " + e.getMessage());
@@ -52,7 +52,7 @@ public class Rendez_vousDao implements JpaRepository<Rendez_vous>{
     }
 
     @Override
-    public Rendez_vous deleteById(Long id) {
+    public RendezVous deleteById(Long id) {
         try{
 
         }catch (Exception e){
@@ -62,35 +62,35 @@ public class Rendez_vousDao implements JpaRepository<Rendez_vous>{
     }
 
     @Override
-    public List<Rendez_vous> saveAll(Rendez_vous... rendez_vouss) {
-        List<Rendez_vous> rendez_vous1  = new ArrayList<>();
+    public List<RendezVous> saveAll(RendezVous... rendezVouss) {
+        List<RendezVous> rendezVous1  = new ArrayList<>();
         try{
             persistence.entityManager().getTransaction().begin();
-            Arrays.stream(rendez_vouss).forEach(rendez_vous -> {
-                persistence.entityManager().persist(rendez_vous);
-                rendez_vous1.add(rendez_vous);
+            Arrays.stream(rendezVouss).forEach(rendezVous -> {
+                persistence.entityManager().persist(rendezVous);
+                rendezVous1.add(rendezVous);
             });
             persistence.entityManager().getTransaction().commit();
 
         }catch (Exception e){
             System.out.println();
         }
-        return rendez_vous1;
+        return rendezVous1;
     }
 
     @Override
-    public List<Rendez_vous> deleteMany(Long... ids) {
-        List<Rendez_vous> rendez_vouss = new ArrayList<>();
+    public List<RendezVous> deleteMany(Long... ids) {
+        List<RendezVous> rendezVouss = new ArrayList<>();
         try{
             Stream.of(ids).forEach(id ->{
-                Rendez_vous rendez_vous = findById(id);
-                if (rendez_vous != null){
+                RendezVous rendezVous = findById(id);
+                if (rendezVous != null){
                     persistence.entityManager().getTransaction().begin();
-                    Query deleteQuery = persistence.entityManager().createQuery("Delete ren From Rendez_vous where ren.id");
+                    Query deleteQuery = persistence.entityManager().createQuery("Delete ren From RendezVous where ren.id");
                     deleteQuery.setParameter("id", id);
-                    int deletedRendez_vous = deleteQuery.getFirstResult();
-                    if (deletedRendez_vous > 0){
-                        rendez_vouss.add(rendez_vous);
+                    int deletedRendezVous = deleteQuery.getFirstResult();
+                    if (deletedRendezVous > 0){
+                        rendezVouss.add(rendezVous);
                     }
                     persistence.entityManager().getTransaction().commit();
                 }
@@ -98,11 +98,11 @@ public class Rendez_vousDao implements JpaRepository<Rendez_vous>{
         }catch (Exception e){
             System.out.println("Error: " + e.getMessage());
         }
-        return rendez_vouss;
+        return rendezVouss;
     }
 
     @Override
-    public List<Rendez_vous> deleteMany(Rendez_vous... rendez_vous) {
+    public List<RendezVous> deleteMany(RendezVous... rendezVous) {
         try{
         }catch (Exception e){
             System.out.println("Error: " + e.getMessage());

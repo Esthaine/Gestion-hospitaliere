@@ -9,7 +9,7 @@ import jakarta.persistence.Entity;
 import java.util.Date;
 
 @Entity
-public class Rendez_vous {
+public class RendezVous {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -20,7 +20,7 @@ public class Rendez_vous {
     private String type;
     private String description;
 
-    public Rendez_vous() {
+    public RendezVous() {
     }
 
     public Long getId() {

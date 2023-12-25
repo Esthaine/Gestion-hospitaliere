@@ -7,7 +7,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Entity;
 
 @Entity
-public class Resultats_examens {
+public class ResultatsExamens {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -18,7 +18,7 @@ public class Resultats_examens {
     private String interpretation;
     private String reference;
 
-    public Resultats_examens() {
+    public ResultatsExamens() {
     }
 
     public Long getId() {
@@ -68,4 +68,5 @@ public class Resultats_examens {
     public void setReference(String reference) {
         this.reference = reference;
     }
+
 }
