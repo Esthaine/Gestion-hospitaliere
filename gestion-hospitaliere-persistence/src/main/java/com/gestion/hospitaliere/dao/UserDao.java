@@ -11,7 +11,7 @@ import java.util.stream.Stream;
 
 public class UserDao implements JpaRepository<User>{
 
-    private Persistence persistence;
+    private final Persistence persistence;
 
     public UserDao(Persistence persistence) {
         this.persistence = persistence;

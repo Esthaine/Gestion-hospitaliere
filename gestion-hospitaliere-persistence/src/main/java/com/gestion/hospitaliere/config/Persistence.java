@@ -5,7 +5,8 @@ import jakarta.persistence.EntityManagerFactory;
 
 public class Persistence {
     public EntityManager entityManager(){
-         EntityManagerFactory em = jakarta.persistence.Persistence.createEntityManagerFactory("gestion-hospitaliere-unit");
-         return em.createEntityManager();
+        try (EntityManagerFactory em = jakarta.persistence.Persistence.createEntityManagerFactory("gestion-hospitaliere-unit")) {
+            return em.createEntityManager();
+        }
     }
 }

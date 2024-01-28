@@ -1,0 +1,7 @@
+.link{
+  display: flex;
+  background-color: blueviolet;
+  color: white;
+  width: 200px;
+  padding: 20px;
+}

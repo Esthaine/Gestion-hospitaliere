@@ -1,6 +1,29 @@
 <html>
+<head>
+    <link href="styles/style.css" rel="stylesheet">
+    <link href="https://cdn.lineicons.com/4.0/lineicons.css" rel="stylesheet" />
+    <title>Gestion Hospitaliere</title>
+</head>
 <body>
-<h2>Hello World222222</h2>
-<a href="/gestion-hospitaliere/home">Go to home</a>
+    <jsp:include page="components/header.jsp"/>
+    <div class="main">
+        <div class="doctors">
+            <div class="card">
+                <i class="fa-solid fa-house"></i>
+                <h2>Medecin</h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+            </div>
+        </div>
+        <div class="service">
+            <i class="lni lni-facebook-fill"></i>
+            <i class="lni lni-patreon"></i>
+        </div>
+        <div class="links">
+            <div class="link">
+                <p>Droits et responsabilites des patients.</p> <span>></span>
+            </div>
+        </div>
+    </div>
+    <jsp:include page="components/footer.jsp"/>
 </body>
 </html>

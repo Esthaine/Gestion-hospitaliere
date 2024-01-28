@@ -1,0 +1,7 @@
+.medecin{
+  display: flex;
+  background-color: rgb(43, 73, 226);
+  color: white;
+  width: 200px;
+  padding: 20px;
+}

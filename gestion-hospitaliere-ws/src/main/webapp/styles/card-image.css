@@ -1,0 +1,17 @@
+.card_image{
+  width: 320px;
+  height: 400px;
+}
+
+.card_image_cover{
+  background-color: gray;
+  height: 150px;
+}
+
+.card_image_content{
+  padding: 15px 2px;
+}
+
+.card_image_content h2{
+  margin-bottom: 10px;
+}
