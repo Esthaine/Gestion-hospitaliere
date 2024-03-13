@@ -1,20 +1,13 @@
 package com.gestion.hospitaliere.entity;
 
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-
-import jakarta.persistence.Entity;
+import jakarta.persistence.*;
 
 import java.util.Date;
 
 @Entity
-public class AntecedentMedical {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-//    private Patient patient;
+public class AntecedentMedical extends AbstractEntity{
+    @ManyToOne
+    private Patient patient;
     private String description;
     private Date dateDebut;
     private Date dateFin;
@@ -23,21 +16,14 @@ public class AntecedentMedical {
     public AntecedentMedical() {
     }
 
-    public Long getId() {
-        return id;
+
+    public Patient getPatient() {
+        return patient;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setPatient(Patient patient) {
+        this.patient = patient;
     }
-
-//    public Patient getPatient() {
-//        return patient;
-//    }
-//
-//    public void setPatient(Patient patient) {
-//        this.patient = patient;
-//    }
 
     public String getDescription() {
         return description;

@@ -6,15 +6,14 @@ import java.util.Date;
 
 @Entity
 @Table(name = "person")
-public class Person {
+public class Person extends AbstractEntity{
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private  Long id;
     private String firstName;
     private String lastName;
     private String givenName;
     private Date dateOfBirth;
+    @Embedded
+    private Address address;
 
     public String getFirstName() {
         return firstName;

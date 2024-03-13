@@ -7,11 +7,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Entity;
 
 @Entity
-public class Departement {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+public class Departement extends AbstractEntity{
     private String description;
     private String responsable;
     private String equipement;
@@ -23,15 +19,6 @@ public class Departement {
 
     public Departement() {
     }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
     public String getDescription() {
         return description;
     }

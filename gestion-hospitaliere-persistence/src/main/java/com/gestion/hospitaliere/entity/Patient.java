@@ -5,11 +5,7 @@ import jakarta.persistence.*;
 import java.util.Date;
 
 @Entity
-public class Patient {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+public class Patient extends AbstractEntity{
     private String adresse;
     private String contact;
     private String genre;
@@ -26,14 +22,6 @@ public class Patient {
 
     public Patient(Date dateOfBirth) {
         this.dateOfBirth = dateOfBirth;
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
     }
 
     public String getAdresse() {

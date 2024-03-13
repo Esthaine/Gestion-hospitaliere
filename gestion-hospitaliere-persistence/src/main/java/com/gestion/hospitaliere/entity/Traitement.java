@@ -1,21 +1,17 @@
 package com.gestion.hospitaliere.entity;
 
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-
-import jakarta.persistence.Entity;
+import jakarta.persistence.*;
 
 import java.util.Date;
+import java.util.Set;
 
 @Entity
-public class Traitement {
+public class Traitement extends AbstractEntity{
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-//    private Patient patient;
-//    private Docteur docteur;
+    @OneToOne
+    private Patient patient;
+    @OneToMany
+    private Set<Docteur> docteur;
     private String description;
     private Date dateDebut;
     private Date dateFin;
@@ -26,29 +22,21 @@ public class Traitement {
     public Traitement() {
     }
 
-    public Long getId() {
-        return id;
+    public Patient getPatient() {
+        return patient;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setPatient(Patient patient) {
+        this.patient = patient;
     }
 
-//    public Patient getPatient() {
-//        return patient;
-//    }
-//
-//    public void setPatient(Patient patient) {
-//        this.patient = patient;
-//    }
-//
-//    public Docteur getDocteur() {
-//        return docteur;
-//    }
-//
-//    public void setDocteur(Docteur docteur) {
-//        this.docteur = docteur;
-//    }
+    public Set<Docteur> getDocteur() {
+        return docteur;
+    }
+
+    public void setDocteur(Set<Docteur> docteur) {
+        this.docteur = docteur;
+    }
 
     public String getDescription() {
         return description;

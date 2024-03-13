@@ -1,36 +1,23 @@
 package com.gestion.hospitaliere.entity;
 
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
 
 import jakarta.persistence.Entity;
 
+import java.time.LocalDateTime;
 import java.util.Date;
 
 @Entity
-public class Medicament {
+public class Medicament extends AbstractEntity{
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
     private String nom;
     private String description;
     private String posologie;
     private int stock;
     private double prixUnitaire;
-    private Date datePeremption;
+    private LocalDateTime datePeremption;
     private String categorie;
 
     public Medicament() {
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
     }
 
     public String getNom() {
@@ -73,11 +60,11 @@ public class Medicament {
         this.prixUnitaire = prixUnitaire;
     }
 
-    public Date getDatePeremption() {
+    public LocalDateTime getDatePeremption() {
         return datePeremption;
     }
 
-    public void setDatePeremption(Date datePeremption) {
+    public void setDatePeremption(LocalDateTime datePeremption) {
         this.datePeremption = datePeremption;
     }
 

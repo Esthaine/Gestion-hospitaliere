@@ -1,60 +1,22 @@
 package com.gestion.hospitaliere.entity;
 
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-
-import jakarta.persistence.Entity;
+import jakarta.persistence.*;
 
 import java.util.Date;
+import java.util.Set;
 
 @Entity
-public class Fiche {
+public class Fiche extends AbstractEntity{
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-    private String description;
-    private Date dateCreation;
-    private Date dateMiseAjour;
     private String status;
-    //private Patient patient;
-    //private Dapartement departement;
+    @OneToOne
+    private Patient patient;
+
+    @OneToMany
+    private Set<Departement> departement;
 
 
     public Fiche() {
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
-    public Date getDateCreation() {
-        return dateCreation;
-    }
-
-    public void setDateCreation(Date dateCreation) {
-        this.dateCreation = dateCreation;
-    }
-
-    public Date getDateMiseAjour() {
-        return dateMiseAjour;
-    }
-
-    public void setDateMiseAjour(Date dateMiseAjour) {
-        this.dateMiseAjour = dateMiseAjour;
     }
 
     public String getStatus() {
@@ -65,21 +27,19 @@ public class Fiche {
         this.status = status;
     }
 
-//    public Patient getPatient() {
-//        return patient;
-//    }
-//
-//    public void setPatient(Patient patient) {
-//        this.patient = patient;
-//    }
-//
-//    public Dapartement getDepartement() {
-//        return departement;
-//    }
-//
-//    public void setDepartement(Dapartement departement) {
-//        this.departement = departement;
-//    }
+    public Patient getPatient() {
+        return patient;
+    }
 
+    public void setPatient(Patient patient) {
+        this.patient = patient;
+    }
 
+    public Set<Departement> getDepartement() {
+        return departement;
+    }
+
+    public void setDepartement(Set<Departement> departement) {
+        this.departement = departement;
+    }
 }

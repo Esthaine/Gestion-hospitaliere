@@ -1,39 +1,30 @@
 package com.gestion.hospitaliere.entity;
 
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
-import jakarta.persistence.Entity;
+import java.util.Set;
 
 @Entity
-public class Region {
+public class Region extends AbstractEntity{
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-//    private Pays pays;
+    @ManyToOne
+    private Pays pays;
     private String code;
+
+    @OneToMany
+    private Set<Ville> ville;
     private long population;
 
     public Region() {
     }
 
-    public Long getId() {
-        return id;
+    public Pays getPays() {
+        return pays;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setPays(Pays pays) {
+        this.pays = pays;
     }
-
-//    public Pays getPays() {
-//        return pays;
-//    }
-//
-//    public void setPays(Pays pays) {
-//        this.pays = pays;
-//    }
 
     public String getCode() {
         return code;
@@ -49,5 +40,13 @@ public class Region {
 
     public void setPopulation(long population) {
         this.population = population;
+    }
+
+    public Set<Ville> getVille() {
+        return ville;
+    }
+
+    public void setVille(Set<Ville> ville) {
+        this.ville = ville;
     }
 }

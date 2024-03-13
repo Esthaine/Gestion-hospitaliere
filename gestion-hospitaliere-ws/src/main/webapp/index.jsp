@@ -1,7 +1,6 @@
 <html>
 <head>
-    <link href="styles/style.css" rel="stylesheet">
-    <link href="https://cdn.lineicons.com/4.0/lineicons.css" rel="stylesheet" />
+    <jsp:include page="components/externals.jsp" />
     <title>Gestion Hospitaliere</title>
 </head>
 <body>

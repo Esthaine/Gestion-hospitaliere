@@ -6,7 +6,6 @@ public interface JpaRepository <T>{
 
     T save(T t);
     List<T> findAll();
-
     T findById(Long id);
     T deleteById(Long id);
     List<T> saveAll(T... t);

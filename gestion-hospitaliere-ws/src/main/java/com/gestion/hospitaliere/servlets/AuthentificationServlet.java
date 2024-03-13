@@ -17,14 +17,14 @@ import java.io.IOException;
 public class AuthentificationServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        IAuthentificationService service = new AuthentificationService(new UserDao(new Persistence()));
-
-        String username = req.getParameter("username");
-        String password = req.getParameter("password");
-        UserRequest request = new UserRequest();
-        request.setUsername(username);
-        request.setPassword(password);
-        service.authentification(request);
-        req.getRequestDispatcher("/dashboard");
+//        IAuthentificationService service = new AuthentificationService(new UserDao(new Persistence()));
+//
+//        String username = req.getParameter("username");
+//        String password = req.getParameter("password");
+//        UserRequest request = new UserRequest();
+//        request.setUsername(username);
+//        request.setPassword(password);
+//        service.authentification(request);
+//        req.getRequestDispatcher("/dashboard");
     }
 }

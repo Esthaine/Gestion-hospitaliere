@@ -1,9 +1,20 @@
+@import url("input.css");
+@import url("search.css");
+.header{
+  position: relative;
+}
 nav{
   display: flex;
   height: 50px;
   align-items: center;
   justify-content: space-between;
   padding: 0 200px;
+  border-bottom: 1px solid darkgray;
+}
+.nav_left span{
+  padding: 15px 0;
+  margin: 10px;
+  border-bottom: 4px solid transparent
 }
 .nav_left{
   display: flex;
@@ -21,7 +32,7 @@ nav{
   border-bottom: 4px solid transparent;
 }
 
-.nav_right ul li:hover{
+.nav_right ul li:hover, .nav_left span:hover{
   border-bottom: 4px solid #002c77;
   color: #002c77;
 }

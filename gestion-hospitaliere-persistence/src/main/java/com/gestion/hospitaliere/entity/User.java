@@ -6,31 +6,16 @@ import java.util.Date;
 
 @Entity
 @Table(name = "USERS")
-public class User {
+public class User extends AbstractEntity{
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    @Column(nullable = false, unique = true)
     private String username;
-    private String eyeColor;
-    private String nomUtilisateur;
+    @Column(nullable = false)
     private String motDePasse;
+    @Column(nullable = false, unique = true)
     private String email;
-    private String telephone;
-    private Date dateOfBirth;
-    private String adresse;
-    private String role;
     private Date dateCreation;
     private Date derniereConnexion;
-
-
-    public String getNomUtilisateur() {
-        return nomUtilisateur;
-    }
-
-    public void setNomUtilisateur(String nomUtilisateur) {
-        this.nomUtilisateur = nomUtilisateur;
-    }
 
     public String getMotDePasse() {
         return motDePasse;
@@ -48,37 +33,6 @@ public class User {
         this.email = email;
     }
 
-    public String getTelephone() {
-        return telephone;
-    }
-
-    public void setTelephone(String telephone) {
-        this.telephone = telephone;
-    }
-
-    public Date getDateOfBirth() {
-        return dateOfBirth;
-    }
-
-    public void setDateOfBirth(Date dateOfBirth) {
-        this.dateOfBirth = dateOfBirth;
-    }
-
-    public String getAdresse() {
-        return adresse;
-    }
-
-    public void setAdresse(String adresse) {
-        this.adresse = adresse;
-    }
-
-    public String getRole() {
-        return role;
-    }
-
-    public void setRole(String role) {
-        this.role = role;
-    }
 
     public Date getDateCreation() {
         return dateCreation;
@@ -98,15 +52,6 @@ public class User {
 
     public User() {
     }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
     public String getUsername() {
         return username;
     }
@@ -115,11 +60,4 @@ public class User {
         this.username = username;
     }
 
-    public String getEyeColor() {
-        return eyeColor;
-    }
-
-    public void setEyeColor(String eyeColor) {
-        this.eyeColor = eyeColor;
-    }
 }

@@ -1,22 +1,15 @@
 package com.gestion.hospitaliere.entity;
 
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-
-import jakarta.persistence.Entity;
+import jakarta.persistence.*;
 
 import java.util.Date;
 
 @Entity
-public class Symptomes {
+public class Symptomes extends AbstractEntity{
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-//    private Patient patient;
+    @ManyToOne
+    private Patient patient;
     private String description;
-    private Date date;
     private String gravite;
     private String type;
     private String duree;
@@ -25,21 +18,13 @@ public class Symptomes {
     public Symptomes() {
     }
 
-    public Long getId() {
-        return id;
+    public Patient getPatient() {
+        return patient;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setPatient(Patient patient) {
+        this.patient = patient;
     }
-
-//    public Patient getPatient() {
-//        return patient;
-//    }
-//
-//    public void setPatient(Patient patient) {
-//        this.patient = patient;
-//    }
 
     public String getDescription() {
         return description;
@@ -47,14 +32,6 @@ public class Symptomes {
 
     public void setDescription(String description) {
         this.description = description;
-    }
-
-    public Date getDate() {
-        return date;
-    }
-
-    public void setDate(Date date) {
-        this.date = date;
     }
 
     public String getGravite() {

@@ -7,11 +7,8 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Entity;
 
 @Entity
-public class Pays {
+public class Pays extends AbstractEntity{
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
     private String nom;
     private String codeIso;
     private String capitale;
@@ -21,13 +18,6 @@ public class Pays {
     public Pays() {
     }
 
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
 
     public String getNom() {
         return nom;

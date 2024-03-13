@@ -20,7 +20,7 @@ import java.util.List;
 public class App {
     public static void main( String[] args )
     {
-//        EntityManagerFactory emf = Persistence.createEntityManagerFactory("gestion-hospitaliere-unit");
+//        EntityManagerFactory emf = new Persistence();
 //        EntityManager em = emf.createEntityManager();
 //        Patient patient = new Patient();
 //
@@ -32,11 +32,14 @@ public class App {
 //        em.getTransaction().commit();
 
         Persistence persistence = new Persistence();
+        persistence.entityManager();
+
+
 //        UserDao userDao = new UserDao(persistence);
 //        FicheDao ficheDao = new FicheDao(persistence);
 //        List<Fiche> fiches = ficheDao.findAll();
-        PatientDao patientDao = new PatientDao(persistence);
-        List<Patient> patients = patientDao.findAll();
+//        PatientDao patientDao = new PatientDao(persistence);
+//        List<Patient> patients = patientDao.findAll();
 //        List<User> users = userDao.findAll();
 
 //        System.out.println("******************************");
@@ -47,9 +50,9 @@ public class App {
 //        System.out.println(fiches);
 //        System.out.println("************");
 
-        System.out.println("************");
-        System.out.println(patients);
-        System.out.println("************");
+//        System.out.println("************");
+//        System.out.println(patients);
+//        System.out.println("************");
 
     }
 }

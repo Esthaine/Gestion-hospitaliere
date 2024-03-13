@@ -1,41 +1,30 @@
 package com.gestion.hospitaliere.entity;
 
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
-import jakarta.persistence.Entity;
+import javax.swing.*;
+import java.util.Set;
 
 @Entity
-public class Resultats_examens {
+public class ResultatsExamens extends AbstractEntity {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-//    private Examen examen;
+    @OneToMany
+    private Set<Examen> examen;
     private String valeur;
     private String unite;
     private String interpretation;
     private String reference;
 
-    public Resultats_examens() {
+    public ResultatsExamens() {
     }
 
-    public Long getId() {
-        return id;
+    public Set<Examen> getExamen() {
+        return examen;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setExamen(Set<Examen> examen) {
+        this.examen = examen;
     }
-//
-//    public Examen getExamen() {
-//        return examen;
-//    }
-//
-//    public void setExamen(Examen examen) {
-//        this.examen = examen;
-//    }
 
     public String getValeur() {
         return valeur;

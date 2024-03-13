@@ -6,6 +6,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+
 <footer class="main_footer">
     <div class="content_footer">
         <div class="carrier_opportunites">
@@ -65,3 +66,4 @@
         </div>
     </div>
 </footer>
+<script src="js/main.js"></script>
