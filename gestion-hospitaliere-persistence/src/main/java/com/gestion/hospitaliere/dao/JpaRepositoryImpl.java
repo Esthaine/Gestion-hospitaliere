@@ -1,32 +1,35 @@
 package com.gestion.hospitaliere.dao;
 
-import com.gestion.hospitaliere.config.Persistence;
 import com.gestion.hospitaliere.entity.AbstractEntity;
-import com.gestion.hospitaliere.entity.User;
+import jakarta.persistence.EntityManager;
+import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.Query;
-
+import jakarta.transaction.Transactional;
+import java.lang.reflect.ParameterizedType;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Stream;
 
 public class JpaRepositoryImpl<T extends AbstractEntity> implements JpaRepository<T> {
-
-    private final Persistence persistence;
     private Class<T> clazz;
 
-    public JpaRepositoryImpl(Persistence persistence, Class<T> clazz) {
-        this.persistence = persistence;
+    public JpaRepositoryImpl(Class<T> clazz) {
         this.clazz = clazz;
     }
     @Override
+    @Transactional
     public T save(T t) {
         try{
-            if (t != null){
-                persistence.entityManager().getTransaction().begin();
-                persistence.entityManager().persist(t);
-                persistence.entityManager().getTransaction().commit();
-                return t;
+            try (EntityManagerFactory em = jakarta.persistence.Persistence.createEntityManagerFactory("gestion-hospitaliere-unit")) {
+                EntityManager entityManager = em.createEntityManager();
+                if (t != null){
+                    entityManager.getTransaction().begin();
+                    entityManager.persist(t);
+                    entityManager.getTransaction().commit();
+                    entityManager.close();
+                    return t;
+                }
             }
         }catch (Exception e){
             System.out.printf("Message : " + e.getMessage());
@@ -36,69 +39,115 @@ public class JpaRepositoryImpl<T extends AbstractEntity> implements JpaRepositor
 
     @Override
     public List<T> findAll() {
-        Query query = persistence.entityManager().createQuery("Select t From "+clazz.getClass() + " t");
-        return query.getResultList();
+        clazz = (Class<T>) ((ParameterizedType) getClass().getGenericSuperclass()).getActualTypeArguments()[0];
+        try (EntityManagerFactory em = jakarta.persistence.Persistence.createEntityManagerFactory("gestion-hospitaliere-unit")) {
+            EntityManager entityManager = em.createEntityManager();
+            entityManager.getTransaction().begin();
+            Query query = entityManager.createQuery("Select t From " + clazz.getSimpleName() + " t");
+            entityManager.getTransaction().commit();
+            List<T> ts = query.getResultList();
+            entityManager.close();
+            return ts;
+        }
     }
 
     @Override
     public T findById(Long id) {
         try{
-            T t = persistence.entityManager().find(clazz, id);
-            if (t != null)
-                return t;
+            try (EntityManagerFactory em = jakarta.persistence.Persistence.createEntityManagerFactory("gestion-hospitaliere-unit")) {
+                EntityManager entityManager = em.createEntityManager();
+                entityManager.getTransaction().begin();
+                T t = entityManager.find(clazz, id);
+                entityManager.getTransaction().commit();
+                entityManager.close();
+                if (t != null)
+                    return t;
+            }
         }catch (Exception e){
             System.out.printf("Error " + e.getMessage());
         }
+        System.out.println("It null man");
         return null;
     }
 
     @Override
     public T deleteById(Long id) {
+        T t = findById(id);
+        if (t != null){
+            try (EntityManagerFactory em = jakarta.persistence.Persistence.createEntityManagerFactory("gestion-hospitaliere-unit")) {
+                EntityManager entityManager = em.createEntityManager();
+                entityManager.getTransaction().begin();
+                entityManager.remove(t);
+                entityManager.getTransaction().commit();
+                entityManager.close();
+                return t;
+            }
+        }
         return null;
     }
 
     @Override
     public List<T> saveAll(T... t) {
         List<T> ts  = new ArrayList<>();
-        try{
-            persistence.entityManager().getTransaction().begin();
-            Arrays.stream(t).forEach(user -> {
-                persistence.entityManager().persist(user);
-                ts.add(user);
+        try(EntityManagerFactory em = jakarta.persistence.Persistence.createEntityManagerFactory("gestion-hospitaliere-unit")){
+            EntityManager entityManager = em.createEntityManager();
+            Arrays.stream(t).forEach(data -> {
+                entityManager.getTransaction().begin();
+                entityManager.persist(data);
+                entityManager.getTransaction().commit();
+                ts.add(data);
             });
-            persistence.entityManager().getTransaction().commit();
-
-        }catch (Exception e){
-            System.out.println();
         }
         return ts;
     }
 
     @Override
     public List<T> deleteMany(Long... ids) {
-        List<T> users = new ArrayList<>();
-        try{
-            Stream.of(ids).forEach(id ->{
+        clazz = (Class<T>) ((ParameterizedType) getClass().getGenericSuperclass()).getActualTypeArguments()[0];
+        List<T> ts = new ArrayList<>();
+        try (EntityManagerFactory em = jakarta.persistence.Persistence.createEntityManagerFactory("gestion-hospitaliere-unit")){
+            EntityManager entityManager = em.createEntityManager();
+            Stream.of(ids).forEach(id -> {
                 T t = findById(id);
-                if (t != null){
-                    persistence.entityManager().getTransaction().begin();
-                    Query deleteQuery = persistence.entityManager().createQuery("Delete t From " + clazz + " where t.id");
-                    deleteQuery.setParameter("id", id);
+                if (t != null) {
+                    entityManager.getTransaction().begin();
+                    Query deleteQuery = entityManager.createQuery("Delete From " + clazz.getSimpleName() + " t where t.id = :id");
+                    deleteQuery.setParameter("id", id)
+                            .executeUpdate();
                     int deletedUser = deleteQuery.getFirstResult();
-                    if (deletedUser > 0){
-                        users.add(t);
+                    if (deletedUser > 0) {
+                        ts.add(t);
                     }
-                    persistence.entityManager().getTransaction().commit();
+                    entityManager.getTransaction().commit();
+
                 }
             });
-        }catch (Exception e){
-            System.out.println("Error: " + e.getMessage());
+            entityManager.close();
         }
-        return users;
+        return ts;
     }
 
     @Override
     public List<T> deleteMany(T... ts) {
-        return null;
+        clazz = (Class<T>) ((ParameterizedType) getClass().getGenericSuperclass()).getActualTypeArguments()[0];
+        List<T> list = new ArrayList<>();
+        try(EntityManagerFactory em = jakarta.persistence.Persistence.createEntityManagerFactory("gestion-hospitaliere-unit")) {
+            EntityManager entityManager = em.createEntityManager();
+            Stream.of(ts).forEach(tId -> {
+                T t = findById(tId.getId());
+                if (t != null) {
+                    entityManager.getTransaction().begin();
+                    Query deleteQuery = entityManager.createQuery("Delete t From " + clazz.getSimpleName() + " t where t.id = :id");
+                    deleteQuery.setParameter("id", t.getId())
+                            .executeUpdate();
+                    int deletedUser = deleteQuery.getFirstResult();
+                    if (deletedUser > 0) {
+                        list.add(t);
+                    }
+                    entityManager.getTransaction().commit();
+                }
+            });
+        }
+        return list;
     }
 }

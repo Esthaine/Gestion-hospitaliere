@@ -13,4 +13,5 @@ public interface  UserDao extends JpaRepository<User>{
 
     abstract User register();
     abstract User authentication();
+
 }

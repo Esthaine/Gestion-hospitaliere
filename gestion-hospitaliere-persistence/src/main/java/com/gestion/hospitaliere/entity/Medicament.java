@@ -2,9 +2,7 @@ package com.gestion.hospitaliere.entity;
 
 
 import jakarta.persistence.Entity;
-
 import java.time.LocalDateTime;
-import java.util.Date;
 
 @Entity
 public class Medicament extends AbstractEntity{

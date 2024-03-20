@@ -14,8 +14,6 @@ public class User extends AbstractEntity{
     private String motDePasse;
     @Column(nullable = false, unique = true)
     private String email;
-    private Date dateCreation;
-    private Date derniereConnexion;
 
     public String getMotDePasse() {
         return motDePasse;
@@ -31,23 +29,6 @@ public class User extends AbstractEntity{
 
     public void setEmail(String email) {
         this.email = email;
-    }
-
-
-    public Date getDateCreation() {
-        return dateCreation;
-    }
-
-    public void setDateCreation(Date dateCreation) {
-        this.dateCreation = dateCreation;
-    }
-
-    public Date getDerniereConnexion() {
-        return derniereConnexion;
-    }
-
-    public void setDerniereConnexion(Date derniereConnexion) {
-        this.derniereConnexion = derniereConnexion;
     }
 
     public User() {

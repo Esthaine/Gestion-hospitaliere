@@ -1,12 +1,14 @@
-package com.gestion.hospitaliere.dao.impl;
+package com.gestion.hospitaliere.repo;
 
+import com.gestion.hospitaliere.config.Persistence;
 import com.gestion.hospitaliere.dao.JpaRepositoryImpl;
 import com.gestion.hospitaliere.dao.UserDao;
 import com.gestion.hospitaliere.entity.User;
 
-public class UserDaoImpl extends JpaRepositoryImpl<User> implements UserDao{
+import java.util.Date;
 
-    public UserDaoImpl(Class<User> clazz) {
+public class StubUserEntryRepo extends JpaRepositoryImpl<User> implements UserDao{
+    public StubUserEntryRepo(Class<User> clazz) {
         super(clazz);
     }
 

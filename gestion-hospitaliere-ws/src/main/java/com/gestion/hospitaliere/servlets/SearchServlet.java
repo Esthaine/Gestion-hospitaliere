@@ -11,12 +11,11 @@ import java.io.PrintWriter;
 
 
 
-@WebServlet(name = "HomeServlet", urlPatterns = {"/home"})
+@WebServlet(name = "HomeServlet", urlPatterns = {"/search"})
 public class SearchServlet extends HttpServlet {
 
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        PrintWriter out = resp.getWriter();
-        out.println("<h1>Gestion Hospitaliere</h1>");
+        req.getRequestDispatcher("/search.jsp").forward(req, resp);
     }
 
 }

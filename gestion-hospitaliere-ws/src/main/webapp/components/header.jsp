@@ -20,9 +20,9 @@
         <div class="menu_content">
             <div class="menu_content_left">
                 <ul>
-                    <li><a href="/gestion_hospitaliere_ws_war/about"> A propos</a> </li>
-                    <li><a href="/gestion_hospitaliere_ws_war/doctors">Docteurs</a> </li>
-                    <li><a href="/gestion_hospitaliere_ws_war/appointement">Prendre rendez-vous</a> </li>
+                    <li><a href="<%= request.getContextPath() %>/about"> A propos</a> </li>
+                    <li><a href="<%= request.getContextPath() %>/doctors">Docteurs</a> </li>
+                    <li><a href="<%= request.getContextPath() %>/appointement">Prendre rendez-vous</a> </li>
                     <li>Menu 3</li>
                 </ul>
             </div>

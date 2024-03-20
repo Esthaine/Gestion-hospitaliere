@@ -13,7 +13,7 @@ public class AppointmentServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        request.getRequestDispatcher("/appointment.js").forward(request, response);
+        request.getRequestDispatcher("/appointment.jsp").forward(request, response);
     }
 
     @Override

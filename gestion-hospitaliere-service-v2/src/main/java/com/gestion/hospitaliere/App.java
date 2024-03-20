@@ -1,9 +1,5 @@
 package com.gestion.hospitaliere;
 
-import com.gestion.hospitaliere.dao.UserDao;
-import com.gestion.hospitaliere.dao.impl.UserDaoImpl;
-import com.gestion.hospitaliere.service.AuthentificationService;
-
 /**
  * Hello world!
  *
