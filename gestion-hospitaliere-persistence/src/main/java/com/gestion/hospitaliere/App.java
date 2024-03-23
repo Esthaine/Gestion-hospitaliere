@@ -83,11 +83,11 @@ public class App {
         pt2.setGenre("F");
         pt2.setEmails("p2@example.com");
         Patient[] patients = new Patient[]{pt1, pt2};
-//        patientDao.saveAll(patients);
-//
-//        for (Patient patient1 : patientDao.findAll()) {
-//            System.out.println(patient1);
-//        }
+       patientDao.saveAll(patients);
+
+       for (Patient patient1 : patientDao.findAll()) {
+           System.out.println(patient1);
+        }
 
         //System.out.println( patientDao.deleteById(4L));
         //patientDao.deleteMany(patients).forEach(System.out::println);

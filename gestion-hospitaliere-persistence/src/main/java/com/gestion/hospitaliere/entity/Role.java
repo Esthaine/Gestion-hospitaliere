@@ -1,7 +1,7 @@
 package com.gestion.hospitaliere.entity;
 
-import javax.persistence.Entity;
-import javax.persistence.OneToMany;
+import jakarta.persistence.Entity;
+import jakarta.persistence.OneToMany;
 import java.util.Set;
 
 @Entity
