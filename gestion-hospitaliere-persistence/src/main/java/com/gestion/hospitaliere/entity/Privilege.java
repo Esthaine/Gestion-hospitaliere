@@ -1,7 +1,7 @@
 package com.gestion.hospitaliere.entity;
 
-import javax.persistence.Entity;
-import javax.persistence.ManyToOne;
+import jakarta.persistence.Entity;
+import jakarta.persistence.ManyToOne;
 
 @Entity
 public class Privilege extends AbstractEntity{
