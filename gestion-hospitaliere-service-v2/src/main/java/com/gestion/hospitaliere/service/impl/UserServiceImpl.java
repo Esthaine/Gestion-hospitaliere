@@ -35,7 +35,7 @@ public class UserServiceImpl implements IUserService {
         String password = request.getParameter("password");
         String role = request.getParameter("role");
 
-        if (username.isEmpty() || password.isEmpty()){
+        if (username == "" || password == ""){
             request.setAttribute("error", "Veuillez renseigner le nom d'utilisateur ou le mot de passe");
             response.sendRedirect(request.getContextPath() + "/authentication?action="+role);
             return;
@@ -54,7 +54,7 @@ public class UserServiceImpl implements IUserService {
 
         if (!userDto.getMotDePasse().equals(password)){
             request.setAttribute("error", "Nom d'utilisateur ou mot de passe incorrect");
-            request.getRequestDispatcher("/login.jsp");
+            request.getRequestDispatcher("/login.jsp").forward(request, response);
         }else {
             if (userDto.getRoleDto()!=null && !userDto.getRoleDto().isEmpty() ){
                 switch (userDto.getRoleDto().get(0).getRoleName()){

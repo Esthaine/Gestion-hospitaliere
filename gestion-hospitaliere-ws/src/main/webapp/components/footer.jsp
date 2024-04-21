@@ -18,7 +18,7 @@
         <div class="section_container">
           <h3>Connexion</h3>
           <a href="<%= request.getContextPath()%>/authentication?action=patients" class="section">Patients</a>
-          <a href="<%= request.getContextPath()%>/authentication?action=organzation" class="section">Corps Medical</a>
+          <a href="<%= request.getContextPath()%>/authentication?action=organization" class="section">Corps Medical</a>
           <a href="<%= request.getContextPath()%>/authentication?action=superAdmin" class="section">Admin</a>
         </div>
 

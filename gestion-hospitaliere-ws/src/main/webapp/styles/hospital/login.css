@@ -37,7 +37,11 @@ li{
 
 .type-user{
     border: 2px solid transparent;
-    transition: all 0.25s linear ease-in-out;
+    transition: all  0.25s linear;
+}
+.type-user a{
+    color: lightgrey;
+    text-decoration: none;
 }
 .type-user .user .description {
     width: 70%;
@@ -51,9 +55,12 @@ li{
 }
 
 .active{
-    border: 2px solid white;
+    border: 2px solid lightgrey;
 }
 
+.type-user a {
+
+}
 
 .icone-arrow{
     font-size: 16px;
@@ -79,7 +86,14 @@ li{
 
 
 /* Right parts */
-
+.error{
+    width: 100%;
+    padding: 10px 5px;
+    background: pink;
+    color: red;
+    border: 1.5px solid red;
+    margin-bottom: 20px;
+}
 .right{
     width: 55%;
     display: flex;
