@@ -7,6 +7,9 @@
 @import url("trouver-medecin.css");
 @import url("button.css");
 @import url("input.css");
+@import url("search.css");
+/*@import url("banner.css");
+@import url("liens-service.css");*/
 @import url('https://fonts.googleapis.com/css2?family=Roboto :ital,wght@0,100 ; 0,300; 0,400; 0,500; 0,700; 0,900; 1,100; 1,300; 1,400; 1,500; 1,700; 1 900&display=swap') ;
 
 
@@ -24,4 +27,70 @@ body{
   display: flex;
   align-items: center;
   padding: 0 200px;
+  flex-direction: column;
+}
+
+
+/*Liens service*/
+.liens-service{
+    display: flex;
+    width: 100%;
+    padding: 40px 200px;
+    justify-content: space-between;
+    background-color: rgba(0, 0, 0, 0.05);
+}
+
+.lien-service{
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    /* margin: 20px; */
+    background-color: #fff;
+    align-items: center;
+    padding: 30px 0px;
+    color: darkgray;
+    border-radius: 4px;
+}
+
+.lien-service i{
+    font-size: 80px;
+    color: darkgray;
+    margin-bottom: 30px;
+}
+
+/*Liens banner*/
+.banner{
+    width: 100%;
+    height: 400px;
+    display: flex;
+    align-items: center;
+    padding: 40px 200px;
+    background-color: rebeccapurple;
+}
+
+.banner .wrapper .info{
+    margin-bottom: 20px;
+    color: #fff;
+}
+
+.banner .wrapper .info h2{
+    font-size: 32px;
+    margin-bottom: 10px;
+}
+
+.banner .wrapper .info p{
+    font-style: italic;
+    font-size: 18px;
+}
+
+.btn{
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+}
+a.btn-start{
+    color: #ffffff;
+    text-decoration: none;
+    background-color: green;
 }

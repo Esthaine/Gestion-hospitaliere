@@ -5,4 +5,19 @@
     right: 0;
     left: 0;
     background-color: rebeccapurple;
+    height: 300px;
+}
+
+input[type=search] {
+    padding: 15px 20px;
+    border-radius: 2px;
+    outline: none;
+}
+
+#close__search{
+    color: #fff;
+    font-size: 30px;
+    position: absolute;
+    top: 30px;
+    right: 200px;
 }

@@ -1,5 +1,5 @@
 @import url("input.css");
-@import url("search.css");
+
 .header{
   position: relative;
 }
@@ -11,17 +11,26 @@ nav{
   padding: 0 200px;
   border-bottom: 1px solid darkgray;
 }
+
 .nav_left span{
   padding: 15px 0;
   margin: 10px;
   border-bottom: 4px solid transparent
 }
+
 .nav_left{
   display: flex;
+  align-items: center;
 }
+
 .nav_right ul{
   margin-left: auto;
   display: flex;
+}
+
+.nav_left .logo{
+  width: 50px;
+  margin-right: 10px;
 }
 
 .nav_right ul li{

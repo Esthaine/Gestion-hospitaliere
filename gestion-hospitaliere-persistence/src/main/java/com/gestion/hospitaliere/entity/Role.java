@@ -1,7 +1,9 @@
 package com.gestion.hospitaliere.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.OneToMany;
+import jakarta.persistence.*;
+
+import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -10,8 +12,13 @@ public class Role extends AbstractEntity{
     private String name;
     private String description;
 
-    @OneToMany
-    private Set<Privilege> privileges;
+
+    @OneToMany(fetch = FetchType.EAGER, orphanRemoval = true)
+    private Set<User> user = new HashSet<>();
+
+
+    @OneToMany(fetch = FetchType.EAGER, orphanRemoval = true, cascade = {CascadeType.PERSIST, CascadeType.MERGE})
+    private Set<RolePrivilege> privileges = new HashSet<>();
 
     public Role() {
     }
@@ -32,11 +39,31 @@ public class Role extends AbstractEntity{
         this.description = description;
     }
 
-    public Set<Privilege> getPrivileges() {
+    public Set<RolePrivilege> getPrivileges() {
         return privileges;
     }
 
-    public void setPrivileges(Set<Privilege> privileges) {
+    public void setPrivileges(Set<RolePrivilege> privileges) {
         this.privileges = privileges;
+    }
+
+    public Set<User> getUser() {
+        return user;
+    }
+
+    public void setUser(Set<User> user) {
+        this.user = user;
+    }
+
+    @Override
+    public String toString() {
+        return "Role{" +
+                "name='" + name + '\'' +
+                ", description='" + description + '\'' +
+                ", user=" + user +
+                ", privileges=" + privileges +
+                ", createdAt=" + createdAt +
+                ", modifiedAt=" + modifiedAt +
+                '}';
     }
 }

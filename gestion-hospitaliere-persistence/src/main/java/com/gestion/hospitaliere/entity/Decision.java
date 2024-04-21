@@ -8,20 +8,11 @@ import java.util.Date;
 public class Decision extends AbstractEntity{
 
     @ManyToOne
-    private Patient patient;
-    @ManyToOne
     private Docteur docteur;
     private String description;
     private String type;
 
     public Decision() {
-    }
-    public Patient getPatient() {
-        return patient;
-    }
-
-    public void setPatient(Patient patient) {
-        this.patient = patient;
     }
 
     public Docteur getDocteur() {

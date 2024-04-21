@@ -25,7 +25,11 @@ public class JpaRepositoryImpl<T extends AbstractEntity> implements JpaRepositor
                 EntityManager entityManager = em.createEntityManager();
                 if (t != null){
                     entityManager.getTransaction().begin();
-                    entityManager.persist(t);
+                    if (t.getId() == null){
+                        entityManager.persist(t);
+                    }else{
+                        entityManager.merge(t);
+                    }
                     entityManager.getTransaction().commit();
                     entityManager.close();
                     return t;
@@ -66,7 +70,6 @@ public class JpaRepositoryImpl<T extends AbstractEntity> implements JpaRepositor
         }catch (Exception e){
             System.out.printf("Error " + e.getMessage());
         }
-        System.out.println("It null man");
         return null;
     }
 

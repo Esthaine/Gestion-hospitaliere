@@ -1,10 +1,5 @@
 package com.gestion.hospitaliere.servlets;
 
-import com.gestion.hospitaliere.config.Persistence;
-import com.gestion.hospitaliere.dao.UserDao;
-import com.gestion.hospitaliere.model.request.UserRequest;
-import com.gestion.hospitaliere.service.AuthentificationService;
-import com.gestion.hospitaliere.service.IAuthentificationService;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;

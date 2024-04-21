@@ -1,0 +1,24 @@
+.liens-service{
+    padding: 40px 200px;
+    display: flex;
+    justify-content: space-between;
+    background-color: rgba(0, 0, 0, 0.05);
+}
+
+.lien-service{
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    /* margin: 20px; */
+    background-color: #fff;
+    align-items: center;
+    padding: 30px;
+    color: darkgray;
+    border-radius: 4px;
+}
+
+.lien-service i{
+    font-size: 80px;
+    color: darkgray;
+    margin-bottom: 30px;
+}

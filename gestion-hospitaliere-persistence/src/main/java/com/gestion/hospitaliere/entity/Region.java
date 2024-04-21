@@ -7,15 +7,28 @@ import java.util.Set;
 @Entity
 public class Region extends AbstractEntity{
 
-    @ManyToOne
+    @Column(unique = true, nullable = false)
+    private String regionName;
+
+    @ManyToOne(cascade =  CascadeType.MERGE)
+    @JoinColumn(name = "pays_id", referencedColumnName = "id")
     private Pays pays;
+
+    @Column(unique = true)
     private String code;
 
-    @OneToMany
+    @OneToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
     private Set<Ville> ville;
-    private long population;
 
     public Region() {
+    }
+
+    public String getRegionName() {
+        return regionName;
+    }
+
+    public void setRegionName(String regionName) {
+        this.regionName = regionName;
     }
 
     public Pays getPays() {
@@ -32,14 +45,6 @@ public class Region extends AbstractEntity{
 
     public void setCode(String code) {
         this.code = code;
-    }
-
-    public long getPopulation() {
-        return population;
-    }
-
-    public void setPopulation(long population) {
-        this.population = population;
     }
 
     public Set<Ville> getVille() {

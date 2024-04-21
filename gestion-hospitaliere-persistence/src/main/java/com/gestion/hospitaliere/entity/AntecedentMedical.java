@@ -6,8 +6,6 @@ import java.util.Date;
 
 @Entity
 public class AntecedentMedical extends AbstractEntity{
-    @ManyToOne
-    private Patient patient;
     private String description;
     private Date dateDebut;
     private Date dateFin;
@@ -16,14 +14,6 @@ public class AntecedentMedical extends AbstractEntity{
     public AntecedentMedical() {
     }
 
-
-    public Patient getPatient() {
-        return patient;
-    }
-
-    public void setPatient(Patient patient) {
-        this.patient = patient;
-    }
 
     public String getDescription() {
         return description;

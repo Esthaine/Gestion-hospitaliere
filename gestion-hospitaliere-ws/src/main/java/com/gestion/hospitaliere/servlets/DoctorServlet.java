@@ -8,12 +8,12 @@ import jakarta.servlet.http.HttpServletResponse;
 
 import java.io.IOException;
 
-@WebServlet(urlPatterns = {"/doctors"})
+@WebServlet(urlPatterns = {"/hopital/doctors"})
 public class DoctorServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        req.getRequestDispatcher("/doctors.jsp").forward(req, resp);
+        req.getRequestDispatcher("/hospital/doctors.jsp").forward(req, resp);
     }
 
     @Override

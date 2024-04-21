@@ -1,0 +1,21 @@
+.banner{
+    height: 400px;
+    background-color: red;
+    display: flex;
+    align-items: center;
+    padding: 0px 200px;
+}
+
+.banner .wrapper .info{
+    margin-bottom: 20px;
+}
+
+.banner .wrapper .info h2{
+    font-size: 32px;
+    margin-bottom: 10px;
+}
+
+.banner .wrapper .info p{
+    font-style: italic;
+    font-size: 18px;
+}

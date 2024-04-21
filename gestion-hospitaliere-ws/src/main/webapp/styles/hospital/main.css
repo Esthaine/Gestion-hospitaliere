@@ -1,0 +1,34 @@
+.main{
+    display: flex;
+    height: 100vh;
+}
+
+.content{
+    background-color: rgba(0, 0, 0, 0.05);
+    width: 100%;
+    padding: 30px 20px;
+}
+
+
+.rapid-info{
+    display: flex;
+}
+
+.rapid-info .info{
+    flex: 4;
+    padding: 25px 20px;
+    color: #fff;
+    margin: 10px;
+    border-radius: 15px;
+    background-color: rgb(138, 43, 226)
+}
+
+.rapid-info .info .header{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.rapid-info .info .header i{
+    font-size: 30px;
+}

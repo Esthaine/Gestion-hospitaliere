@@ -1,23 +1,23 @@
 package com.gestion.hospitaliere.entity;
 
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
-import jakarta.persistence.Entity;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 public class Pays extends AbstractEntity{
 
+    @Column(unique = true, nullable = false)
     private String nom;
+    @Column(unique = true, nullable = false)
     private String codeIso;
-    private String capitale;
-    private long population;
-    private String langue;
+
+    @OneToMany(cascade =  CascadeType.MERGE)
+    private Set<Region> regions = new HashSet<>();
 
     public Pays() {
     }
-
 
     public String getNom() {
         return nom;
@@ -35,27 +35,11 @@ public class Pays extends AbstractEntity{
         this.codeIso = codeIso;
     }
 
-    public String getCapitale() {
-        return capitale;
+    public Set<Region> getRegions() {
+        return regions;
     }
 
-    public void setCapitale(String capitale) {
-        this.capitale = capitale;
-    }
-
-    public long getPopulation() {
-        return population;
-    }
-
-    public void setPopulation(long population) {
-        this.population = population;
-    }
-
-    public String getLangue() {
-        return langue;
-    }
-
-    public void setLangue(String langue) {
-        this.langue = langue;
+    public void setRegions(Set<Region> regions) {
+        this.regions = regions;
     }
 }

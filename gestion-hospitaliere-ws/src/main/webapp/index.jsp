@@ -6,20 +6,33 @@
 <body>
     <jsp:include page="components/header.jsp"/>
     <div class="main">
-        <div class="doctors">
-            <div class="card">
-                <i class="fa-solid fa-house"></i>
-                <h2>Medecin</h2>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+        <div class="banner">
+            <div class="wrapper">
+                <div class="info">
+                    <h2>Bienvenu au Centre hospitalier Nganda</h2>
+                    <p>Caring is ou mission</p>
+                </div>
+                <a class="btn btn-start" href="<%= request.getContextPath()%>/authentication?action=patients">
+                    Commencez ici
+                </a>
             </div>
         </div>
-        <div class="service">
-            <i class="lni lni-facebook-fill"></i>
-            <i class="lni lni-patreon"></i>
-        </div>
-        <div class="links">
-            <div class="link">
-                <p>Droits et responsabilites des patients.</p> <span>></span>
+        <div class="liens-service">
+            <div class="lien-service">
+                <i class="lni lni-map"></i>
+                <a href="<%=request.getContextPath()%>/docteurs">Docteurs</a>
+            </div>
+            <div class="lien-service">
+                <i class="lni lni-map"></i>
+                <a href="<%=request.getContextPath()%>/localisation">Localisations</a>
+            </div>
+            <div class="lien-service">
+                <i class="lni lni-map"></i>
+                <p>Rendez-vous Medical</p>
+            </div>
+            <div class="lien-service">
+                <i class="lni lni-map"></i>
+                <p>Historiques Rendez-vous</p>
             </div>
         </div>
     </div>

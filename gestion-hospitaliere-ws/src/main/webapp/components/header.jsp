@@ -2,7 +2,9 @@
 <div class="header">
     <nav class="nav">
         <div class="nav_left">
-            <a href="/gestion_hospitaliere_ws_war/">Logo</a>
+            <a href="<%= request.getContextPath() %>">
+                <img src="<%= request.getContextPath() %>/images/chn.png" class="logo">
+            </a>
             <span id="open__menu"><i class="lni lni-menu"></i>Menu</span>
         </div>
         <div class="nav_right">
@@ -21,9 +23,8 @@
             <div class="menu_content_left">
                 <ul>
                     <li><a href="<%= request.getContextPath() %>/about"> A propos</a> </li>
-                    <li><a href="<%= request.getContextPath() %>/doctors">Docteurs</a> </li>
+                    <li><a href="<%= request.getContextPath() %>/docteurs">Docteurs</a> </li>
                     <li><a href="<%= request.getContextPath() %>/appointement">Prendre rendez-vous</a> </li>
-                    <li>Menu 3</li>
                 </ul>
             </div>
             <div class="menu_content_right">

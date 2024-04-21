@@ -2,7 +2,7 @@ package com.gestion.hospitaliere.entity;
 
 import jakarta.persistence.*;
 
-import java.util.Date;
+import java.util.Set;
 
 @Entity
 @Table(name = "USERS")
@@ -14,6 +14,14 @@ public class User extends AbstractEntity{
     private String motDePasse;
     @Column(nullable = false, unique = true)
     private String email;
+
+    @ManyToOne(cascade =  CascadeType.MERGE)
+    @JoinColumn(name = "role_id", referencedColumnName = "id")
+    private Role role;
+
+    @OneToOne(cascade = {CascadeType.PERSIST})
+    @JoinColumn(name = "user_id", referencedColumnName = "id")
+    private Person person;
 
     public String getMotDePasse() {
         return motDePasse;
@@ -41,4 +49,19 @@ public class User extends AbstractEntity{
         this.username = username;
     }
 
+    public Role getRole() {
+        return role;
+    }
+
+    public void setRole(Role role) {
+        this.role = role;
+    }
+
+    public Person getPerson() {
+        return person;
+    }
+
+    public void setPerson(Person person) {
+        this.person = person;
+    }
 }

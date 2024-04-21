@@ -46,3 +46,18 @@
   flex-direction: column;
 }
 
+.reseaux_sociaux.social_links{
+  color: #fff !important;
+}
+.reseaux_sociaux .social_links a{
+  color: beige;
+  font-size: small;
+}
+hr{
+  margin-top: 20px;
+  color: #fff;
+}
+.copyright{
+  padding:20px 0;
+  color: #fff;
+}

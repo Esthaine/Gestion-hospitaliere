@@ -2,13 +2,12 @@ package com.gestion.hospitaliere.entity;
 
 import jakarta.persistence.*;
 
-import java.util.Date;
 
 @Entity
 public class Symptomes extends AbstractEntity{
 
-    @ManyToOne
-    private Patient patient;
+//    @ManyToOne
+//    private Patient patient;
     private String description;
     private String gravite;
     private String type;
@@ -18,13 +17,13 @@ public class Symptomes extends AbstractEntity{
     public Symptomes() {
     }
 
-    public Patient getPatient() {
-        return patient;
-    }
-
-    public void setPatient(Patient patient) {
-        this.patient = patient;
-    }
+//    public Patient getPatient() {
+//        return patient;
+//    }
+//
+//    public void setPatient(Patient patient) {
+//        this.patient = patient;
+//    }
 
     public String getDescription() {
         return description;

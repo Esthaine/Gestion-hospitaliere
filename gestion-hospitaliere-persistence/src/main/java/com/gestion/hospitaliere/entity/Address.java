@@ -8,6 +8,8 @@ import jakarta.persistence.OneToOne;
 @Embeddable
 public class Address {
     private String streetName;
+    private String houseNumber;
+    private String township;
     @OneToOne
     private Pays pays;
     @OneToOne
@@ -16,6 +18,22 @@ public class Address {
     private Ville ville;
 
     public Address() {
+    }
+
+    public String getHouseNumber() {
+        return houseNumber;
+    }
+
+    public void setHouseNumber(String houseNumber) {
+        this.houseNumber = houseNumber;
+    }
+
+    public String getTownship() {
+        return township;
+    }
+
+    public void setTownship(String township) {
+        this.township = township;
     }
 
     public String getStreetName() {

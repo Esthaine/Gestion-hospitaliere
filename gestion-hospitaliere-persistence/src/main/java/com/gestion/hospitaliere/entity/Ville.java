@@ -4,10 +4,13 @@ import jakarta.persistence.*;
 
 @Entity
 public class Ville extends AbstractEntity{
+    @Column(unique = true, nullable = false)
     private String nom;
-
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.MERGE)
+    @JoinColumn(name = "region_id", referencedColumnName = "id")
     private Region region;
+
+    @Column(unique = true, nullable = false)
     private String codePostal;
 
     public Ville() {

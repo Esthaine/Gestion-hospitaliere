@@ -1,15 +1,17 @@
 package com.gestion.hospitaliere.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.ManyToOne;
+import jakarta.persistence.*;
+
+import java.util.Set;
 
 @Entity
 public class Privilege extends AbstractEntity{
+    @Column(unique = true)
     private String name;
     private String description;
 
-    @ManyToOne
-    private Role role;
+    @OneToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
+    private Set<RolePrivilege> rolePrivileges;
 
     public Privilege() {
     }
@@ -30,7 +32,11 @@ public class Privilege extends AbstractEntity{
         this.description = description;
     }
 
-    public Role getRole() {
-        return role;
+    public Set<RolePrivilege> getRolePrivileges() {
+        return rolePrivileges;
+    }
+
+    public void setRolePrivileges(Set<RolePrivilege> rolePrivileges) {
+        this.rolePrivileges = rolePrivileges;
     }
 }

@@ -1,18 +1,25 @@
 package com.gestion.hospitaliere.entity;
 
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
-import java.time.LocalDateTime;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
+
+import java.time.LocalDate;
 
 @Entity
 public class Medicament extends AbstractEntity{
 
+    @Column(unique = true, nullable = false)
     private String nom;
     private String description;
     private String posologie;
-    private int stock;
     private double prixUnitaire;
-    private LocalDateTime datePeremption;
+
+    @Enumerated(EnumType.STRING)
+    private Stock stock;
+    private LocalDate datePeremption;
     private String categorie;
 
     public Medicament() {
@@ -42,13 +49,6 @@ public class Medicament extends AbstractEntity{
         this.posologie = posologie;
     }
 
-    public int getStock() {
-        return stock;
-    }
-
-    public void setStock(int stock) {
-        this.stock = stock;
-    }
 
     public double getPrixUnitaire() {
         return prixUnitaire;
@@ -58,11 +58,11 @@ public class Medicament extends AbstractEntity{
         this.prixUnitaire = prixUnitaire;
     }
 
-    public LocalDateTime getDatePeremption() {
+    public LocalDate getDatePeremption() {
         return datePeremption;
     }
 
-    public void setDatePeremption(LocalDateTime datePeremption) {
+    public void setDatePeremption(LocalDate datePeremption) {
         this.datePeremption = datePeremption;
     }
 
@@ -72,5 +72,13 @@ public class Medicament extends AbstractEntity{
 
     public void setCategorie(String categorie) {
         this.categorie = categorie;
+    }
+
+    public Stock getStock() {
+        return stock;
+    }
+
+    public void setStock(Stock stock) {
+        this.stock = stock;
     }
 }

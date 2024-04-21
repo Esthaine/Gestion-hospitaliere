@@ -8,8 +8,8 @@ import java.util.Set;
 @Entity
 public class Traitement extends AbstractEntity{
 
-    @OneToOne
-    private Patient patient;
+//    @OneToOne
+//    private Patient patient;
     @OneToMany
     private Set<Docteur> docteur;
     private String description;
@@ -22,13 +22,13 @@ public class Traitement extends AbstractEntity{
     public Traitement() {
     }
 
-    public Patient getPatient() {
-        return patient;
-    }
-
-    public void setPatient(Patient patient) {
-        this.patient = patient;
-    }
+//    public Patient getPatient() {
+//        return patient;
+//    }
+//
+//    public void setPatient(Patient patient) {
+//        this.patient = patient;
+//    }
 
     public Set<Docteur> getDocteur() {
         return docteur;

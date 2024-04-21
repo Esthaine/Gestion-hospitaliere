@@ -14,20 +14,11 @@ public class Examen extends AbstractEntity{
 
     @ManyToOne
     private Examen examen;
-    @OneToOne
-    private Patient patient;
 
     @OneToOne
     private Docteur docteur;
 
     public Examen() {
-    }
-    public Patient getPatient() {
-        return patient;
-    }
-
-    public void setPatient(Patient patient) {
-        this.patient = patient;
     }
 
     public Docteur getDocteur() {
