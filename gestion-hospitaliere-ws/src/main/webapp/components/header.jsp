@@ -3,7 +3,7 @@
     <nav class="nav">
         <div class="nav_left">
             <a href="<%= request.getContextPath() %>">
-                <img src="<%= request.getContextPath() %>/images/chn.png" class="logo">
+                <img src="<%= request.getContextPath() %>/images/Logo_MamanYemo.png" class="logo">
             </a>
             <span id="open__menu"><i class="lni lni-menu"></i>Menu</span>
         </div>

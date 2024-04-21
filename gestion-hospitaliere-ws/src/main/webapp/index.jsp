@@ -9,7 +9,7 @@
         <div class="banner">
             <div class="wrapper">
                 <div class="info">
-                    <h2>Bienvenu au Centre hospitalier Nganda</h2>
+                    <h2>Bienvenue a Maman Yemo Sendwe Hospital</h2>
                     <p>Caring is ou mission</p>
                 </div>
                 <a class="btn btn-start" href="<%= request.getContextPath()%>/authentication?action=patients">

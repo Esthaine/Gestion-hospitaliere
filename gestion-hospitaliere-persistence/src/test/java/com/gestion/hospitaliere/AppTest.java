@@ -101,7 +101,7 @@ public class AppTest
     }
 
 
-//    @Test
+    @Test
     void createRole(){
         Role adminRole = new Role();
         adminRole.setName("ADMIN");
