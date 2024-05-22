@@ -19,9 +19,16 @@ public class User extends AbstractEntity{
     @JoinColumn(name = "role_id", referencedColumnName = "id")
     private Role role;
 
-    @OneToOne(cascade = {CascadeType.PERSIST})
-    @JoinColumn(name = "user_id", referencedColumnName = "id")
+    @OneToOne(cascade =  CascadeType.MERGE, fetch = FetchType.LAZY)
     private Person person;
+
+//    @OneToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
+//    @JoinColumn(name = "analyze_id", referencedColumnName = "id", nullable = true)
+//    private Analyse analyse;
+
+    @ManyToOne(fetch = FetchType.EAGER, cascade = {CascadeType.PERSIST, CascadeType.MERGE})
+    @JoinColumn(name = "department_id", referencedColumnName = "id")
+    private Departement departement;
 
     public String getMotDePasse() {
         return motDePasse;
@@ -63,5 +70,21 @@ public class User extends AbstractEntity{
 
     public void setPerson(Person person) {
         this.person = person;
+    }
+
+//    public Analyse getAnalyse() {
+//        return analyse;
+//    }
+//
+//    public void setAnalyse(Analyse analyse) {
+//        this.analyse = analyse;
+//    }
+
+    public Departement getDepartement() {
+        return departement;
+    }
+
+    public void setDepartement(Departement departement) {
+        this.departement = departement;
     }
 }

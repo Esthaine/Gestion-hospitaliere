@@ -3,6 +3,7 @@ package com.gestion.hospitaliere.entity;
 import jakarta.persistence.*;
 
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -15,6 +16,9 @@ public class Pays extends AbstractEntity{
 
     @OneToMany(cascade =  CascadeType.MERGE)
     private Set<Region> regions = new HashSet<>();
+
+    @OneToMany(cascade =  CascadeType.MERGE)
+    private Set<Person> persons = new HashSet<>();
 
     public Pays() {
     }
@@ -41,5 +45,13 @@ public class Pays extends AbstractEntity{
 
     public void setRegions(Set<Region> regions) {
         this.regions = regions;
+    }
+
+    public Set<Person> getPersons() {
+        return persons;
+    }
+
+    public void setPersons(Set<Person> persons) {
+        this.persons = persons;
     }
 }

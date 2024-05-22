@@ -3,7 +3,6 @@ package com.gestion.hospitaliere.entity;
 import jakarta.persistence.*;
 
 import java.time.LocalDateTime;
-import java.util.Set;
 
 @Entity
 public class Rendezvous extends AbstractEntity{
@@ -12,17 +11,21 @@ public class Rendezvous extends AbstractEntity{
     @JoinColumn(name = "person_id", referencedColumnName = "id")
     private Person person;
 
-    @OneToMany(cascade = CascadeType.MERGE)
-    private Set<Docteur> docteurSet;
+    @ManyToOne(cascade = CascadeType.MERGE)
+    @JoinColumn(name = "doctor_id", referencedColumnName = "id")
+    private User docteurSet;
 
     @Column(name = "appointment_date", nullable = false)
     private LocalDateTime dateRendezVous;
 
-    public Set<Docteur> getDocteurSet() {
+    @Enumerated(EnumType.STRING)
+    private RendezVousStatus status;
+
+    public User getDocteurSet() {
         return docteurSet;
     }
 
-    public void setDocteurSet(Set<Docteur> docteurSet) {
+    public void setDocteurSet(User docteurSet) {
         this.docteurSet = docteurSet;
     }
 
@@ -40,5 +43,13 @@ public class Rendezvous extends AbstractEntity{
 
     public void setPerson(Person person) {
         this.person = person;
+    }
+
+    public RendezVousStatus getStatus() {
+        return status;
+    }
+
+    public void setStatus(RendezVousStatus status) {
+        this.status = status;
     }
 }

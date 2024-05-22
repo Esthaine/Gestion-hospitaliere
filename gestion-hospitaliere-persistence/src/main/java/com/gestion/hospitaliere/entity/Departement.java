@@ -1,85 +1,51 @@
 package com.gestion.hospitaliere.entity;
 
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
-import jakarta.persistence.Entity;
+import java.util.Set;
 
 @Entity
 public class Departement extends AbstractEntity{
-    private String description;
-    private String responsable;
-    private String equipement;
-    private String email;
-    private String adresse;
-    private String telephone;
-    private String specialite;
-    private String nombreLits;
 
-    public Departement() {
+    @OneToOne(cascade = CascadeType.MERGE)
+    @JoinColumn(name = "user_id")
+    private User manager;
+
+    private String NomDepartement;
+    private String code;
+    private String Description;
+    @OneToMany(cascade = CascadeType.MERGE)
+    private Set<User> users;
+
+    public User getManager() {
+        return manager;
     }
+
+    public void setManager(User manager) {
+        this.manager = manager;
+    }
+
+    public String getNomDepartement() {
+        return NomDepartement;
+    }
+
+    public void setNomDepartement(String nomDepartement) {
+        NomDepartement = nomDepartement;
+    }
+
     public String getDescription() {
-        return description;
+        return Description;
     }
 
     public void setDescription(String description) {
-        this.description = description;
+        Description = description;
     }
 
-    public String getResponsable() {
-        return responsable;
+    public Set<User> getUsers() {
+        return users;
     }
 
-    public void setResponsable(String responsable) {
-        this.responsable = responsable;
-    }
-
-    public String getEquipement() {
-        return equipement;
-    }
-
-    public void setEquipement(String equipement) {
-        this.equipement = equipement;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public String getAdresse() {
-        return adresse;
-    }
-
-    public void setAdresse(String adresse) {
-        this.adresse = adresse;
-    }
-
-    public String getTelephone() {
-        return telephone;
-    }
-
-    public void setTelephone(String telephone) {
-        this.telephone = telephone;
-    }
-
-    public String getSpecialite() {
-        return specialite;
-    }
-
-    public void setSpecialite(String specialite) {
-        this.specialite = specialite;
-    }
-
-    public String getNombreLits() {
-        return nombreLits;
-    }
-
-    public void setNombreLits(String nombreLits) {
-        this.nombreLits = nombreLits;
+    public void setUsers(Set<User> users) {
+        this.users = users;
     }
 }

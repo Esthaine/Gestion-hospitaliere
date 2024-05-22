@@ -8,7 +8,10 @@
     width: 100%;
     padding: 30px 20px;
 }
-
+.content a{
+    text-decoration: none;
+    color: white;
+}
 
 .rapid-info{
     display: flex;
@@ -32,3 +35,88 @@
 .rapid-info .info .header i{
     font-size: 30px;
 }
+
+
+.table-mapper{
+    width: 100%;
+    border-collapse: collapse;
+    margin: 25px 0;
+    font-size: 0.9em;
+    font-family: sans-serif;
+    min-width: 400px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+}
+
+.table-mapper thead tr {
+    background-color: rgb(138, 43, 226);
+    color: #ffffff;
+    text-align: left;
+}
+
+.table-mapper th,
+.table-mapper td {
+    padding: 12px 15px;
+}
+
+.table-mapper tbody tr {
+    border-bottom: 1px solid #dddddd;
+}
+
+.table-mapper tbody tr:nth-of-type(even) {
+    background-color: #f3f3f3;
+}
+
+/*.table-mapper tbody tr:last-of-type {*/
+/*    border-bottom: 2px solid #009879;*/
+/*}*/
+
+.btn{
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    margin-bottom: 25px;
+}
+
+.btn-blue{
+    background: #002c77;
+    color: white;
+}
+.btn-green{
+    color: white;
+    background: forestgreen;
+}
+.btn-red{
+    color: white;
+    background: darkred;
+}
+.btn-purple{
+    color: white;
+    background-color: rgb(138, 43, 226);
+}
+
+.form-group{
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+.form-group label{
+    margin-bottom: 5px;
+}
+.form-group input{
+    padding: 10px 20px;
+    border-radius: 4px;
+    outline: none;
+}
+
+.content form{
+    margin-top: 20px;
+    width: 60%;
+}
+
+
+
+.form-compose-item{
+    display: flex;
+}
+

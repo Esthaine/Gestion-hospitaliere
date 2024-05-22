@@ -2,14 +2,23 @@ package com.gestion.hospitaliere.entity;
 
 import jakarta.persistence.*;
 
+import java.time.LocalDateTime;
 import java.util.Date;
 
 @Entity
 public class AntecedentMedical extends AbstractEntity{
+
     private String description;
-    private Date dateDebut;
-    private Date dateFin;
+
+    private LocalDateTime dateDebut;
+
+    private LocalDateTime dateFin;
+
     private String type;
+
+    @ManyToOne(cascade = CascadeType.MERGE)
+    @JoinColumn(columnDefinition = "fiche_id", referencedColumnName = "id")
+    private Fiche fiche;
 
     public AntecedentMedical() {
     }
@@ -23,19 +32,19 @@ public class AntecedentMedical extends AbstractEntity{
         this.description = description;
     }
 
-    public Date getDateDebut() {
+    public LocalDateTime getDateDebut() {
         return dateDebut;
     }
 
-    public void setDateDebut(Date dateDebut) {
+    public void setDateDebut(LocalDateTime dateDebut) {
         this.dateDebut = dateDebut;
     }
 
-    public Date getDateFin() {
+    public LocalDateTime getDateFin() {
         return dateFin;
     }
 
-    public void setDateFin(Date dateFin) {
+    public void setDateFin(LocalDateTime dateFin) {
         this.dateFin = dateFin;
     }
 
@@ -45,5 +54,13 @@ public class AntecedentMedical extends AbstractEntity{
 
     public void setType(String type) {
         this.type = type;
+    }
+
+    public Fiche getFiche() {
+        return fiche;
+    }
+
+    public void setFiche(Fiche fiche) {
+        this.fiche = fiche;
     }
 }

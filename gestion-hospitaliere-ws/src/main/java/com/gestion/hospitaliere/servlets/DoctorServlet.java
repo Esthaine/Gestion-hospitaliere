@@ -1,5 +1,7 @@
 package com.gestion.hospitaliere.servlets;
 
+import com.gestion.hospitaliere.service.IUserService;
+import com.gestion.hospitaliere.service.impl.UserServiceImpl;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -13,7 +15,12 @@ public class DoctorServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        req.getRequestDispatcher("/hospital/doctors.jsp").forward(req, resp);
+        try {
+            IUserService userService = new UserServiceImpl();
+            userService.OrganizationMemberList(req, resp);
+        } catch (ClassNotFoundException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     @Override

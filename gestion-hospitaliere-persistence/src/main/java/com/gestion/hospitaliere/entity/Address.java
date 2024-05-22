@@ -1,20 +1,27 @@
 package com.gestion.hospitaliere.entity;
 
 
-import jakarta.persistence.Embeddable;
-import jakarta.persistence.OneToMany;
-import jakarta.persistence.OneToOne;
+import jakarta.persistence.*;
 
 @Embeddable
 public class Address {
+
     private String streetName;
+
     private String houseNumber;
+
     private String township;
-    @OneToOne
+
+    @ManyToOne(cascade =   CascadeType.MERGE , fetch = FetchType.LAZY)
+    @JoinColumn(columnDefinition = "pays_id", referencedColumnName = "id")
     private Pays pays;
-    @OneToOne
+
+    @ManyToOne(cascade =  CascadeType.MERGE , fetch = FetchType.LAZY)
+    @JoinColumn(columnDefinition = "region_id", referencedColumnName = "id")
     private Region region;
-    @OneToOne
+
+    @ManyToOne(cascade =  CascadeType.MERGE , fetch = FetchType.LAZY)
+    @JoinColumn(columnDefinition = "ville_id", referencedColumnName = "id")
     private Ville ville;
 
     public Address() {

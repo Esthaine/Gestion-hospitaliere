@@ -13,7 +13,7 @@ public class Role extends AbstractEntity{
     private String description;
 
 
-    @OneToMany(fetch = FetchType.EAGER, orphanRemoval = true)
+    @OneToMany(fetch = FetchType.EAGER, orphanRemoval = true, cascade = {CascadeType.MERGE, CascadeType.PERSIST})
     private Set<User> user = new HashSet<>();
 
 

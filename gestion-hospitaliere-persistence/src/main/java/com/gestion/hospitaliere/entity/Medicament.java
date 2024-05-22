@@ -1,10 +1,7 @@
 package com.gestion.hospitaliere.entity;
 
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.EnumType;
-import jakarta.persistence.Enumerated;
+import jakarta.persistence.*;
 
 import java.time.LocalDate;
 
@@ -21,6 +18,9 @@ public class Medicament extends AbstractEntity{
     private Stock stock;
     private LocalDate datePeremption;
     private String categorie;
+
+    @ManyToOne
+    private Fiche fiche;
 
     public Medicament() {
     }
@@ -80,5 +80,9 @@ public class Medicament extends AbstractEntity{
 
     public void setStock(Stock stock) {
         this.stock = stock;
+    }
+
+    public Fiche getFiche() {
+        return fiche;
     }
 }

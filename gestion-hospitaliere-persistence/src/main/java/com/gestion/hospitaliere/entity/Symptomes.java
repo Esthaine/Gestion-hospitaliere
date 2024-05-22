@@ -6,24 +6,22 @@ import jakarta.persistence.*;
 @Entity
 public class Symptomes extends AbstractEntity{
 
-//    @ManyToOne
-//    private Patient patient;
+//    @ManyToOne(cascade = {CascadeType.MERGE, CascadeType.PERSIST})
+//    @JoinColumn(name = "analyze_id", referencedColumnName = "id")
+//    private Analyse analyse;
+
     private String description;
+
     private String gravite;
+
     private String type;
+
     private String duree;
+
     private String traitement;
 
     public Symptomes() {
     }
-
-//    public Patient getPatient() {
-//        return patient;
-//    }
-//
-//    public void setPatient(Patient patient) {
-//        this.patient = patient;
-//    }
 
     public String getDescription() {
         return description;
@@ -64,4 +62,12 @@ public class Symptomes extends AbstractEntity{
     public void setTraitement(String traitement) {
         this.traitement = traitement;
     }
+
+//    public Analyse getAnalyse() {
+//        return analyse;
+//    }
+//
+//    public void setAnalyse(Analyse analyse) {
+//        this.analyse = analyse;
+//    }
 }

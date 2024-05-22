@@ -1,6 +1,6 @@
 <component name="ProjectRunConfigurationManager">
-  <configuration default="false" name="Tomcat 10.1.17" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 10.1.17" ALTERNATIVE_JRE_ENABLED="false" nameIsGenerated="true">
-    <option name="BROWSER_ID" value="98ca6316-2f89-46d9-a9e5-fa9e2b0625b3" />
+  <configuration default="false" name="Tomcat 10.1.17" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 10.1.17" ALTERNATIVE_JRE_ENABLED="false" nameIsGenerated="true" show_console_on_std_err="true" show_console_on_std_out="true">
+    <option name="BROWSER_ID" value="e5120d43-2c3f-47ef-9f26-65e539e05186" />
     <option name="UPDATING_POLICY" value="restart-server" />
     <deployment>
       <artifact name="gestion-hospitaliere-ws:war">
@@ -12,11 +12,12 @@
     <server-settings>
       <option name="BASE_DIRECTORY_NAME" value="4c4761e6-4452-4098-9e77-13a9b284d031" />
     </server-settings>
+    <output_file is_save="true" />
+    <log_file alias="Tomcat Manager Log" path="%IDEA_RUN:CATALINA_BASE%/logs/manager.*" />
+    <log_file alias="Tomcat Host Manager Log" path="%IDEA_RUN:CATALINA_BASE%/logs/host-manager.*" />
+    <log_file alias="Tomcat Localhost Access Log" path="%IDEA_RUN:CATALINA_BASE%/logs/localhost_access_log.*" />
     <predefined_log_file enabled="true" id="Tomcat" />
     <predefined_log_file enabled="true" id="Tomcat Catalina" />
-    <predefined_log_file id="Tomcat Manager" />
-    <predefined_log_file id="Tomcat Host Manager" />
-    <predefined_log_file id="Tomcat Localhost Access" />
     <RunnerSettings RunnerId="Debug">
       <option name="DEBUG_PORT" value="50054" />
     </RunnerSettings>

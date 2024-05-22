@@ -2,6 +2,9 @@ package com.gestion.hospitaliere.entity;
 
 import jakarta.persistence.*;
 
+import java.util.HashSet;
+import java.util.Set;
+
 @Entity
 public class Ville extends AbstractEntity{
     @Column(unique = true, nullable = false)
@@ -12,6 +15,9 @@ public class Ville extends AbstractEntity{
 
     @Column(unique = true, nullable = false)
     private String codePostal;
+
+    @OneToMany(cascade =  CascadeType.MERGE)
+    private Set<Person> persons = new HashSet<>();
 
     public Ville() {
     }
@@ -37,5 +43,13 @@ public class Ville extends AbstractEntity{
 
     public void setCodePostal(String codePostal) {
         this.codePostal = codePostal;
+    }
+
+    public Set<Person> getPersons() {
+        return persons;
+    }
+
+    public void setPersons(Set<Person> persons) {
+        this.persons = persons;
     }
 }

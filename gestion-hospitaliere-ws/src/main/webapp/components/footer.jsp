@@ -1,3 +1,7 @@
+<%@ page import="com.gestion.hospitaliere.dao.DepartementDao" %>
+<%@ page import="com.gestion.hospitaliere.dao.impl.DepartementDaoImpl" %>
+<%@ page import="com.gestion.hospitaliere.entity.Departement" %>
+<%@ page import="java.util.List" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
 <footer class="main_footer">
@@ -10,9 +14,18 @@
         </div>
         <div class="section_container">
           <h3>Départements</h3>
-          <a href="#" class="section">Maladies et affections</a>
-          <a href="#" class="section">Patients internationaux</a>
-          <a href="#" class="section">Rechercher des essais cliniques</a>
+          <%
+              DepartementDao  departementDao =  null;
+              try {
+                departementDao = new DepartementDaoImpl((Class< Departement>) Class.forName("com.gestion.hospitaliere.entity.Departement"));
+              } catch (ClassNotFoundException e) {
+                  throw new RuntimeException(e);
+              }
+              List<Departement> departements = departementDao.findAll();
+              for (Departement departement : departements) {
+          %>
+            <a href="<%= request.getContextPath()%>/departement?departmentId=<%=departement.getId()%>" class="section"><%= departement.getNomDepartement()%></a>
+          <%}%>
         </div>
 
         <div class="section_container">

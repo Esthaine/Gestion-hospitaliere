@@ -1,14 +1,17 @@
 package com.gestion.hospitaliere.entity;
 
 import jakarta.persistence.*;
-
 import java.util.Date;
 
 @Entity
 public class Person extends AbstractEntity{
+
     private String firstName;
+
     private String lastName;
+
     private String givenName;
+
     private Date dateOfBirth;
 
     private String phoneNumber;
@@ -16,9 +19,20 @@ public class Person extends AbstractEntity{
     @Enumerated(EnumType.STRING)
     private Genre genre;
 
-    @OneToOne(cascade = {CascadeType.PERSIST})
+    @OneToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE}, fetch = FetchType.LAZY)
+    @JoinColumn(name = "fiche_id", referencedColumnName = "id", nullable = true, unique = true)
+    private Fiche fiche;
+
+    @OneToOne(cascade =  {CascadeType.PERSIST, CascadeType.MERGE}, fetch = FetchType.LAZY)
+    @JoinColumn(name = "user_id", referencedColumnName = "id")
     private User user;
+
     @Embedded
+    @AttributeOverrides({
+            @AttributeOverride(name = "streetName", column = @Column(name = "streetname")),
+            @AttributeOverride(name = "houseNumber", column = @Column(name = "housenumber")),
+            @AttributeOverride(name = "township", column = @Column(name = "township")),
+    })
     private Address address;
 
     public String getFirstName() {
@@ -83,5 +97,13 @@ public class Person extends AbstractEntity{
 
     public void setUser(User user) {
         this.user = user;
+    }
+
+    public Fiche getFiche() {
+        return fiche;
+    }
+
+    public void setFiche(Fiche fiche) {
+        this.fiche = fiche;
     }
 }

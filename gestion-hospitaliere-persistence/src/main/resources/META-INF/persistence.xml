@@ -11,11 +11,11 @@
 
         <properties>
             <property name="jakarta.persistence.jdbc.driver" value="org.postgresql.Driver"/>
-<!--            <property name="hibernate.enable_lazy_load_no_trans" value="true"/>-->
-            <property name="jakarta.persistence.jdbc.url" value="jdbc:postgresql://localhost:5432/gestion_hospitaliere"/>
+            <property name="hibernate.enable_lazy_load_no_trans" value="true"/>
+            <property name="jakarta.persistence.jdbc.url" value="jdbc:postgresql://localhost:5433/gestion_hospitaliere"/>
             <property name="hibernate.hbm2ddl.auto" value="update"/>
             <property name="jakarta.persistence.jdbc.user" value="postgres"/>
-            <property name="jakarta.persistence.jdbc.password" value="12345"/>
+            <property name="jakarta.persistence.jdbc.password" value="valsane"/>
             <property name="hibernate.show_sql" value="true"/>
         </properties>
     </persistence-unit>

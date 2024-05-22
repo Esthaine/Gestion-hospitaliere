@@ -1,19 +1,20 @@
 package com.gestion.hospitaliere.entity;
 
 import jakarta.persistence.*;
-
 import java.util.Date;
 
 @Entity
 public class Examen extends AbstractEntity{
+
     private String description;
     private Date date;
     private String resultat;
     private String type;
     private String commentaires;
 
-    @ManyToOne
-    private Examen examen;
+    @ManyToOne(cascade = CascadeType.MERGE)
+    @JoinColumn(name = "examen_id", referencedColumnName = "id")
+    private ResultatsExamens resultatExamens;
 
     @OneToOne
     private Docteur docteur;
@@ -27,14 +28,6 @@ public class Examen extends AbstractEntity{
 
     public void setDocteur(Docteur docteur) {
         this.docteur = docteur;
-    }
-
-    public Examen getExamen() {
-        return examen;
-    }
-
-    public void setExamen(Examen examen) {
-        this.examen = examen;
     }
 
     public String getDescription() {
@@ -75,5 +68,13 @@ public class Examen extends AbstractEntity{
 
     public void setCommentaires(String commentaires) {
         this.commentaires = commentaires;
+    }
+
+    public ResultatsExamens getResultatExamens() {
+        return resultatExamens;
+    }
+
+    public void setResultatExamens(ResultatsExamens resultatExamens) {
+        this.resultatExamens = resultatExamens;
     }
 }

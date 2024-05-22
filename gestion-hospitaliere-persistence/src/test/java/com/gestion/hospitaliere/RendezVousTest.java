@@ -6,6 +6,13 @@ import com.gestion.hospitaliere.entity.*;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import java.time.LocalDateTime;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 public class RendezVousTest {
 
     UserDao userDao;
@@ -53,10 +60,33 @@ public class RendezVousTest {
         personDao = new PersonDaoImpl(person);
         roleDao = new RoleDaoImpl(role);
         rolePrivilegeDao = new RolePrivilegeDaoImpl(rolePrivilegeClass);
+        rendezVousDao = new RendezVousDaoImpl(rendezvousClass);
 
     }
     @Test
     void creerUnRendezVous()  {
-        //
+        User docteur = userDao.findById(6L);
+        User patient = userDao.findById(1L);
+        Person people = personDao.findByUserId(patient.getId());
+        LocalDateTime date = LocalDateTime.now().plusMonths(6);
+        Rendezvous rendezvous = new Rendezvous();
+        rendezvous.setDateRendezVous(date);
+        rendezvous.setPerson(people);
+        rendezvous.setDocteurSet(docteur);
+        rendezvous.setStatus(RendezVousStatus.NOUVEAU);
+        rendezVousDao.save(rendezvous);
+        System.out.println(people.getUser().getEmail());
+        System.out.println("Find Person: " + patient.getRole());
+    }
+
+    @Test
+    void listOfRendezVousPerPatient(){
+
+//        List<Rendezvous> rendezvous = rendezVousDao.findByPatient(1L);
+//        assertEquals(2, rendezvous.size());
+
+        for (Rendezvous rendezvous : rendezVousDao.findByDoctor(6L, RendezVousStatus.NOUVEAU)) {
+            System.out.println(rendezvous);
+        }
     }
 }

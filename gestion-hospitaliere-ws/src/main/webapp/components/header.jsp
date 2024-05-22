@@ -1,3 +1,4 @@
+<%@ page import="com.gestion.hospitaliere.model.UserDto" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <div class="header">
     <nav class="nav">
@@ -14,6 +15,10 @@
                     <i class="lni lni-search-alt"></i>
                     Recherche
                 </li>
+                <% UserDto userDto = (UserDto) session.getAttribute("authenticated");
+                    if (userDto!=null){%>
+                    <li><a href="<%= request.getContextPath() %>/deconnexion">Deconnexion</a> </li>
+                <%}%>
             </ul>
         </div>
     </nav>

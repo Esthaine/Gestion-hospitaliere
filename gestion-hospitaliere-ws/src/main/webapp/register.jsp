@@ -62,7 +62,7 @@
                         <input type="password" name="password" class="input-login"/>
                     </div>
                     <div class="form-group">
-                        <label for="confirm-password">Mot de passe * :</label>
+                        <label for="confirm-password">Confirmer Mot de passe * :</label>
                         <input type="password" name="confirm-password" class="input-login"/>
                     </div>
 

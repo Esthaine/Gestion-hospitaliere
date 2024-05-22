@@ -47,7 +47,7 @@ public class JpaRepositoryImpl<T extends AbstractEntity> implements JpaRepositor
         try (EntityManagerFactory em = jakarta.persistence.Persistence.createEntityManagerFactory("gestion-hospitaliere-unit")) {
             EntityManager entityManager = em.createEntityManager();
             entityManager.getTransaction().begin();
-            Query query = entityManager.createQuery("Select t From " + clazz.getSimpleName() + " t");
+            Query query = entityManager.createQuery("Select t From " + clazz.getSimpleName() + " t order by t.id desc");
             entityManager.getTransaction().commit();
             List<T> ts = query.getResultList();
             entityManager.close();

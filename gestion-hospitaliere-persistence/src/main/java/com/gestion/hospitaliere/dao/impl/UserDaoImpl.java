@@ -2,7 +2,6 @@ package com.gestion.hospitaliere.dao.impl;
 
 import com.gestion.hospitaliere.dao.JpaRepositoryImpl;
 import com.gestion.hospitaliere.dao.UserDao;
-import com.gestion.hospitaliere.entity.Privilege;
 import com.gestion.hospitaliere.entity.RolePrivilege;
 import com.gestion.hospitaliere.entity.User;
 import com.gestion.hospitaliere.model.PrivilegeDto;
@@ -88,5 +87,22 @@ public class UserDaoImpl extends JpaRepositoryImpl<User> implements UserDao{
             }
         }
         return userDto;
+    }
+
+    @Override
+    public List<User> listOfUserPerRole(String roleName) {
+        List<User> users = new ArrayList<>();
+        try (EntityManagerFactory em =
+                     jakarta.persistence.Persistence.createEntityManagerFactory("gestion-hospitaliere-unit")) {
+            EntityManager entityManager = em.createEntityManager();
+            entityManager.getTransaction().begin();
+            Query findUsersByRole = entityManager.createQuery("From User u where u.role.name =:roleName");
+            findUsersByRole.setParameter("roleName", roleName);
+            var resultList = findUsersByRole.getResultList();
+            if (!resultList.isEmpty()) {
+                users.addAll(resultList);
+            }
+        }
+        return users;
     }
 }

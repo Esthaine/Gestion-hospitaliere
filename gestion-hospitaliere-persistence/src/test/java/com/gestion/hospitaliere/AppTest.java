@@ -8,6 +8,7 @@ import org.junit.jupiter.api.Test;
 
 import java.time.LocalDate;
 import java.util.Date;
+import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -25,6 +26,8 @@ public class AppTest
     PersonDao personDao;
     PrivilegeDao privilegeDao;
     RoleDao roleDao;
+    VilleDao villeDao;
+    PaysDao paysDao;
 
     RolePrivilegeDao rolePrivilegeDao;
 
@@ -39,6 +42,8 @@ public class AppTest
     Class<Privilege> privilege;
 
     Class<RolePrivilege> rolePrivilegeClass;
+    Class<Ville> ville;
+    Class<Pays> pays;
 
     @BeforeEach
     void init() throws ClassNotFoundException {
@@ -49,6 +54,8 @@ public class AppTest
         role = (Class<Role>) Class.forName("com.gestion.hospitaliere.entity.Role");
         privilege = (Class<Privilege>)  Class.forName("com.gestion.hospitaliere.entity.Privilege");
         rolePrivilegeClass = (Class<RolePrivilege>) Class.forName("com.gestion.hospitaliere.entity.RolePrivilege");
+        ville = (Class<Ville>) Class.forName("com.gestion.hospitaliere.entity.Ville");
+        pays = (Class<Pays>) Class.forName("com.gestion.hospitaliere.entity.Pays");
 
 
         userDao = new UserDaoImpl(user);
@@ -58,6 +65,9 @@ public class AppTest
         personDao = new PersonDaoImpl(person);
         roleDao = new RoleDaoImpl(role);
         rolePrivilegeDao = new RolePrivilegeDaoImpl(rolePrivilegeClass);
+
+        villeDao = new VilleDaoImpl(ville);
+        paysDao = new PaysDaoImpl(pays);
 
     }
 
@@ -101,7 +111,7 @@ public class AppTest
     }
 
 
-    @Test
+    //@Test
     void createRole(){
         Role adminRole = new Role();
         adminRole.setName("ADMIN");
@@ -131,21 +141,33 @@ public class AppTest
     @Test
     void createUser(){
 
-
-
         User user = new User();
-        user.setEmail("john@gmail.com");
-        user.setUsername("john");
+        user.setEmail("yha@gmail.com");
+        user.setUsername("yha");
         user.setMotDePasse("123456");
 
         Role patient = roleDao.findRoleByName("PATIENT");
         user.setRole(patient);
 
+        Address address = new Address();
+        Ville ville = villeDao.findById(1L);
+        Pays pays = paysDao.findById(1L);
+
+        address.setHouseNumber("12");
+        address.setPays(pays);
+        address.setVille(ville);
+        address.setTownship("Ngaliema");
+        address.setRegion(ville.getRegion());
         Person person = new Person();
         person.setDateOfBirth(new Date());
-        person.setFirstName("John");
-        person.setGivenName("Doe");
-        person.setLastName("Doe");
+        person.setFirstName("yha");
+        person.setGivenName("Ya");
+        person.setLastName("Ya");
+        person.setPhoneNumber("08977902");
+        person.setAddress(address);
+        person.setGenre(Genre.MASCULIN);
+
+
         person.setUser(user);
 
 
@@ -153,7 +175,122 @@ public class AppTest
 
     }
 
+
+
+    //@Test
+    void createAdmin(){
+        User user = new User();
+        user.setEmail("admin2@gmail.com");
+        user.setUsername("admin2");
+        user.setMotDePasse("123456");
+
+        Role patient = roleDao.findRoleByName("ADMIN");
+        user.setRole(patient);
+
+        Person person = new Person();
+        person.setDateOfBirth(new Date());
+        person.setFirstName("admin2");
+        person.setGivenName("admin2");
+        person.setLastName("admin2");
+        person.setUser(user);
+
+
+        personDao.save(person);
+    }
+
+    //@Test
+    void createNursing(){
+        User user = new User();
+        user.setEmail("jackie@gmail.com");
+        user.setUsername("jackie");
+        user.setMotDePasse("123456");
+
+        Role patient = roleDao.findRoleByName("INFIRMIER");
+        user.setRole(patient);
+
+        Person person = new Person();
+        person.setDateOfBirth(new Date());
+        person.setFirstName("jackie");
+        person.setGivenName("kasongo");
+        person.setLastName("mujinga");
+        person.setUser(user);
+
+
+        personDao.save(person);
+    }
+
     @Test
+    void createMedecin(){
+
+        User user = new User();
+        user.setEmail("george@gmail.com");
+        user.setUsername("george");
+        user.setMotDePasse("123456");
+
+        Role patient = roleDao.findRoleByName("MEDECIN");
+        user.setRole(patient);
+
+        Person person = new Person();
+        person.setDateOfBirth(new Date());
+        person.setFirstName("george");
+        person.setGivenName("kapiamba");
+        person.setLastName("mbala");
+        person.setUser(user);
+
+
+        personDao.save(person);
+    }
+
+    @Test
+    void createMedecin2(){
+
+        User user = new User();
+        user.setEmail("simeon@gmail.com");
+        user.setUsername("simeon");
+        user.setMotDePasse("123456");
+
+        Role patient = roleDao.findRoleByName("MEDECIN");
+        user.setRole(patient);
+
+        Person person = new Person();
+        person.setDateOfBirth(new Date());
+        person.setFirstName("simeon");
+        person.setGivenName("Ntoka");
+        person.setGenre(Genre.MASCULIN);
+        person.setGivenName("Mulenda");
+        person.setLastName("Kazadi");
+        person.setUser(user);
+
+
+        personDao.save(person);
+    }
+
+    @Test
+    void createMedecin3(){
+
+        User user = new User();
+        user.setEmail("freddy@gmail.com");
+        user.setUsername("freddy");
+        user.setMotDePasse("123456");
+
+        Role patient = roleDao.findRoleByName("MEDECIN");
+        user.setRole(patient);
+
+        Person person = new Person();
+        person.setDateOfBirth(new Date());
+        person.setFirstName("freddy");
+        person.setGivenName("rulio");
+        person.setGenre(Genre.MASCULIN);
+        person.setGivenName("Kabamba");
+        person.setGivenName("Kisenga");
+        person.setLastName("Banza");
+        person.setUser(user);
+
+
+        personDao.save(person);
+    }
+
+    //@Test
     void createPrivilege(){
 
         Role adminRole = new Role();
@@ -304,4 +441,17 @@ public class AppTest
         rolePrivilege16.setRole(adminRole);
         rolePrivilegeDao.save(rolePrivilege16);
     }
+
+
+    @Test
+    void readListOfUserPerRole(){
+
+        List<User> users =  userDao.listOfUserPerRole("INFIRMIER");
+        users.addAll(userDao.listOfUserPerRole("MEDECIN"));
+        System.out.println(users);
+        assertNotNull(users);
+    }
+
+
+
 }
