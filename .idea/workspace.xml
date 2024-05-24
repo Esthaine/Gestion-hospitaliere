@@ -12,90 +12,26 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5e79d91d-59bf-4f33-9107-d06ef1da79fc" name="Changes" comment="Config">
-      <change afterPath="$PROJECT_DIR$/.idea/webContexts.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gestion-hospitaliere-persistence/src/main/java/com/gestion/hospitaliere/entity/Analyse.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gestion-hospitaliere-persistence/src/main/java/com/gestion/hospitaliere/entity/DemandeExamen.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gestion-hospitaliere-persistence/src/main/java/com/gestion/hospitaliere/entity/FicheStatus.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gestion-hospitaliere-persistence/src/main/java/com/gestion/hospitaliere/entity/Question.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gestion-hospitaliere-persistence/src/main/java/com/gestion/hospitaliere/entity/RendezVousStatus.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gestion-hospitaliere-persistence/src/main/java/com/gestion/hospitaliere/entity/Service.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gestion-hospitaliere-persistence/src/main/java/com/gestion/hospitaliere/utils/PersistenceUtils.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gestion-hospitaliere-persistence/src/test/java/com/gestion/hospitaliere/CreateFicheTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gestion-hospitaliere-persistence/src/test/java/com/gestion/hospitaliere/DepartmentTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gestion-hospitaliere-service-v2/src/main/java/com/gestion/hospitaliere/utils/AppUtils.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gestion-hospitaliere-ws/src/main/java/com/gestion/hospitaliere/servlets/ConsultationMedecinServlet.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gestion-hospitaliere-ws/src/main/java/com/gestion/hospitaliere/servlets/DepartmentServlet.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gestion-hospitaliere-ws/src/main/java/com/gestion/hospitaliere/servlets/HistoriqueRendezVousServlet.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gestion-hospitaliere-ws/src/main/java/com/gestion/hospitaliere/servlets/LogoutServlet.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gestion-hospitaliere-ws/src/main/java/com/gestion/hospitaliere/servlets/hospital/PatientCreerModifServlet.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gestion-hospitaliere-ws/src/main/java/com/gestion/hospitaliere/servlets/hospital/PatientPremierSoinsServlet.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gestion-hospitaliere-ws/src/main/java/com/gestion/hospitaliere/servlets/hospital/PrendreRdvPatientServlet.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gestion-hospitaliere-ws/src/main/java/com/gestion/hospitaliere/servlets/utils/WebUtils.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gestion-hospitaliere-ws/src/main/webapp/department.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gestion-hospitaliere-ws/src/main/webapp/historiqueRendezVous.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gestion-hospitaliere-ws/src/main/webapp/hospital/consultations.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gestion-hospitaliere-ws/src/main/webapp/hospital/patientCreerModif.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gestion-hospitaliere-ws/src/main/webapp/hospital/patientPremierSoins.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gestion-hospitaliere-ws/src/main/webapp/hospital/prendreRdvPatient.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/runConfigurations/Tomcat_10_1_17.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/runConfigurations/Tomcat_10_1_17.xml" afterDir="false" />
+    <list default="true" id="5e79d91d-59bf-4f33-9107-d06ef1da79fc" name="Changes" comment="Some added">
+      <change afterPath="$PROJECT_DIR$/gestion-hospitaliere-ws/src/main/java/com/gestion/hospitaliere/servlets/hospital/ConsultationServlet.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gestion-hospitaliere-persistence/src/main/java/com/gestion/hospitaliere/dao/DepartementDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/gestion-hospitaliere-persistence/src/main/java/com/gestion/hospitaliere/dao/DepartementDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gestion-hospitaliere-persistence/src/main/java/com/gestion/hospitaliere/dao/JpaRepositoryImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/gestion-hospitaliere-persistence/src/main/java/com/gestion/hospitaliere/dao/JpaRepositoryImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gestion-hospitaliere-persistence/src/main/java/com/gestion/hospitaliere/dao/PersonDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/gestion-hospitaliere-persistence/src/main/java/com/gestion/hospitaliere/dao/PersonDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gestion-hospitaliere-persistence/src/main/java/com/gestion/hospitaliere/dao/RendezVousDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/gestion-hospitaliere-persistence/src/main/java/com/gestion/hospitaliere/dao/RendezVousDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gestion-hospitaliere-persistence/src/main/java/com/gestion/hospitaliere/dao/UserDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/gestion-hospitaliere-persistence/src/main/java/com/gestion/hospitaliere/dao/UserDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gestion-hospitaliere-persistence/src/main/java/com/gestion/hospitaliere/dao/impl/DepartementDaoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/gestion-hospitaliere-persistence/src/main/java/com/gestion/hospitaliere/dao/impl/DepartementDaoImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gestion-hospitaliere-persistence/src/main/java/com/gestion/hospitaliere/dao/impl/PersonDaoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/gestion-hospitaliere-persistence/src/main/java/com/gestion/hospitaliere/dao/impl/PersonDaoImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gestion-hospitaliere-persistence/src/main/java/com/gestion/hospitaliere/dao/impl/RendezVousDaoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/gestion-hospitaliere-persistence/src/main/java/com/gestion/hospitaliere/dao/impl/RendezVousDaoImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gestion-hospitaliere-persistence/src/main/java/com/gestion/hospitaliere/dao/impl/UserDaoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/gestion-hospitaliere-persistence/src/main/java/com/gestion/hospitaliere/dao/impl/UserDaoImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gestion-hospitaliere-persistence/src/main/java/com/gestion/hospitaliere/entity/Address.java" beforeDir="false" afterPath="$PROJECT_DIR$/gestion-hospitaliere-persistence/src/main/java/com/gestion/hospitaliere/entity/Address.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gestion-hospitaliere-persistence/src/main/java/com/gestion/hospitaliere/entity/AntecedentMedical.java" beforeDir="false" afterPath="$PROJECT_DIR$/gestion-hospitaliere-persistence/src/main/java/com/gestion/hospitaliere/entity/AntecedentMedical.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gestion-hospitaliere-persistence/src/main/java/com/gestion/hospitaliere/entity/Departement.java" beforeDir="false" afterPath="$PROJECT_DIR$/gestion-hospitaliere-persistence/src/main/java/com/gestion/hospitaliere/entity/Departement.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gestion-hospitaliere-persistence/src/main/java/com/gestion/hospitaliere/entity/Examen.java" beforeDir="false" afterPath="$PROJECT_DIR$/gestion-hospitaliere-persistence/src/main/java/com/gestion/hospitaliere/entity/Examen.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gestion-hospitaliere-persistence/src/main/java/com/gestion/hospitaliere/dao/FicheDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/gestion-hospitaliere-persistence/src/main/java/com/gestion/hospitaliere/dao/FicheDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gestion-hospitaliere-persistence/src/main/java/com/gestion/hospitaliere/dao/impl/FicheDaoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/gestion-hospitaliere-persistence/src/main/java/com/gestion/hospitaliere/dao/impl/FicheDaoImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/gestion-hospitaliere-persistence/src/main/java/com/gestion/hospitaliere/entity/Fiche.java" beforeDir="false" afterPath="$PROJECT_DIR$/gestion-hospitaliere-persistence/src/main/java/com/gestion/hospitaliere/entity/Fiche.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gestion-hospitaliere-persistence/src/main/java/com/gestion/hospitaliere/entity/Medicament.java" beforeDir="false" afterPath="$PROJECT_DIR$/gestion-hospitaliere-persistence/src/main/java/com/gestion/hospitaliere/entity/Medicament.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gestion-hospitaliere-persistence/src/main/java/com/gestion/hospitaliere/entity/Pays.java" beforeDir="false" afterPath="$PROJECT_DIR$/gestion-hospitaliere-persistence/src/main/java/com/gestion/hospitaliere/entity/Pays.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gestion-hospitaliere-persistence/src/main/java/com/gestion/hospitaliere/entity/Person.java" beforeDir="false" afterPath="$PROJECT_DIR$/gestion-hospitaliere-persistence/src/main/java/com/gestion/hospitaliere/entity/Person.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gestion-hospitaliere-persistence/src/main/java/com/gestion/hospitaliere/entity/Region.java" beforeDir="false" afterPath="$PROJECT_DIR$/gestion-hospitaliere-persistence/src/main/java/com/gestion/hospitaliere/entity/Region.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gestion-hospitaliere-persistence/src/main/java/com/gestion/hospitaliere/entity/Rendezvous.java" beforeDir="false" afterPath="$PROJECT_DIR$/gestion-hospitaliere-persistence/src/main/java/com/gestion/hospitaliere/entity/Rendezvous.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gestion-hospitaliere-persistence/src/main/java/com/gestion/hospitaliere/entity/ResultatsExamens.java" beforeDir="false" afterPath="$PROJECT_DIR$/gestion-hospitaliere-persistence/src/main/java/com/gestion/hospitaliere/entity/ResultatsExamens.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gestion-hospitaliere-persistence/src/main/java/com/gestion/hospitaliere/entity/Role.java" beforeDir="false" afterPath="$PROJECT_DIR$/gestion-hospitaliere-persistence/src/main/java/com/gestion/hospitaliere/entity/Role.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gestion-hospitaliere-persistence/src/main/java/com/gestion/hospitaliere/entity/Symptomes.java" beforeDir="false" afterPath="$PROJECT_DIR$/gestion-hospitaliere-persistence/src/main/java/com/gestion/hospitaliere/entity/Symptomes.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gestion-hospitaliere-persistence/src/main/java/com/gestion/hospitaliere/entity/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/gestion-hospitaliere-persistence/src/main/java/com/gestion/hospitaliere/entity/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gestion-hospitaliere-persistence/src/main/java/com/gestion/hospitaliere/entity/Ville.java" beforeDir="false" afterPath="$PROJECT_DIR$/gestion-hospitaliere-persistence/src/main/java/com/gestion/hospitaliere/entity/Ville.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gestion-hospitaliere-persistence/src/main/resources/META-INF/persistence.xml" beforeDir="false" afterPath="$PROJECT_DIR$/gestion-hospitaliere-persistence/src/main/resources/META-INF/persistence.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gestion-hospitaliere-persistence/src/test/java/com/gestion/hospitaliere/AppTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/gestion-hospitaliere-persistence/src/test/java/com/gestion/hospitaliere/AppTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gestion-hospitaliere-persistence/src/test/java/com/gestion/hospitaliere/CreateFicheTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/gestion-hospitaliere-persistence/src/test/java/com/gestion/hospitaliere/CreateFicheTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/gestion-hospitaliere-persistence/src/test/java/com/gestion/hospitaliere/RendezVousTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/gestion-hospitaliere-persistence/src/test/java/com/gestion/hospitaliere/RendezVousTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/gestion-hospitaliere-service-v2/src/main/java/com/gestion/hospitaliere/service/IRendezVousService.java" beforeDir="false" afterPath="$PROJECT_DIR$/gestion-hospitaliere-service-v2/src/main/java/com/gestion/hospitaliere/service/IRendezVousService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gestion-hospitaliere-service-v2/src/main/java/com/gestion/hospitaliere/service/IUserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/gestion-hospitaliere-service-v2/src/main/java/com/gestion/hospitaliere/service/IUserService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/gestion-hospitaliere-service-v2/src/main/java/com/gestion/hospitaliere/service/impl/RendezVousServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/gestion-hospitaliere-service-v2/src/main/java/com/gestion/hospitaliere/service/impl/RendezVousServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/gestion-hospitaliere-service-v2/src/main/java/com/gestion/hospitaliere/service/impl/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/gestion-hospitaliere-service-v2/src/main/java/com/gestion/hospitaliere/service/impl/UserServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gestion-hospitaliere-service-v2/src/main/java/com/gestion/hospitaliere/utils/AppConst.java" beforeDir="false" afterPath="$PROJECT_DIR$/gestion-hospitaliere-service-v2/src/main/java/com/gestion/hospitaliere/utils/AppConst.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gestion-hospitaliere-ws/src/main/java/com/gestion/hospitaliere/servlets/DoctorServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/gestion-hospitaliere-ws/src/main/java/com/gestion/hospitaliere/servlets/DoctorServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gestion-hospitaliere-ws/src/main/java/com/gestion/hospitaliere/servlets/ListeDoctorsServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/gestion-hospitaliere-ws/src/main/java/com/gestion/hospitaliere/servlets/ListeDoctorsServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gestion-hospitaliere-ws/src/main/java/com/gestion/hospitaliere/servlets/LocalisationServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/gestion-hospitaliere-ws/src/main/java/com/gestion/hospitaliere/servlets/PatientProfilServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gestion-hospitaliere-ws/src/main/java/com/gestion/hospitaliere/servlets/filters/HopitalsMemberFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/gestion-hospitaliere-ws/src/main/java/com/gestion/hospitaliere/servlets/filters/HopitalsMemberFilter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gestion-hospitaliere-ws/src/main/java/com/gestion/hospitaliere/servlets/hospital/DocteursServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/gestion-hospitaliere-ws/src/main/java/com/gestion/hospitaliere/servlets/hospital/DocteursServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gestion-hospitaliere-service-v2/src/main/java/com/gestion/hospitaliere/utils/AppUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/gestion-hospitaliere-service-v2/src/main/java/com/gestion/hospitaliere/utils/AppUtils.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/gestion-hospitaliere-ws/src/main/java/com/gestion/hospitaliere/servlets/hospital/PatientAppointmentServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/gestion-hospitaliere-ws/src/main/java/com/gestion/hospitaliere/servlets/hospital/PatientAppointmentServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gestion-hospitaliere-ws/src/main/java/com/gestion/hospitaliere/servlets/hospital/UserProfileServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/gestion-hospitaliere-ws/src/main/java/com/gestion/hospitaliere/servlets/hospital/UserProfileServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gestion-hospitaliere-ws/src/main/webapp/appointment.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/gestion-hospitaliere-ws/src/main/webapp/appointment.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gestion-hospitaliere-ws/src/main/webapp/components/externals.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/gestion-hospitaliere-ws/src/main/webapp/components/externals.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gestion-hospitaliere-ws/src/main/webapp/components/footer.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/gestion-hospitaliere-ws/src/main/webapp/components/footer.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gestion-hospitaliere-ws/src/main/webapp/components/header.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/gestion-hospitaliere-ws/src/main/webapp/components/header.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gestion-hospitaliere-ws/src/main/webapp/docteurs.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/gestion-hospitaliere-ws/src/main/webapp/docteurs.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gestion-hospitaliere-ws/src/main/java/com/gestion/hospitaliere/servlets/hospital/PatientPremierSoinsServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/gestion-hospitaliere-ws/src/main/java/com/gestion/hospitaliere/servlets/hospital/PatientPremierSoinsServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gestion-hospitaliere-ws/src/main/java/com/gestion/hospitaliere/servlets/hospital/PrendreRdvPatientServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/gestion-hospitaliere-ws/src/main/java/com/gestion/hospitaliere/servlets/hospital/PrendreRdvPatientServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gestion-hospitaliere-ws/src/main/java/com/gestion/hospitaliere/servlets/utils/WebUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/gestion-hospitaliere-ws/src/main/java/com/gestion/hospitaliere/servlets/utils/WebUtils.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/gestion-hospitaliere-ws/src/main/webapp/hospital/appointment.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/gestion-hospitaliere-ws/src/main/webapp/hospital/appointment.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gestion-hospitaliere-ws/src/main/webapp/hospital/components/sidebar.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/gestion-hospitaliere-ws/src/main/webapp/hospital/components/sidebar.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gestion-hospitaliere-ws/src/main/webapp/hospital/components/topbar.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/gestion-hospitaliere-ws/src/main/webapp/hospital/components/topbar.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gestion-hospitaliere-ws/src/main/webapp/hospital/dashboard.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/gestion-hospitaliere-ws/src/main/webapp/hospital/dashboard.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gestion-hospitaliere-ws/src/main/webapp/hospital/docteurs.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/gestion-hospitaliere-ws/src/main/webapp/hospital/docteurs.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gestion-hospitaliere-ws/src/main/webapp/hospital/patientPremierSoins.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/gestion-hospitaliere-ws/src/main/webapp/hospital/patientPremierSoins.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/gestion-hospitaliere-ws/src/main/webapp/hospital/patients.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/gestion-hospitaliere-ws/src/main/webapp/hospital/patients.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gestion-hospitaliere-ws/src/main/webapp/hospital/userProfile.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/gestion-hospitaliere-ws/src/main/webapp/hospital/userProfile.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gestion-hospitaliere-ws/src/main/webapp/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/gestion-hospitaliere-ws/src/main/webapp/index.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gestion-hospitaliere-ws/src/main/webapp/localisation.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/gestion-hospitaliere-ws/src/main/webapp/patientProfile.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gestion-hospitaliere-ws/src/main/webapp/register.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/gestion-hospitaliere-ws/src/main/webapp/register.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gestion-hospitaliere-ws/src/main/webapp/styles/header.css" beforeDir="false" afterPath="$PROJECT_DIR$/gestion-hospitaliere-ws/src/main/webapp/styles/header.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gestion-hospitaliere-ws/src/main/webapp/styles/hospital/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/gestion-hospitaliere-ws/src/main/webapp/styles/hospital/main.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gestion-hospitaliere-ws/src/main/webapp/hospital/prendreRdvPatient.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/gestion-hospitaliere-ws/src/main/webapp/hospital/prendreRdvPatient.jsp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -109,8 +45,8 @@
         <option value="Enum" />
         <option value="Interface" />
         <option value="package-info" />
-        <option value="Class" />
         <option value="Jsp File" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -183,6 +119,7 @@
     "JUnit.AppTest.mappPrivilegesToRole.executor": "Run",
     "JUnit.AppTest.readListOfUserPerRole.executor": "Run",
     "JUnit.CreateFicheTest.ficheCreation.executor": "Run",
+    "JUnit.CreateFicheTest.findFicheByPatient.executor": "Run",
     "JUnit.DepartmentTest.executor": "Run",
     "JUnit.RegionTest.creerPaysAvecDifferentRegionEtVille.executor": "Run",
     "JUnit.RendezVousTest.creerUnRendezVous.executor": "Run",
@@ -247,22 +184,6 @@
     </option>
   </component>
   <component name="RunManager" selected="Tomcat Server.Tomcat 10.1.17">
-    <configuration name="AppTest.createAdmin" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="gestion-hospitaliere-persistence" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.gestion.hospitaliere.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.gestion.hospitaliere" />
-      <option name="MAIN_CLASS_NAME" value="com.gestion.hospitaliere.AppTest" />
-      <option name="METHOD_NAME" value="createAdmin" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="AppTest.createUser" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="gestion-hospitaliere-persistence" />
       <extension name="coverage">
@@ -279,7 +200,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="AppTest.mappPrivilegesToRole" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="CreateFicheTest.ficheCreation" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="gestion-hospitaliere-persistence" />
       <extension name="coverage">
         <pattern>
@@ -288,14 +209,14 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="com.gestion.hospitaliere" />
-      <option name="MAIN_CLASS_NAME" value="com.gestion.hospitaliere.AppTest" />
-      <option name="METHOD_NAME" value="mappPrivilegesToRole" />
+      <option name="MAIN_CLASS_NAME" value="com.gestion.hospitaliere.CreateFicheTest" />
+      <option name="METHOD_NAME" value="ficheCreation" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="RegionTest.creerPaysAvecDifferentRegionEtVille" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="CreateFicheTest.findFicheByPatient" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="gestion-hospitaliere-persistence" />
       <extension name="coverage">
         <pattern>
@@ -304,8 +225,24 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="com.gestion.hospitaliere" />
-      <option name="MAIN_CLASS_NAME" value="com.gestion.hospitaliere.RegionTest" />
-      <option name="METHOD_NAME" value="creerPaysAvecDifferentRegionEtVille" />
+      <option name="MAIN_CLASS_NAME" value="com.gestion.hospitaliere.CreateFicheTest" />
+      <option name="METHOD_NAME" value="findFicheByPatient" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="RendezVousTest.creerUnRendezVous" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="gestion-hospitaliere-persistence" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.gestion.hospitaliere.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.gestion.hospitaliere" />
+      <option name="MAIN_CLASS_NAME" value="com.gestion.hospitaliere.RendezVousTest" />
+      <option name="METHOD_NAME" value="creerUnRendezVous" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -325,6 +262,93 @@
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Tomcat 10.1.17" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 10.1.17" ALTERNATIVE_JRE_ENABLED="false" nameIsGenerated="true">
+      <option name="UPDATING_POLICY" value="restart-server" />
+      <deployment>
+        <artifact name="gestion-hospitaliere-ws:war">
+          <settings>
+            <option name="CONTEXT_PATH" value="/gestion_hospitaliere_ws_war" />
+          </settings>
+        </artifact>
+      </deployment>
+      <server-settings>
+        <option name="BASE_DIRECTORY_NAME" value="50795f61-6e60-4a79-8e5e-86ba3e35623a" />
+      </server-settings>
+      <predefined_log_file enabled="true" id="Tomcat" />
+      <predefined_log_file enabled="true" id="Tomcat Catalina" />
+      <predefined_log_file id="Tomcat Manager" />
+      <predefined_log_file id="Tomcat Host Manager" />
+      <predefined_log_file id="Tomcat Localhost Access" />
+      <RunnerSettings RunnerId="Debug">
+        <option name="DEBUG_PORT" value="50054" />
+      </RunnerSettings>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Cover">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Debug">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Profile">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Run">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <method v="2">
+        <option name="Make" enabled="true" />
+        <option name="BuildArtifacts" enabled="true">
+          <artifact name="gestion-hospitaliere-ws:war" />
+        </option>
       </method>
     </configuration>
     <configuration default="true" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 10.1.17" ALTERNATIVE_JRE_ENABLED="false">
@@ -406,20 +430,20 @@
       </method>
     </configuration>
     <list>
-      <item itemvalue="JUnit.AppTest.createUser" />
-      <item itemvalue="JUnit.AppTest.mappPrivilegesToRole" />
-      <item itemvalue="JUnit.AppTest.createAdmin" />
-      <item itemvalue="JUnit.RegionTest.creerPaysAvecDifferentRegionEtVille" />
+      <item itemvalue="JUnit.CreateFicheTest.ficheCreation" />
+      <item itemvalue="JUnit.CreateFicheTest.findFicheByPatient" />
       <item itemvalue="JUnit.RendezVousTest.listOfRendezVousPerPatient" />
+      <item itemvalue="JUnit.AppTest.createUser" />
+      <item itemvalue="JUnit.RendezVousTest.creerUnRendezVous" />
       <item itemvalue="Tomcat Server.Tomcat 10.1.17" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.AppTest.createUser" />
-        <item itemvalue="JUnit.AppTest.mappPrivilegesToRole" />
-        <item itemvalue="JUnit.RegionTest.creerPaysAvecDifferentRegionEtVille" />
-        <item itemvalue="JUnit.AppTest.createAdmin" />
         <item itemvalue="JUnit.RendezVousTest.listOfRendezVousPerPatient" />
+        <item itemvalue="JUnit.CreateFicheTest.ficheCreation" />
+        <item itemvalue="JUnit.CreateFicheTest.findFicheByPatient" />
+        <item itemvalue="JUnit.RendezVousTest.creerUnRendezVous" />
+        <item itemvalue="JUnit.AppTest.createUser" />
       </list>
     </recent_temporary>
   </component>
@@ -459,7 +483,8 @@
       <workItem from="1716017002358" duration="56000" />
       <workItem from="1716017202799" duration="34518000" />
       <workItem from="1716181583004" duration="22986000" />
-      <workItem from="1716314718694" duration="20497000" />
+      <workItem from="1716314718694" duration="21902000" />
+      <workItem from="1716395032632" duration="37767000" />
     </task>
     <task id="LOCAL-00001" summary="Iniatialisation du projet">
       <created>1700246058549</created>
@@ -498,7 +523,15 @@
       <option name="project" value="LOCAL" />
       <updated>1711199296106</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Some added">
+      <option name="closed" value="true" />
+      <created>1716353687914</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1716353687914</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -522,66 +555,13 @@
     <MESSAGE value="Config" />
     <MESSAGE value="jsp extension added in SearchServlet.java" />
     <MESSAGE value="Connexion error affichage arranger." />
-    <option name="LAST_COMMIT_MESSAGE" value="Connexion error affichage arranger." />
+    <MESSAGE value="Some added" />
+    <option name="LAST_COMMIT_MESSAGE" value="Some added" />
   </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/gestion-hospitaliere-service-v2/src/main/java/com/gestion/hospitaliere/service/impl/UserServiceImpl.java</url>
-          <line>172</line>
-          <option name="timeStamp" value="5" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/gestion-hospitaliere-service-v2/src/main/java/com/gestion/hospitaliere/service/impl/UserServiceImpl.java</url>
-          <line>182</line>
-          <option name="timeStamp" value="7" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/gestion-hospitaliere-service-v2/src/main/java/com/gestion/hospitaliere/service/impl/UserServiceImpl.java</url>
-          <line>170</line>
-          <option name="timeStamp" value="8" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/gestion-hospitaliere-service-v2/src/main/java/com/gestion/hospitaliere/service/impl/UserServiceImpl.java</url>
-          <line>178</line>
-          <option name="timeStamp" value="9" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/gestion-hospitaliere-service-v2/src/main/java/com/gestion/hospitaliere/service/impl/UserServiceImpl.java</url>
-          <line>175</line>
-          <option name="timeStamp" value="15" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/gestion-hospitaliere-persistence/src/main/java/com/gestion/hospitaliere/dao/JpaRepositoryImpl.java</url>
-          <line>24</line>
-          <option name="timeStamp" value="16" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/gestion-hospitaliere-persistence/src/main/java/com/gestion/hospitaliere/dao/JpaRepositoryImpl.java</url>
-          <line>26</line>
-          <option name="timeStamp" value="17" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/gestion-hospitaliere-persistence/src/main/java/com/gestion/hospitaliere/dao/JpaRepositoryImpl.java</url>
-          <line>28</line>
-          <option name="timeStamp" value="18" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/gestion-hospitaliere-persistence/src/main/java/com/gestion/hospitaliere/dao/JpaRepositoryImpl.java</url>
-          <line>30</line>
-          <option name="timeStamp" value="19" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/gestion-hospitaliere-service-v2/src/main/java/com/gestion/hospitaliere/service/impl/UserServiceImpl.java</url>
-          <line>180</line>
-          <option name="timeStamp" value="20" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
     <watches-manager>
       <configuration name="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory">
-        <watch expression="{&#10;        String dateString = &quot;01-01-2022&quot;;&#10;        String pattern = &quot;dd-MM-yyyy&quot;;&#10;&#10;        SimpleDateFormat dateFormat = new SimpleDateFormat(pattern);&#10;&#10;        try {&#10;            Date date = dateFormat.parse(dateString);&#10;            System.out.println(date);&#10;        } catch (ParseException e) {&#10;            e.printStackTrace();&#10;        }&#10;    }" />
+        <watch expression="{&#10;        String dateString = &quot;01-01-2022&quot;;&#10;        String pattern = &quot;dd-MM-yyyy&quot;;&#10;&#10;        SimpleDateFormat dateFormat = new SimpleDateFormat(pattern);&#10;&#10;        try {&#10;            Date date = dateFormat.parse(dateString);&#10;            System.out.println();&#10;        } catch (ParseException e) {&#10;            e.printStackTrace();&#10;        }&#10;    }" language="JAVA" />
       </configuration>
     </watches-manager>
   </component>

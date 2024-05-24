@@ -75,8 +75,8 @@ public class RendezVousTest {
         rendezvous.setDocteurSet(docteur);
         rendezvous.setStatus(RendezVousStatus.NOUVEAU);
         rendezVousDao.save(rendezvous);
-        System.out.println(people.getUser().getEmail());
-        System.out.println("Find Person: " + patient.getRole());
+        //System.out.println(people.getUser().getEmail());
+        //System.out.println("Find Person: " + patient.getRole());
     }
 
     @Test

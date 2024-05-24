@@ -6,10 +6,10 @@ import java.util.Set;
 @Entity
 public class Fiche extends AbstractEntity{
 
-    @OneToOne
+    @ManyToOne(cascade = CascadeType.MERGE)
     private User createdBy;
 
-    @OneToOne
+    @OneToOne(cascade = CascadeType.MERGE)
     private Person patient;
 
     @Enumerated(EnumType.STRING)

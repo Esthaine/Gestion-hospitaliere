@@ -3,22 +3,12 @@
 <%@ page import="com.gestion.hospitaliere.entity.Person" %>
 <%@ page import="com.gestion.hospitaliere.dao.PersonDao" %>
 <%@ page import="com.gestion.hospitaliere.dao.impl.PersonDaoImpl" %>
-<%@ page import="com.gestion.hospitaliere.dao.RendezVousDao" %>
-<%@ page import="com.gestion.hospitaliere.dao.impl.RendezVousDaoImpl" %>
-<%@ page import="java.util.concurrent.ExecutionException" %>
 <%@ page import="com.gestion.hospitaliere.entity.RendezVousStatus" %>
 <jsp:include page="components/topbar.jsp" />
 <%
     List<Rendezvous> rendezvousList = (List<Rendezvous>) request.getAttribute("rendezvousList");
-    String action = (String) request.getParameter("action");
-    Long rendezvousId = (Long) request.getAttribute("rendezvousId");
-    Long personId = (Long) request.getAttribute("personId");
     PersonDao personDao;
-    RendezVousDao rendezVousDao;
     Person person = null;
-    Rendezvous rendezVs = null;
-
-
     try {
         personDao = new PersonDaoImpl((Class<Person>) Class.forName("com.gestion.hospitaliere.entity.Person"));
     } catch (ClassNotFoundException e) {
@@ -28,9 +18,8 @@
 <div class="main">
     <jsp:include page="components/sidebar.jsp" />
     <div class="content">
-        <% if (action == null) {%>
-        <div class="header-content">
 
+        <div class="header-content">
 <%--            <button class="btn btn-green">Exporter liste des rendez-vouis medicales</button>--%>
             <form>
                 <input type="search" placeholder="recherche par nom du patient">
@@ -47,24 +36,23 @@
             <th>Action</th>
             </thead>
             <tbody>
-            <%}%>
                 <%
-                    if (action == null) {
-                        if (rendezvousList != null && rendezvousList.size() > 0) {
-                            for (Rendezvous rendezvous : rendezvousList) {
-                                if (personDao != null){
-                                    try{
-                                        if (personDao.findByUserId(rendezvous.getPerson().getUser().getId()) != null){
-                                            person = personDao.findByUserId(rendezvous.getPerson().getUser().getId());
-                                        }
-                                    }catch (Exception e){
-                                        e.printStackTrace();
-                                    }
+                    int i = 0;
+                    if (rendezvousList != null && rendezvousList.size() > 0) {
+                        for (Rendezvous rendezvous : rendezvousList) {
+                            i+=1;
+                            try {
+                                if (personDao != null && personDao.findByUserId(rendezvous.getPerson().getUser().getId()) != null) {
+                                    person = personDao.findByUserId(rendezvous.getPerson().getUser().getId());
                                 }
+                            } catch (Exception e) {
+                                e.printStackTrace();
+                            }
+
                     %>
                             <tr>
                                 <td>
-                                    <%= rendezvous.getId()%>
+                                    <%= i %>
                                 </td>
                                 <td>
                                     <%= person != null && person.getGivenName() != null ? person.getGivenName(): "" %>
@@ -79,7 +67,7 @@
                                     <%
                                         Person patient = null;
                                         try{
-                                            if (personDao.findByUserId(rendezvous.getDocteurSet().getId()) != null){
+                                            if (rendezvous.getDocteurSet() != null && personDao.findByUserId(rendezvous.getDocteurSet().getId()) != null){
                                                 patient = personDao.findByUserId(rendezvous.getDocteurSet().getId());
                                             }
                                         }catch (Exception e){
@@ -96,21 +84,30 @@
                                     <%}%>
                                 </td>
                                 <td>
-                                    <a href="<%= request.getContextPath()%>/hopital/patient/premierSoin?rendezVousId=<%=rendezvous.getId()%>&patientId=<%=rendezvous.getPerson().getId()%>" class="btn btn-purple">Voir</a>
-                                    <% if (!rendezvous.getStatus().equals(RendezVousStatus.ANNULER)) {%>
+                                    <%
+                                        if (rendezvous.getStatus().equals(RendezVousStatus.NOUVEAU)){
+                                    %>
+                                        <a href="<%= request.getContextPath()%>/hopital/patient/premierSoin?rendezVousId=<%=rendezvous.getId()%>&patientId=<%=rendezvous.getPerson().getId()%>" class="btn btn-purple">Voir</a>
                                         <a href="<%= request.getContextPath()%>/hopital/patient/rendezVous?rendezVousId=<%=rendezvous.getId()%>&patientId=<%=rendezvous.getPerson().getId()%>" class="btn btn-green">Reprogrammer</a>
-                                        <a href="<%= request.getContextPath()%>/hopital/rendez-vous?action=cancel&rendezVousId=<%=rendezvous.getId()%>&patientId=<%=rendezvous.getPerson().getId()%>" class="btn btn-red">Annuler</a>
+                                        <a href="<%= request.getContextPath()%>/hopital/rendez-vous?action=cancel&rendezVousId=<%=rendezvous.getId()%>" class="btn btn-red">Annuler</a>
+                                    <%}%>
+                                    <% if (rendezvous.getStatus().equals(RendezVousStatus.ANNULER)) {%>
+                                        <a href="<%= request.getContextPath()%>/hopital/patient/premierSoin?rendezVousId=<%=rendezvous.getId()%>&patientId=<%=rendezvous.getPerson().getId()%>" class="btn btn-purple">Voir</a>
+                                    <%}%>
+                                    <% if (rendezvous.getStatus().equals(RendezVousStatus.REPROGRAMMER)) {%>
+                                        <a href="<%= request.getContextPath()%>/hopital/patient/premierSoin?rendezVousId=<%=rendezvous.getId()%>&patientId=<%=rendezvous.getPerson().getId()%>" class="btn btn-purple">Voir</a>
+                                        <a href="<%= request.getContextPath()%>/hopital/rendez-vous?action=cancel&rendezVousId=<%=rendezvous.getId()%>" class="btn btn-red">Annuler</a>
+                                    <%}%>
+                                    <% if (rendezvous.getStatus().equals(RendezVousStatus.EN_COURS) || rendezvous.getStatus().equals(RendezVousStatus.TRAITER)) {%>
+                                        <a href="<%= request.getContextPath()%>/hopital/patient/premierSoin?rendezVousId=<%=rendezvous.getId()%>&patientId=<%=rendezvous.getPerson().getId()%>" class="btn btn-purple">Voir</a>
                                     <%}%>
                                 </td>
                             </tr>
                 <%
                             }
-                        }
                     }
                 %>
-            <% if (action == null) {%>
                 </tbody>
-            <%}%>
         </table>
     </div>
 </div>

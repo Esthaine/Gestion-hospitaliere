@@ -22,15 +22,15 @@ public class PatientAppointmentServlet extends HttpServlet {
             IRendezVousService rendezVousService = new RendezVousServiceImpl();
 
             if (action != null && rendezVousId != null) {
-                if (action.equals("view") && rendezVousId != null) {
-                    rendezVousService.voirRendezVous(req, resp);
-                    return;
-                }
-
-                if (action.equals("reschedule") && rendezVousId != null) {
-                    rendezVousService.reprogrammerRendeVous(req, resp);
-                    return;
-                }
+//                if (action.equals("view") && rendezVousId != null) {
+//                    rendezVousService.voirRendezVous(req, resp);
+//                    return;
+//                }
+//
+//                if (action.equals("reschedule") && rendezVousId != null) {
+//                    rendezVousService.reprogrammerRendeVous(req, resp);
+//                    return;
+//                }
 
                 if (action.equals("cancel") && rendezVousId != null) {
                     rendezVousService.annullerRendezVous(req, resp);
@@ -40,6 +40,16 @@ public class PatientAppointmentServlet extends HttpServlet {
 //                }
             }
             rendezVousService.listOfAllMedicalsAppointment(req, resp);
+        } catch (ClassNotFoundException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    @Override
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        try {
+            IRendezVousService rendezVousService = new RendezVousServiceImpl();
+            rendezVousService.prendreUnRendezVous(req, resp);
         } catch (ClassNotFoundException e) {
             throw new RuntimeException(e);
         }

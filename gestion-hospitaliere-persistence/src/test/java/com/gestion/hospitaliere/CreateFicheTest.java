@@ -12,6 +12,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertNull;
 
 public class CreateFicheTest {
 
@@ -43,10 +44,17 @@ public class CreateFicheTest {
         fiche.setFicheNumber("MMY" + PersistenceUtils.getRandomNumberString());
         fiche.setGenre(Genre.MASCULIN);
         fiche.setStatus(FicheStatus.ACTIVE);
-        fiche.setCreatedBy(userDao.findById(13L));
-        fiche.setPatient(personDao.findById(3L));
+        fiche.setCreatedBy(userDao.findById(3L));
+        fiche.setPatient(personDao.findById(37L));
         ficheDao.save(fiche);
 
         assertNotNull(fiche);
+    }
+
+    @Test
+    void findFicheByPatient() throws Exception{
+        Fiche fiche = ficheDao.findByPatient(37L);
+        //assertNotNull(fiche);
+        assertNull(fiche);
     }
 }

@@ -65,7 +65,6 @@
                                     <td>
                                         <a href="<%=request.getContextPath()%>/hopital/patient/creerEtModifier?userId=<%=patient.getId()%>" class="btn btn-green">Editer</a>
                                         <a href="<%=request.getContextPath()%>/hopital/patient/rendezVous?userId=<%=patient.getId()%>" class="btn btn-blue">Prendre un Rendez-vous</a>
-
                                     </td>
                                 </tr>
                             <%

@@ -11,4 +11,6 @@ import java.util.List;
 import java.util.stream.Stream;
 
 public interface FicheDao extends JpaRepository<Fiche>{
+
+    Fiche findByPatient(Long id);
 }

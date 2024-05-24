@@ -15,13 +15,12 @@ public class WebUtils {
     }
 
     public static Date convertToDateViaInstant(String dateToConvert) {
-        String dateString = "01-01-2022";
-        String pattern = "dd-MM-yyyy";
-        Date date = null;
-        SimpleDateFormat dateFormat = new SimpleDateFormat(pattern);
 
+        Date date = null;
         try {
-            date = dateFormat.parse(dateString);
+            String pattern = "dd-MM-yyyy";
+            SimpleDateFormat dateFormat = new SimpleDateFormat(pattern);
+            date = dateFormat.parse(dateToConvert);
             System.out.println(date);
         } catch (ParseException e) {
             e.printStackTrace();

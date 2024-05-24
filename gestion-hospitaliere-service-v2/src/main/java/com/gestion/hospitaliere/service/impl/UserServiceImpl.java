@@ -11,7 +11,6 @@ import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
-import jakarta.transaction.Transactional;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -295,17 +294,15 @@ public class UserServiceImpl implements IUserService {
             request.getRequestDispatcher("/patientProfile.jsp").forward(request, response);
         }
 
-//        if (action.equals("edit")){
-            User user = userRepository.findById(userId);
-            if ( user != null ){
-                if (!newPassword.equals(user.getMotDePasse())){
-                    request.setAttribute("error", "Veuillez entrer l'ancien mot de passe");
-                    response.sendRedirect(request.getContextPath() + "/patient/profile?action=edit&userProfileId="+userId);
-                }
-                user.setMotDePasse(newPassword);
-                userRepository.save(user);
-                request.getRequestDispatcher("/patientProfile.jsp").forward(request, response);
+        User user = userRepository.findById(userId);
+        if ( user != null ){
+            if (!newPassword.equals(user.getMotDePasse())){
+                request.setAttribute("error", "Veuillez entrer l'ancien mot de passe");
+                response.sendRedirect(request.getContextPath() + "/patient/profile?action=edit&userProfileId="+userId);
             }
-//        }
+            user.setMotDePasse(newPassword);
+            userRepository.save(user);
+            request.getRequestDispatcher("/patientProfile.jsp").forward(request, response);
+        }
     }
 }
