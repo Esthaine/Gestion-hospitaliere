@@ -37,4 +37,23 @@ public class FicheDaoImpl extends JpaRepositoryImpl<Fiche> implements FicheDao {
         }
         return fiche;
     }
+
+    @Override
+    public Fiche getFicheByFicheNumber(String ficheNumber) {
+        Fiche fiche = null;
+        try (EntityManagerFactory em =
+                     jakarta.persistence.Persistence.createEntityManagerFactory("gestion-hospitaliere-unit")) {
+            EntityManager entityManager = em.createEntityManager();
+            entityManager.getTransaction().begin();
+            Query findFiche = entityManager.createQuery("From Fiche f where f.ficheNumber =:ficheNumber");
+            findFiche.setParameter("ficheNumber", ficheNumber);
+            var resultList =  findFiche.getResultList();
+            if (resultList != null && !resultList.isEmpty()) {
+                fiche = (Fiche) resultList.get(0);
+            }
+            entityManager.getTransaction().commit();
+            entityManager.close();
+        }
+        return fiche;
+    }
 }

@@ -11,4 +11,5 @@ public interface JpaRepository <T>{
     List<T> saveAll(T... t);
     List<T> deleteMany(Long ...ids);
     List<T> deleteMany(T... ts);
+    long count();
 }

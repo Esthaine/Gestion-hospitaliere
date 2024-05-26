@@ -1,4 +1,20 @@
+<%@ page import="java.util.List" %>
+<%@ page import="com.gestion.hospitaliere.entity.Rendezvous" %>
+<%@ page import="com.gestion.hospitaliere.dao.PersonDao" %>
+<%@ page import="com.gestion.hospitaliere.dao.impl.PersonDaoImpl" %>
+<%@ page import="com.gestion.hospitaliere.entity.Person" %>
 <jsp:include page="components/topbar.jsp" />
+<%
+    List<Rendezvous> rendezvousList = (List<Rendezvous>) request.getAttribute("rendezvousList");
+    PersonDao personDao = null;
+    Person person = null;
+    int index = 0;
+    try{
+        personDao = new PersonDaoImpl((Class<Person>) Class.forName("com.gestion.hospitaliere.entity.Person"));
+    }catch (Exception e){
+        e.printStackTrace();
+    }
+%>
 <div class="main">
     <jsp:include page="components/sidebar.jsp" />
     <div class="content">
@@ -6,7 +22,53 @@
             <h2>Consultation</h2>
         </div>
         <div>
+            <div>
+                <table class="table-mapper">
+                    <thead>
+                    <th>No</th>
+                    <th>Nom Complet</th>
+                    <th>Action</th>
+                    </thead>
+                    <tbody>
+                    <%
+                        if (rendezvousList != null && !rendezvousList.isEmpty()) {
+                            for (Rendezvous r : rendezvousList) {
+                                index += 1;
+                                if (personDao != null){
+                                    try{
+                                        if (personDao.findByUserId(r.getPerson().getId()) != null){
+                                            person = personDao.findByUserId(r.getPerson().getId());
+                                        }
+                                    }catch (Exception e){
+                                        e.printStackTrace();
+                                    }
+                                }
+                    %>
+                        <tr>
+                            <td>
+                                <%=index%>
+                            </td>
+                            <td>
+                                <p>
+                                    <%= person != null && person.getGivenName() != null ? person.getGivenName(): "" %>
+                                    <%= person != null && person.getFirstName() != null ? person.getFirstName(): "" %>
+                                    <%= person != null && person.getLastName() != null ? person.getLastName(): "" %>
+                                </p>
+                            </td>
+                            <td>
+                                <a href="<%=request.getContextPath()%>/hopital/patient/consultation/operation?patientId=<%= person != null && person.getId() != null?person.getId() :""%>" class="btn btn-green">Consulter</a>
+                                <a href="<%=request.getContextPath()%>/hopital/patient/fiche?patientId=<%=person != null && person.getId() != null?person.getId() :""%>" class="btn btn-blue">Voir fiche</a>
+                            </td>
+                        </tr>
+                    <%
+                            }
+                        }
+                    %>
+                    </tbody>
+                </table>
 
+            </div>
         </div>
     </div>
 </div>
+<script src="<%= request.getContextPath()%>/js/admin.js"></script>

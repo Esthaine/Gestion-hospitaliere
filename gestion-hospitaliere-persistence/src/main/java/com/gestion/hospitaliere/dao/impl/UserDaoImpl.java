@@ -54,8 +54,8 @@ public class UserDaoImpl extends JpaRepositoryImpl<User> implements UserDao{
                 user = (User) resultList.get(0);
             }
 
-            entityManager.getTransaction().commit();
-            entityManager.close();
+//            entityManager.getTransaction().commit();
+//            entityManager.close();
 
             if (user == null) {
                 return userDto;
@@ -85,6 +85,8 @@ public class UserDaoImpl extends JpaRepositoryImpl<User> implements UserDao{
                 roleDto.add(newRole);
                 userDto.setRoleDto(roleDto);
             }
+            //entityManager.getTransaction().commit();
+            //entityManager.close();
         }
         return userDto;
     }
@@ -102,6 +104,8 @@ public class UserDaoImpl extends JpaRepositoryImpl<User> implements UserDao{
             if (!resultList.isEmpty()) {
                 users.addAll(resultList);
             }
+            entityManager.getTransaction().commit();
+            entityManager.close();
         }
         return users;
     }

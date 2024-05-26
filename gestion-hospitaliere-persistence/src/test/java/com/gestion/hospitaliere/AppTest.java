@@ -47,6 +47,7 @@ public class AppTest
 
     @BeforeEach
     void init() throws ClassNotFoundException {
+
         user = (Class<User>) Class.forName("com.gestion.hospitaliere.entity.User");
         medicament = (Class<Medicament>) Class.forName("com.gestion.hospitaliere.entity.Medicament");
         docteur = (Class<Docteur>) Class.forName("com.gestion.hospitaliere.entity.Docteur");
@@ -56,7 +57,6 @@ public class AppTest
         rolePrivilegeClass = (Class<RolePrivilege>) Class.forName("com.gestion.hospitaliere.entity.RolePrivilege");
         ville = (Class<Ville>) Class.forName("com.gestion.hospitaliere.entity.Ville");
         pays = (Class<Pays>) Class.forName("com.gestion.hospitaliere.entity.Pays");
-
 
         userDao = new UserDaoImpl(user);
         privilegeDao = new PrivilegeDaoImpl(privilege);
@@ -111,29 +111,42 @@ public class AppTest
     }
 
 
-    //@Test
+    @Test
     void createRole(){
-        Role adminRole = new Role();
-        adminRole.setName("ADMIN");
-        adminRole.setDescription("Admin role");
-        roleDao.save(adminRole);
+//        Role adminRole = new Role();
+//        adminRole.setName("ADMIN");
+//        adminRole.setDescription("Admin role");
+//        roleDao.save(adminRole);
+//
+//        Role patientRole = new Role();
+//        patientRole.setName("PATIENT");
+//        patientRole.setDescription("Patient role");
+//        roleDao.save(patientRole);
+//
+//
+//        Role nurseRole = new Role();
+//        nurseRole.setName("INFIRMIER");
+//        nurseRole.setDescription("Nurse role");
+//        roleDao.save(nurseRole);
+//
+//
+//        Role doctorRole = new Role();
+//        doctorRole.setName("MEDECIN");
+//        doctorRole.setDescription("Doctor role");
+//        roleDao.save(doctorRole);
 
-        Role patientRole = new Role();
-        patientRole.setName("PATIENT");
-        patientRole.setDescription("Patient role");
-        roleDao.save(patientRole);
+        Role labo = new Role();
+        labo.setName("LABORATOIRE");
+        labo.setDescription("Laboratoire role");
+        roleDao.save(labo);
 
 
-        Role nurseRole = new Role();
-        nurseRole.setName("INFIRMIER");
-        nurseRole.setDescription("Nurse role");
-        roleDao.save(nurseRole);
+        Role pharmacie = new Role();
+        pharmacie.setName("PHARMACIE");
+        pharmacie.setDescription("Pharmacie role");
+        roleDao.save(pharmacie);
 
 
-        Role doctorRole = new Role();
-        doctorRole.setName("MEDECIN");
-        doctorRole.setDescription("Doctor role");
-        roleDao.save(doctorRole);
 
 
     }
@@ -166,16 +179,76 @@ public class AppTest
         person.setPhoneNumber("08977902");
         person.setAddress(address);
         person.setGenre(Genre.MASCULIN);
-
-
         person.setUser(user);
-
-
         personDao.save(person);
 
     }
 
+    @Test
+    void createLaborantain(){
 
+        User user = new User();
+        user.setEmail("jeannette@gmail.com");
+        user.setUsername("jeanette");
+        user.setMotDePasse("123456");
+
+        Role patient = roleDao.findRoleByName("LABORATOIRE");
+        user.setRole(patient);
+
+        Address address = new Address();
+        Ville ville = villeDao.findById(1L);
+        Pays pays = paysDao.findById(1L);
+
+        address.setHouseNumber("12");
+        address.setPays(pays);
+        address.setVille(ville);
+        address.setTownship("Ngaliema");
+        address.setRegion(ville.getRegion());
+        Person person = new Person();
+        person.setDateOfBirth(new Date());
+        person.setFirstName("Jeannette");
+        person.setGivenName("Kaniki");
+        person.setLastName("Kanku");
+        person.setPhoneNumber("08977902");
+        //person.setAddress(address);
+        person.setGenre(Genre.MASCULIN);
+        person.setUser(user);
+        personDao.save(person);
+
+    }
+
+    @Test
+    void createPharmacien(){
+
+        User user = new User();
+        user.setEmail("guy@gmail.com");
+        user.setUsername("guy");
+        user.setMotDePasse("123456");
+
+        Role patient = roleDao.findRoleByName("PHARMACIE");
+        user.setRole(patient);
+
+        Address address = new Address();
+        Ville ville = villeDao.findById(1L);
+        Pays pays = paysDao.findById(1L);
+
+        address.setHouseNumber("12");
+        address.setPays(pays);
+        address.setVille(ville);
+        address.setTownship("Ngaliema");
+        address.setRegion(ville.getRegion());
+        Person person = new Person();
+        person.setDateOfBirth(new Date());
+        person.setFirstName("Guy");
+        person.setGivenName("Lukuli");
+        person.setLastName("Mvwemba");
+        person.setPhoneNumber("08977902");
+        //person.setAddress(address);
+        person.setGenre(Genre.MASCULIN);
+        person.setUser(user);
+        personDao.save(person);
+
+    }
 
     //@Test
     void createAdmin(){
@@ -342,10 +415,13 @@ public class AppTest
     @Test
     void mappPrivilegesToRole(){
 
-        Role adminRole = roleDao.findRoleByName("ADMIN");
-        Role patientRole = roleDao.findRoleByName("PATIENT");
-        Role nurseRole = roleDao.findRoleByName("INFIRMIER");
-        Role doctorRole = roleDao.findRoleByName("MEDECIN");
+//        Role adminRole = roleDao.findRoleByName("ADMIN");
+//        Role patientRole = roleDao.findRoleByName("PATIENT");
+//        Role nurseRole = roleDao.findRoleByName("INFIRMIER");
+//        Role doctorRole = roleDao.findRoleByName("MEDECIN");
+        Role pharmacieRole = roleDao.findRoleByName("PHARMACIE");
+        Role laboratoireRole = roleDao.findRoleByName("LABORATOIRE");
+
 
         Privilege readPrivilege = privilegeDao.findPrivilegeByName("READ");
         Privilege writePrivilege = privilegeDao.findPrivilegeByName("WRITE");
@@ -354,92 +430,136 @@ public class AppTest
 
         //-- Patient
         RolePrivilege rolePrivilege1 = new RolePrivilege();
-        rolePrivilege1.setPrivilege(readPrivilege);
-        rolePrivilege1.setRole(patientRole);
-        rolePrivilegeDao.save(rolePrivilege1);
+//        rolePrivilege1.setPrivilege(readPrivilege);
+//        rolePrivilege1.setRole(patientRole);
+//        rolePrivilegeDao.save(rolePrivilege1);
+//
+//        RolePrivilege rolePrivilege2 = new RolePrivilege();
+//        rolePrivilege2.setPrivilege(writePrivilege);
+//        rolePrivilege2.setRole(patientRole);
+//        rolePrivilegeDao.save(rolePrivilege2);
+//
+//        RolePrivilege rolePrivilege3 = new RolePrivilege();
+//        rolePrivilege3.setPrivilege(deletePrivilege);
+//        rolePrivilege3.setRole(patientRole);
+//        rolePrivilegeDao.save(rolePrivilege3);
+//
+//        RolePrivilege rolePrivilege4 = new RolePrivilege();
+//        rolePrivilege4.setPrivilege(updatePrivilege);
+//        rolePrivilege4.setRole(patientRole);
+//        rolePrivilegeDao.save(rolePrivilege4);
+//
+//
+//        //-- Infirmier
+//        RolePrivilege rolePrivilege5 = new RolePrivilege();
+//        rolePrivilege5.setPrivilege(readPrivilege);
+//        rolePrivilege5.setRole(nurseRole);
+//        rolePrivilegeDao.save(rolePrivilege5);
+//
+//        RolePrivilege rolePrivilege6 = new RolePrivilege();
+//        rolePrivilege6.setPrivilege(writePrivilege);
+//        rolePrivilege6.setRole(nurseRole);
+//        rolePrivilegeDao.save(rolePrivilege6);
+//
+//        RolePrivilege rolePrivilege7 = new RolePrivilege();
+//        rolePrivilege7.setPrivilege(deletePrivilege);
+//        rolePrivilege7.setRole(nurseRole);
+//        rolePrivilegeDao.save(rolePrivilege7);
+//
+//        RolePrivilege rolePrivilege8 = new RolePrivilege();
+//        rolePrivilege8.setPrivilege(updatePrivilege);
+//        rolePrivilege8.setRole(nurseRole);
+//        rolePrivilegeDao.save(rolePrivilege8);
+//
+//
+//        //-- Medecin
+//
+//        RolePrivilege rolePrivilege9 = new RolePrivilege();
+//        rolePrivilege9.setPrivilege(readPrivilege);
+//        rolePrivilege9.setRole(doctorRole);
+//        rolePrivilegeDao.save(rolePrivilege9);
+//
+//        RolePrivilege rolePrivilege10 = new RolePrivilege();
+//        rolePrivilege10.setPrivilege(writePrivilege);
+//        rolePrivilege10.setRole(doctorRole);
+//        rolePrivilegeDao.save(rolePrivilege10);
+//
+//        RolePrivilege rolePrivilege11 = new RolePrivilege();
+//        rolePrivilege11.setPrivilege(deletePrivilege);
+//        rolePrivilege11.setRole(doctorRole);
+//        rolePrivilegeDao.save(rolePrivilege11);
+//
+//        RolePrivilege rolePrivilege12 = new RolePrivilege();
+//        rolePrivilege12.setPrivilege(updatePrivilege);
+//        rolePrivilege12.setRole(doctorRole);
+//        rolePrivilegeDao.save(rolePrivilege12);
+//
+//
+//        //-- Admin
+//
+//        RolePrivilege rolePrivilege13 = new RolePrivilege();
+//        rolePrivilege13.setPrivilege(readPrivilege);
+//        rolePrivilege13.setRole(adminRole);
+//        rolePrivilegeDao.save(rolePrivilege13);
+//
+//        RolePrivilege rolePrivilege14 = new RolePrivilege();
+//        rolePrivilege14.setPrivilege(writePrivilege);
+//        rolePrivilege14.setRole(adminRole);
+//        rolePrivilegeDao.save(rolePrivilege14);
+//
+//        RolePrivilege rolePrivilege15 = new RolePrivilege();
+//        rolePrivilege15.setPrivilege(deletePrivilege);
+//        rolePrivilege15.setRole(adminRole);
+//        rolePrivilegeDao.save(rolePrivilege15);
+//
+//        RolePrivilege rolePrivilege16 = new RolePrivilege();
+//        rolePrivilege16.setPrivilege(updatePrivilege);
+//        rolePrivilege16.setRole(adminRole);
+//        rolePrivilegeDao.save(rolePrivilege16);
 
-        RolePrivilege rolePrivilege2 = new RolePrivilege();
-        rolePrivilege2.setPrivilege(writePrivilege);
-        rolePrivilege2.setRole(patientRole);
-        rolePrivilegeDao.save(rolePrivilege2);
 
-        RolePrivilege rolePrivilege3 = new RolePrivilege();
-        rolePrivilege3.setPrivilege(deletePrivilege);
-        rolePrivilege3.setRole(patientRole);
-        rolePrivilegeDao.save(rolePrivilege3);
+        //Pharmacie
+        RolePrivilege rolePrivilege17 = new RolePrivilege();
+        rolePrivilege17.setPrivilege(readPrivilege);
+        rolePrivilege17.setRole(pharmacieRole);
+        rolePrivilegeDao.save(rolePrivilege17);
 
-        RolePrivilege rolePrivilege4 = new RolePrivilege();
-        rolePrivilege4.setPrivilege(updatePrivilege);
-        rolePrivilege4.setRole(patientRole);
-        rolePrivilegeDao.save(rolePrivilege4);
+        RolePrivilege rolePrivilege18 = new RolePrivilege();
+        rolePrivilege18.setPrivilege(writePrivilege);
+        rolePrivilege18.setRole(pharmacieRole);
+        rolePrivilegeDao.save(rolePrivilege18);
 
+        RolePrivilege rolePrivilege19 = new RolePrivilege();
+        rolePrivilege19.setPrivilege(updatePrivilege);
+        rolePrivilege19.setRole(pharmacieRole);
+        rolePrivilegeDao.save(rolePrivilege19);
 
-        //-- Infirmier
-        RolePrivilege rolePrivilege5 = new RolePrivilege();
-        rolePrivilege5.setPrivilege(readPrivilege);
-        rolePrivilege5.setRole(nurseRole);
-        rolePrivilegeDao.save(rolePrivilege5);
-
-        RolePrivilege rolePrivilege6 = new RolePrivilege();
-        rolePrivilege6.setPrivilege(writePrivilege);
-        rolePrivilege6.setRole(nurseRole);
-        rolePrivilegeDao.save(rolePrivilege6);
-
-        RolePrivilege rolePrivilege7 = new RolePrivilege();
-        rolePrivilege7.setPrivilege(deletePrivilege);
-        rolePrivilege7.setRole(nurseRole);
-        rolePrivilegeDao.save(rolePrivilege7);
-
-        RolePrivilege rolePrivilege8 = new RolePrivilege();
-        rolePrivilege8.setPrivilege(updatePrivilege);
-        rolePrivilege8.setRole(nurseRole);
-        rolePrivilegeDao.save(rolePrivilege8);
+        RolePrivilege rolePrivilege20 = new RolePrivilege();
+        rolePrivilege20.setPrivilege(deletePrivilege);
+        rolePrivilege20.setRole(pharmacieRole);
+        rolePrivilegeDao.save(rolePrivilege20);
 
 
-        //-- Medecin
+        //Laboratoire
+        RolePrivilege rolePrivilege21 = new RolePrivilege();
+        rolePrivilege21.setPrivilege(readPrivilege);
+        rolePrivilege21.setRole(laboratoireRole);
+        rolePrivilegeDao.save(rolePrivilege21);
 
-        RolePrivilege rolePrivilege9 = new RolePrivilege();
-        rolePrivilege9.setPrivilege(readPrivilege);
-        rolePrivilege9.setRole(doctorRole);
-        rolePrivilegeDao.save(rolePrivilege9);
+        RolePrivilege rolePrivilege22 = new RolePrivilege();
+        rolePrivilege22.setPrivilege(writePrivilege);
+        rolePrivilege22.setRole(laboratoireRole);
+        rolePrivilegeDao.save(rolePrivilege22);
 
-        RolePrivilege rolePrivilege10 = new RolePrivilege();
-        rolePrivilege10.setPrivilege(writePrivilege);
-        rolePrivilege10.setRole(doctorRole);
-        rolePrivilegeDao.save(rolePrivilege10);
+        RolePrivilege rolePrivilege23 = new RolePrivilege();
+        rolePrivilege23.setPrivilege(deletePrivilege);
+        rolePrivilege23.setRole(laboratoireRole);
+        rolePrivilegeDao.save(rolePrivilege23);
 
-        RolePrivilege rolePrivilege11 = new RolePrivilege();
-        rolePrivilege11.setPrivilege(deletePrivilege);
-        rolePrivilege11.setRole(doctorRole);
-        rolePrivilegeDao.save(rolePrivilege11);
-
-        RolePrivilege rolePrivilege12 = new RolePrivilege();
-        rolePrivilege12.setPrivilege(updatePrivilege);
-        rolePrivilege12.setRole(doctorRole);
-        rolePrivilegeDao.save(rolePrivilege12);
-
-
-        //-- Admin
-
-        RolePrivilege rolePrivilege13 = new RolePrivilege();
-        rolePrivilege13.setPrivilege(readPrivilege);
-        rolePrivilege13.setRole(adminRole);
-        rolePrivilegeDao.save(rolePrivilege13);
-
-        RolePrivilege rolePrivilege14 = new RolePrivilege();
-        rolePrivilege14.setPrivilege(writePrivilege);
-        rolePrivilege14.setRole(adminRole);
-        rolePrivilegeDao.save(rolePrivilege14);
-
-        RolePrivilege rolePrivilege15 = new RolePrivilege();
-        rolePrivilege15.setPrivilege(deletePrivilege);
-        rolePrivilege15.setRole(adminRole);
-        rolePrivilegeDao.save(rolePrivilege15);
-
-        RolePrivilege rolePrivilege16 = new RolePrivilege();
-        rolePrivilege16.setPrivilege(updatePrivilege);
-        rolePrivilege16.setRole(adminRole);
-        rolePrivilegeDao.save(rolePrivilege16);
+        RolePrivilege rolePrivilege24 = new RolePrivilege();
+        rolePrivilege24.setPrivilege(updatePrivilege);
+        rolePrivilege24.setRole(laboratoireRole);
+        rolePrivilegeDao.save(rolePrivilege24);
     }
 
 
@@ -453,5 +573,10 @@ public class AppTest
     }
 
 
+    @Test
+    void findUserByName(){
+        System.out.println("PHARMACIE: " +userDao.findUserByName("jeannette"));
+        System.out.println("BIOLOGIE: " + userDao.findUserByName("guy"));
+    }
 
 }

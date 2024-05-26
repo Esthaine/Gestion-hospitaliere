@@ -15,9 +15,9 @@
       <div>
           <h3>Information du patient</h3>
           <p>Nom Complet:
-              <%= patient != null&& patient.getGivenName() != null ? patient.getGivenName() : "" %>
-              <%= patient != null&& patient.getFirstName() != null ? patient.getFirstName() : "" %>
-              <%= patient != null&& patient.getLastName() != null ? patient.getLastName() : "" %>
+              <%= patient != null && patient.getGivenName() != null ? patient.getGivenName() : "" %>
+              <%= patient != null && patient.getFirstName() != null ? patient.getFirstName() : "" %>
+              <%= patient != null && patient.getLastName() != null ? patient.getLastName() : "" %>
           </p>
           <p>
               Age: <%=  patient!= null&& patient.getDateOfBirth() != null ? patient.getDateOfBirth():""%>
@@ -86,3 +86,4 @@
       <%}%>
   </div>
 </div>
+<script src="<%= request.getContextPath()%>/js/admin.js"></script>

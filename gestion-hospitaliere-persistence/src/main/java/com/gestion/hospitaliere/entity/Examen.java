@@ -1,13 +1,13 @@
 package com.gestion.hospitaliere.entity;
 
 import jakarta.persistence.*;
+
+import java.time.LocalDateTime;
 import java.util.Date;
 
 @Entity
 public class Examen extends AbstractEntity{
 
-    private String description;
-    private Date date;
     private String resultat;
     private String type;
     private String commentaires;
@@ -16,34 +16,7 @@ public class Examen extends AbstractEntity{
     @JoinColumn(name = "examen_id", referencedColumnName = "id")
     private ResultatsExamens resultatExamens;
 
-    @OneToOne
-    private Docteur docteur;
-
     public Examen() {
-    }
-
-    public Docteur getDocteur() {
-        return docteur;
-    }
-
-    public void setDocteur(Docteur docteur) {
-        this.docteur = docteur;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
-    public Date getDate() {
-        return date;
-    }
-
-    public void setDate(Date date) {
-        this.date = date;
     }
 
     public String getResultat() {

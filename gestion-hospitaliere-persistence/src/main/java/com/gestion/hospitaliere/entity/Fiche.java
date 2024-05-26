@@ -30,8 +30,8 @@ public class Fiche extends AbstractEntity{
     @OneToMany(cascade = CascadeType.MERGE)
     private Set<Medicament> medicaments;
 
-    @OneToMany(cascade = CascadeType.MERGE)
-    private Set<Docteur> docteurs;
+//    @OneToMany(cascade = CascadeType.MERGE)
+//    private Set<Docteur> docteurs;
 
     @OneToMany(cascade = CascadeType.MERGE)
     private Set<ResultatsExamens> resultatsExamens;
@@ -87,13 +87,13 @@ public class Fiche extends AbstractEntity{
         this.createdBy = createdBy;
     }
 
-    public Set<Docteur> getDocteurs() {
-        return docteurs;
-    }
-
-    public void setDocteurs(Set<Docteur> docteurs) {
-        this.docteurs = docteurs;
-    }
+//    public Set<Docteur> getDocteurs() {
+//        return docteurs;
+//    }
+//
+//    public void setDocteurs(Set<Docteur> docteurs) {
+//        this.docteurs = docteurs;
+//    }
 
     public Set<ResultatsExamens> getResultatsExamens() {
         return resultatsExamens;

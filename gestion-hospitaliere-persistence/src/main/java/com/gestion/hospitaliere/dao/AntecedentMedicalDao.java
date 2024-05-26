@@ -11,4 +11,6 @@ import java.util.stream.Stream;
 
 public interface AntecedentMedicalDao extends JpaRepository<AntecedentMedical>{
 
+    List<AntecedentMedical> antecedentMedicalFindByFiche(Long idAntecedent);
+
 }

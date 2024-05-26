@@ -23,6 +23,8 @@ public class PersonDaoImpl extends JpaRepositoryImpl<Person> implements PersonDa
             entityManager.getTransaction().begin();
             Query findPerson = entityManager.createNativeQuery(sql, Person.class);
             person = (Person) findPerson.getSingleResult();
+            entityManager.getTransaction().commit();
+            entityManager.close();
         }
         return person;
     }

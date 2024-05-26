@@ -39,7 +39,9 @@ public class HopitalsMemberFilter implements Filter {
                 if (
                         user.getRoleDto().get(0).getRoleName().equals(AppConst.MEDECIN) ||
                         user.getRoleDto().get(0).getRoleName().equals(AppConst.INFIRMIER) ||
-                        user.getRoleDto().get(0).getRoleName().equals(AppConst.ADMIN)
+                        user.getRoleDto().get(0).getRoleName().equals(AppConst.ADMIN) ||
+                        user.getRoleDto().get(0).getRoleName().equals(AppConst.LABORATOIRE ) ||
+                        user.getRoleDto().get(0).getRoleName().equals(AppConst.PHARMACIE)
                 ) {
                     if (request.getRequestURI().equals("/")) {
                         response.sendRedirect(request.getContextPath() + "/hopital/dashboard");

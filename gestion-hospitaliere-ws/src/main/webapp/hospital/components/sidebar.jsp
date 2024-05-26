@@ -19,16 +19,18 @@
             %>
 
             <%
+                if (userDto!=null){
                 if (userDto.getRoleDto().get(0).getRoleName().equals(AppConst.INFIRMIER)){
             %>
                 <li><i class="lni lni-cog"></i><a href="<%= request.getContextPath() %>/hopital/patients">Patients</a></li>
                 <li><i class="lni lni-cog"></i><a href="<%= request.getContextPath() %>/hopital/rendez-vous">Rendez-vous Medical</a></li>
-            <%}%>
+            <%}}%>
             <%
+                if (userDto!=null){
                 if (userDto.getRoleDto().get(0).getRoleName().equals(AppConst.MEDECIN)){
             %>
                 <li><i class="lni lni-cog"></i><a href="<%= request.getContextPath() %>/hopital/medecin/consultation">Rendez-vous Medical</a></li>
-            <%
+            <%}
                 }
             %>
 

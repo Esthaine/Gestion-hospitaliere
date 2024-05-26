@@ -153,4 +153,20 @@ public class JpaRepositoryImpl<T extends AbstractEntity> implements JpaRepositor
         }
         return list;
     }
+
+    @Override
+    public long count() {
+        clazz = (Class<T>) ((ParameterizedType) getClass().getGenericSuperclass()).getActualTypeArguments()[0];
+        try(EntityManagerFactory em = jakarta.persistence.Persistence.createEntityManagerFactory("gestion-hospitaliere-unit")) {
+            EntityManager entityManager = em.createEntityManager();
+            entityManager.getTransaction().begin();
+            Query countQuery = entityManager.createQuery("select count(*) From " + clazz.getSimpleName() + " t");
+            if (countQuery.getSingleResult() != null) {
+                return  (Long) countQuery.getSingleResult();
+            }
+            entityManager.getTransaction().commit();
+            entityManager.close();
+        }
+     return 0;
+    }
 }

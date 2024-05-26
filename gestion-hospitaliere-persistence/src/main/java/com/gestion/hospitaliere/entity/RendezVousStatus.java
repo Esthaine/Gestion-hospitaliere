@@ -5,5 +5,6 @@ public enum RendezVousStatus {
     EN_COURS,
     ANNULER,
     TRAITER,
-    REPROGRAMMER
+    REPROGRAMMER,
+    LABORATOIRE
 }

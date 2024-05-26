@@ -2,7 +2,6 @@ package com.gestion.hospitaliere.dao.impl;
 
 import com.gestion.hospitaliere.dao.JpaRepositoryImpl;
 import com.gestion.hospitaliere.dao.RendezVousDao;
-import com.gestion.hospitaliere.entity.Person;
 import com.gestion.hospitaliere.entity.RendezVousStatus;
 import com.gestion.hospitaliere.entity.Rendezvous;
 import jakarta.persistence.EntityManager;
@@ -46,4 +45,21 @@ public class RendezVousDaoImpl extends JpaRepositoryImpl<Rendezvous> implements 
         }
         return rendezvousList;
     }
+
+    @Override
+    public List<Rendezvous> findByStatus(RendezVousStatus status) {
+        List<Rendezvous> rendezvousList = null;
+        String sql =  "SELECT * FROM RendezVous WHERE status = \'"+ status.toString() + "\' ORDER BY id desc";
+        try (EntityManagerFactory em =
+                     jakarta.persistence.Persistence.createEntityManagerFactory("gestion-hospitaliere-unit")) {
+            EntityManager entityManager = em.createEntityManager();
+            entityManager.getTransaction().begin();
+            Query findPerson = entityManager.createNativeQuery(sql, Rendezvous.class);
+            if (findPerson.getResultList() != null) {
+                rendezvousList = findPerson.getResultList();
+            }
+        }
+        return rendezvousList;
+    }
+
 }

@@ -8,8 +8,8 @@ import java.util.Set;
 @Entity
 public class ResultatsExamens extends AbstractEntity {
 
-    @OneToMany(cascade = CascadeType.MERGE, fetch = FetchType.EAGER)
-    private Set<DemandeExamen> demandeExamens;
+    @OneToMany(cascade = CascadeType.MERGE)
+    private Set<Question> questions;
 
     @OneToMany(cascade = CascadeType.MERGE, fetch = FetchType.EAGER)
     private Set<Examen> examen;
@@ -23,14 +23,6 @@ public class ResultatsExamens extends AbstractEntity {
     private String reference;
 
     public ResultatsExamens() {
-    }
-
-    public Set<DemandeExamen> getDemandeExamens() {
-        return demandeExamens;
-    }
-
-    public void setDemandeExamens(Set<DemandeExamen> demandeExamens) {
-        this.demandeExamens = demandeExamens;
     }
 
     public Set<Examen> getExamen() {

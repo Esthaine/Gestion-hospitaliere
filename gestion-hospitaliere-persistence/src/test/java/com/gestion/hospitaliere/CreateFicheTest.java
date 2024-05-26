@@ -54,7 +54,9 @@ public class CreateFicheTest {
     @Test
     void findFicheByPatient() throws Exception{
         Fiche fiche = ficheDao.findByPatient(37L);
-        //assertNotNull(fiche);
-        assertNull(fiche);
+        assertNotNull(fiche);
+        //assertNull(fiche);
+
+        System.out.println("Number of fiche: " + ficheDao.count());
     }
 }

@@ -7,6 +7,7 @@
     background-color: rgba(0, 0, 0, 0.05);
     width: 100%;
     padding: 30px 20px;
+    overflow-y: scroll;
 }
 .content a{
     text-decoration: none;
@@ -119,4 +120,205 @@
 .form-compose-item{
     display: flex;
 }
+
+
+
+.table-fiche{
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.table-fiche tr, .table-fiche td, .table-fiche th{
+    border: 1px solid black;
+}
+
+
+.fiche_patient_info,
+.fiche_patient_traitement,
+.prelevement,
+.examens_resulats{
+    margin-top: 10px;
+}
+
+
+.medicament-items{
+    border: 1px solid black;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+
+/*.content{*/
+/*    width: 900px;*/
+/*    margin: auto;*/
+/*}*/
+
+.form-fiche{
+    display: flex;
+    flex-direction: column;
+}
+.form-fiche h2{
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.form-fiche .antecedants{
+    display: flex;
+    flex-direction: column;
+}
+/* .antecedants-items-list{
+    padding: 20px;
+} */
+.antecedants-items-list .antecedants-item{
+    border: 1px solid #aaa;
+    border-radius: 3px;
+    margin-bottom:10px;
+    padding: 20px;
+}
+
+
+.antecedants-items-form{
+    display: flex;
+    flex-direction: column;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.antecedants-item-form{
+    display: flex;
+    flex-direction: column;
+}
+
+.form-table-complet-h{
+    display: flex;
+}
+
+.form-table-complet-h .form-table{
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.form-fiche label{
+
+}
+.form-fiche input, .form-fiche textarea{
+    outline: none;
+    font-size: 14px;
+    font-weight: 400;
+    color:#333;
+    border-radius: 4px;
+    border: 1px solid #aaa;
+    padding: 0 15px;
+    height: 42px;
+    margin: 8px 0;
+}
+
+
+.form-fiche input:is(:focus, :valid){
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.13);
+}
+
+.form-fiche input[type="date"]{
+    color: #707070;
+}
+
+.form-fiche input[type="date"]:valid{
+    color: #333;
+}
+
+.form-table-complet{
+    display: flex;
+    flex-direction: column;
+}
+
+
+.demand__examens{
+    display: flex;
+    flex-direction: column;
+}
+
+.demand__examens .analyse{
+    display: flex;
+}
+.question{
+    display: flex;
+}
+
+.demand__examens .analyse{
+    display: flex;
+    flex-direction: column;
+}
+.demand__examens .analyse .question{
+    display: flex;
+}
+
+.question .questions-items{
+    display: flex;
+    flex-direction: column;
+    margin-right: 5px;
+    flex: 1;
+}
+
+.questions .reponse-items{
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+.question-item{
+    display: flex;
+    flex-direction: column;
+}
+
+
+.subscripiton_medical{
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+}
+
+.subscripiton_medical .medicaments{
+    display: flex;
+    flex-direction: column;
+}
+
+.medicaments .medicament-item{
+    display: flex;
+    flex-direction: column;
+}
+
+
+.btn-submit{
+    margin-top: 30px;
+    display: flex;
+    width: 100%;
+    height: 45px;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    border-radius: 5px;
+    background: #002c77;
+    color: #fff;
+    font-size: 18px;
+}
+
+.action-button{
+    display: flex;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: none;
+    font-size: 20px;
+    color: #fff;
+    align-self: flex-end;
+    align-content: center;
+    align-items: center;
+    justify-content: center;
+}
+
+.action-add {
+    background-color: green;
+}
+.action-minus {
+    background-color: red;
+}
+
 

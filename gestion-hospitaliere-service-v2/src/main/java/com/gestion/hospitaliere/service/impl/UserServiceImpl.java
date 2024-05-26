@@ -74,8 +74,13 @@ public class UserServiceImpl implements IUserService {
             if (userDto.getRoleDto()!=null && !userDto.getRoleDto().isEmpty() ){
                 System.out.println("User role name: ----> " + userDto.getRoleDto().get(0).getRoleName());
 
-                if (userDto.getRoleDto().get(0).getRoleName().equals(AppConst.MEDECIN))
+                if (userDto.getRoleDto().get(0).getRoleName().equals(AppConst.MEDECIN)) {
                     role = userDto.getRoleDto().get(0).getRoleName();
+                } else if (userDto.getRoleDto().get(0).getRoleName().equals(AppConst.LABORATOIRE)) {
+                    role = userDto.getRoleDto().get(0).getRoleName();
+                }else if (userDto.getRoleDto().get(0).getRoleName().equals(AppConst.PHARMACIE)) {
+                    role = userDto.getRoleDto().get(0).getRoleName();
+                }
 
                 if (!userDto.getRoleDto().get(0).getRoleName().equals(role)){
                     System.out.println("Check role");
@@ -86,13 +91,14 @@ public class UserServiceImpl implements IUserService {
 
                 HttpSession session = request.getSession();
 
-
                 switch (userDto.getRoleDto().get(0).getRoleName()) {
-                    case "ADMIN", "INFIRMIER", "MEDECIN" -> {
+                    case "ADMIN", "INFIRMIER", "MEDECIN", "LABORATOIRE", "PHARMACIE" -> {
                         System.out.println("Organsation Role: " + userDto.getRoleDto().get(0).getRoleName());
+                        System.out.println("Authenticated?: " + userDto);
                         session.setAttribute("authenticated", userDto);
                         response.sendRedirect(request.getContextPath() + "/hopital/dashboard");
                     }
+
                     case "PATIENT" -> {
                         session.setAttribute("authenticated", userDto);
                         System.out.println("Patient Role -> " + userDto.getRoleDto().get(0).getRoleName());

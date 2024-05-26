@@ -71,3 +71,4 @@
         </div>
     </div>
 </div>
+<script src="<%=request.getContextPath()%>/js/admin.js"></script>
