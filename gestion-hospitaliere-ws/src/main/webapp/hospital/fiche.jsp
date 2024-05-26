@@ -92,7 +92,7 @@
                 </div>
 
                 <%
-                    if (antecedentMedicalList.isEmpty()) {
+                    if (!antecedentMedicalList.isEmpty()) {
                 %>
                 <div class="fiche_patient_traitement">
                     <table class="table-fiche">
@@ -101,11 +101,20 @@
                                 <h2>Antecedant Medicale</h2>
                             </td>
                         </tr>
+                        <%
+                            for (AntecedentMedical antecedentMedical: antecedentMedicalList) {
+                        %>
                         <tr>
-                            <td>Allergies</td>
-                            <td></td>
+                            <td>
+                                <%= antecedentMedical.getType()%>
+                            </td>
+                            <td>
+                                <p><%=antecedentMedical.getDateDebut()%></p>
+                                <p><%=antecedentMedical.getDescription()%></p>
+                            </td>
                         </tr>
 
+                        <%}%>
                     </table>
                 </div>
                 <%}%>

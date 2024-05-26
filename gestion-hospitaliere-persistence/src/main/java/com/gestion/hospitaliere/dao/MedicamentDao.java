@@ -12,4 +12,5 @@ import java.util.stream.Stream;
 
 public interface MedicamentDao extends JpaRepository<Medicament>{
 
+    List<Medicament> listMedicamentPerFiche(Long ficheId);
 }

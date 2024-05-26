@@ -14,6 +14,7 @@ import java.io.IOException;
 @WebServlet(urlPatterns = {"/hopital/medecin/consultation"})
 public class ConsultationServlet extends HttpServlet {
 
+
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         try {
