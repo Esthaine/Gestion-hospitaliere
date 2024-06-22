@@ -28,7 +28,9 @@
             </div>
             <div class="lien-service">
                 <i class="lni lni-map"></i>
+                <% if (session.getAttribute("authenticated") != null) {%>
                 <a href="<%=request.getContextPath()%>/patient/profile">Profile</a>
+                <%}%>
             </div>
             <div class="lien-service">
                 <i class="lni lni-map"></i>
@@ -36,7 +38,9 @@
             </div>
             <div class="lien-service">
                 <i class="lni lni-map"></i>
+                <% if (session.getAttribute("authenticated") != null) {%>
                 <a href="<%= request.getContextPath()%>/historique/rendezVous">Historiques Rendez-vous</a>
+                <%}%>
             </div>
         </div>
     </div>

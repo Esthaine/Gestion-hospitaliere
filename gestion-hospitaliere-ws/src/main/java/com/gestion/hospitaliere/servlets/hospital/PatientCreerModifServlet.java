@@ -130,7 +130,7 @@ public class PatientCreerModifServlet extends HttpServlet {
         address.setHouseNumber(streetNumber);
         address.setStreetName(streetName);
         address.setTownship(township);
-        person.setAddress(address);
+        //person.setAddress(address);
         person.setUser(user);
         person = personDao.save(person);
 

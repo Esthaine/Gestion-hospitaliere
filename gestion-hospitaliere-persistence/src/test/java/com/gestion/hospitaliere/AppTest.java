@@ -177,7 +177,7 @@ public class AppTest
         person.setGivenName("Ya");
         person.setLastName("Ya");
         person.setPhoneNumber("08977902");
-        person.setAddress(address);
+        //person.setAddress(address);
         person.setGenre(Genre.MASCULIN);
         person.setUser(user);
         personDao.save(person);
@@ -577,6 +577,13 @@ public class AppTest
     void findUserByName(){
         System.out.println("PHARMACIE: " +userDao.findUserByName("jeannette"));
         System.out.println("BIOLOGIE: " + userDao.findUserByName("guy"));
+    }
+
+
+    @Test
+    void readListOfRolesexPectRolePatient(){
+        List<Role> roles = roleDao.findRoleByUserNameDifferentDe("PATIENT");
+        roles.forEach(System.out::println);
     }
 
 }

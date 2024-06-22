@@ -14,6 +14,7 @@ public interface IUserService {
     void OrganisationRegistration(HttpServletRequest request , HttpServletResponse response) throws ServletException, IOException;
     void OrganizationMemberList(HttpServletRequest request , HttpServletResponse response) throws ServletException, IOException;
     void userProfile(HttpServletRequest request , HttpServletResponse response) throws ServletException, IOException;
+    void userOrganisationProfileUpdate(HttpServletRequest request , HttpServletResponse response) throws ServletException, IOException;
     void updateUserProfile(HttpServletRequest request , HttpServletResponse response) throws ServletException, IOException;
 
 }

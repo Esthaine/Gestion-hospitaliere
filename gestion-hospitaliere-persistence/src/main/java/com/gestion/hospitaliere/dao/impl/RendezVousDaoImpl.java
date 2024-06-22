@@ -26,6 +26,8 @@ public class RendezVousDaoImpl extends JpaRepositoryImpl<Rendezvous> implements 
             entityManager.getTransaction().begin();
             Query findPerson = entityManager.createNativeQuery(sql, Rendezvous.class);
             rendezvousList = findPerson.getResultList();
+            entityManager.getTransaction().commit();
+            entityManager.close();
         }
         return rendezvousList;
     }
@@ -42,6 +44,8 @@ public class RendezVousDaoImpl extends JpaRepositoryImpl<Rendezvous> implements 
             if (findPerson.getResultList() != null) {
                 rendezvousList = findPerson.getResultList();
             }
+            entityManager.getTransaction().commit();
+            entityManager.close();
         }
         return rendezvousList;
     }

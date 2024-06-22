@@ -7,6 +7,9 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.time.LocalDateTime;
+import java.util.List;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 
 public class RendezVousTest {
@@ -78,17 +81,17 @@ public class RendezVousTest {
     @Test
     void listOfRendezVousPerPatient(){
 
-//        List<Rendezvous> rendezvous = rendezVousDao.findByPatient(1L);
-//        assertEquals(2, rendezvous.size());
+        List<Rendezvous> rendezvous = rendezVousDao.findByPatient(53L);
+        assertEquals(1, rendezvous.size());
 
 
 //        for (Rendezvous rendezvous : rendezVousDao.findByDoctor(6L, RendezVousStatus.NOUVEAU)) {
 //            System.out.println(rendezvous);
 //        }
 
-        for (Rendezvous rendezvous : rendezVousDao.findByStatus(RendezVousStatus.EN_COURS)) {
-            System.out.println(rendezvous);
-        }
+//        for (Rendezvous rendezvous : rendezVousDao.findByStatus(RendezVousStatus.EN_COURS)) {
+//            System.out.println(rendezvous);
+//        }
 
 
 

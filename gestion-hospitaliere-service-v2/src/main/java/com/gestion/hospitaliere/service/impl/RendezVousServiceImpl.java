@@ -139,12 +139,10 @@ public class RendezVousServiceImpl implements IRendezVousService {
 
     @Override
     public void historyRendezVousPerPatient(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        UserDto user = (UserDto) request.getSession().getAttribute("authenticated");
-        //long personId = Long.parseLong(request.getParameter("personId"));
-        List<Rendezvous> rendezvousList = rendezVousDao.findByPatient(user.getUserId());
-        if (rendezvousList != null && rendezvousList.size() > 0) {
-            request.setAttribute("rendezvousList", rendezvousList);
-        }
+        UserDto userDto = (UserDto) request.getSession().getAttribute("authenticated");
+        Person patient = personDao.findByUserId(userDto.getUserId());
+        List<Rendezvous> rendezvousList = rendezVousDao.findByPatient(patient.getId());
+        request.setAttribute("rendezvousList", rendezvousList);
         request.getRequestDispatcher("/historiqueRendezVous.jsp").forward(request, response);
     }
 
@@ -224,6 +222,21 @@ public class RendezVousServiceImpl implements IRendezVousService {
         List<Rendezvous> rendezvousList = rendezVousDao.findByDoctor(user.getUserId(), RendezVousStatus.EN_COURS);
         request.setAttribute("rendezvousList", rendezvousList);
         request.getRequestDispatcher("/hospital/consultations.jsp").forward(request, response);
+    }
+
+    @Override
+    public void listerRendezVousPerPharmacy(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        List<Rendezvous> rendezvousList = rendezVousDao.findByStatus(RendezVousStatus.PHARMACIE);
+        request.setAttribute("rendezvousList", rendezvousList);
+        request.getRequestDispatcher("/hospital/prendrePrescriptionPharmacie.jsp").forward(request, response);
+
+    }
+
+    @Override
+    public void listerRendezVousPerLaboratory(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        List<Rendezvous> rendezvousList = rendezVousDao.findByStatus(RendezVousStatus.LABORATOIRE);
+        request.setAttribute("rendezvousList", rendezvousList);
+        request.getRequestDispatcher("/hospital/prelevementLaboratoire.jsp").forward(request, response);
     }
 
 

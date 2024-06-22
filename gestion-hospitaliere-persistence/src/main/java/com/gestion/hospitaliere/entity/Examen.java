@@ -2,9 +2,6 @@ package com.gestion.hospitaliere.entity;
 
 import jakarta.persistence.*;
 
-import java.time.LocalDateTime;
-import java.util.Date;
-
 @Entity
 public class Examen extends AbstractEntity{
 
@@ -12,7 +9,7 @@ public class Examen extends AbstractEntity{
     private String type;
     private String commentaires;
 
-    @ManyToOne(cascade = CascadeType.MERGE)
+    @ManyToOne(cascade = CascadeType.PERSIST)
     @JoinColumn(name = "examen_id", referencedColumnName = "id")
     private ResultatsExamens resultatExamens;
 

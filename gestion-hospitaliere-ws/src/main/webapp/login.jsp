@@ -5,8 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.lineicons.com/4.0/lineicons.css" rel="stylesheet" />
+    <link href="<%= request.getContextPath()%>/styles/font-awesome/css/font-awesome.min.css">
     <link href="<%= request.getContextPath() %>/styles/hospital/login.css" rel="stylesheet" />
-    <title>Document</title>
+    <title>Connexion</title>
 </head>
 <body>
     <div class="content">
@@ -16,6 +17,9 @@
             String admin = String.valueOf(( request.getParameter("action") != null && request.getParameter("action").equals("superAdmin") ? "active": ""));
         %>
         <div class="left">
+            <a href="<%= request.getContextPath() %>/">
+                <i class="lni lni-arrow-left"></i>
+            </a>
             <ul class="type-user-login">
                 <li class="type-user <%=patients%>">
                     <a href="<%= request.getContextPath() %>/authentication?action=patients">

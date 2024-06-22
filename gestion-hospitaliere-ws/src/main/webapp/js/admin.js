@@ -57,14 +57,14 @@ function addAntecedentDynamicFields(){
 
     const inputDateDebut = document.createElement('input');
     inputDateDebut.type = 'date';
-    inputDateDebut.name = 'date_debut';
+    inputDateDebut.name = 'date_debuts';
 
     const labelDateFin = document.createElement('label');
     labelDateFin.innerHTML = "Date fin:"
 
     const inputDateFin = document.createElement('input');
     inputDateFin.type = 'date';
-    inputDateFin.name = 'date_fin';
+    inputDateFin.name = 'date_fins';
 
 
     formTable1.appendChild(labelDateDebut);
@@ -98,7 +98,7 @@ function addAntecedentDynamicFields(){
     labelDescription.innerHTML = 'Description:'
 
     const textArea = document.createElement('textarea');
-    textArea.name = 'description';
+    textArea.name = 'descriptions';
 
     formTableCompletDescription.appendChild(labelDescription);
     formTableCompletDescription.appendChild(textArea);
@@ -145,7 +145,7 @@ function addExamenLabo(){
 
     const question = document.createElement('input');
     question.type = 'text';
-    question.name = 'question';
+    question.name = 'questions';
 
     const labelAppreciation = document.createElement('label');
     labelAppreciation.innerHTML = 'Appreciation:';
@@ -173,7 +173,8 @@ function addExamenLabo(){
 
     const reponse = document.createElement('input');
     reponse.type = 'text';
-    reponse.name = 'reponse';
+    reponse.name = 'reponses';
+    reponse.disabled = true;
 
     const labelAppreciationReponse = document.createElement('label');
     labelAppreciationReponse.innerHTML = 'Appreciation Reponse:';
@@ -181,6 +182,7 @@ function addExamenLabo(){
     const appreciationResponse = document.createElement('input');
     appreciationResponse.type = 'text';
     appreciationResponse.name = 'appreciation_reponse';
+    appreciationResponse.disabled = true;
 
     responseItemDiv.appendChild(titleReponseDemandH3);
     responseItemDiv.appendChild(labelResponse);

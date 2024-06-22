@@ -1,31 +1,41 @@
-<%@ page import="com.gestion.hospitaliere.entity.Fiche" %>
 <%@ page import="java.security.Permission" %>
-<%@ page import="com.gestion.hospitaliere.entity.PremierSoin" %>
 <%@ page import="com.gestion.hospitaliere.dao.PremierSoinDao" %>
 <%@ page import="com.gestion.hospitaliere.dao.impl.PremierSoinDaoImpl" %>
 <%@ page import="java.util.List" %>
 <%@ page import="java.util.ArrayList" %>
 <%@ page import="com.gestion.hospitaliere.dao.AntecedentMedicalDao" %>
 <%@ page import="com.gestion.hospitaliere.dao.impl.AntecdentMedicalDaoImpl" %>
-<%@ page import="com.gestion.hospitaliere.entity.AntecedentMedical" %>
+<%@ page import="com.gestion.hospitaliere.dao.ResultatsExamensDao" %>
+<%@ page import="com.gestion.hospitaliere.dao.impl.ResultatExamenDaoImpl" %>
+<%@ page import="com.gestion.hospitaliere.entity.*" %>
+<%@ page import="com.gestion.hospitaliere.dao.MedicamentDao" %>
+<%@ page import="com.gestion.hospitaliere.dao.impl.MedicamentDaoImpl" %>
 <jsp:include page="components/topbar.jsp" />
 <%
 
     Fiche fiche = (Fiche) request.getAttribute("fiche");
     List<PremierSoin> premierSoin = new ArrayList<>();
     List<AntecedentMedical> antecedentMedicalList = new ArrayList<>();
+    List<ResultatsExamens> resultatsExamens = new ArrayList<>();
+    List<Medicament> medicamentList = new ArrayList<>();
     PremierSoinDao premierSoinDao = null;
     AntecedentMedicalDao antecedentMedicalDao = null;
+    ResultatsExamensDao resultatsExamensDao = null;
+    MedicamentDao medicamentDao = null;
 
     try{
         premierSoinDao = new PremierSoinDaoImpl((Class<PremierSoin>) Class.forName("com.gestion.hospitaliere.entity.PremierSoin"));
         antecedentMedicalDao = new AntecdentMedicalDaoImpl((Class<AntecedentMedical>) Class.forName("com.gestion.hospitaliere.entity.AntecedentMedical"));
+        resultatsExamensDao = new ResultatExamenDaoImpl((Class<ResultatsExamens>) Class.forName("com.gestion.hospitaliere.entity.ResultatsExamens"));
+        medicamentDao = new MedicamentDaoImpl((Class<Medicament>) Class.forName("com.gestion.hospitaliere.entity.Medicament"));
     } catch (Exception e){
         e.printStackTrace();
     }
     if(fiche != null){
         premierSoin = premierSoinDao.findByFiche(fiche.getId());
         antecedentMedicalList = antecedentMedicalDao.antecedentMedicalFindByFiche(fiche.getId());
+        resultatsExamens = resultatsExamensDao.findFicheById(fiche.getId());
+        medicamentList = medicamentDao.listMedicamentPerFiche(fiche.getId());
     }
 
 %>
@@ -59,8 +69,8 @@
                                         if (fiche.getPatient()!= null){
                                 %>
                                 <h3>
-                                    <%= fiche.getPatient().getFirstName() != null? fiche.getPatient().getFirstName(): ""%>
-                                    <%= fiche.getPatient().getLastName() != null? fiche.getPatient().getLastName(): ""%>
+                                    <%= fiche.getPatient().getFirstName() != null ? fiche.getPatient().getFirstName(): ""%>
+                                    <%= fiche.getPatient().getLastName() != null ? fiche.getPatient().getLastName(): ""%>
                                 </h3>
                                 <%
                                         }
@@ -142,77 +152,47 @@
                 </div>
                 <%}%>
                 <div class="examens_resulats">
+                    <% if (!resultatsExamens.isEmpty()) {
+                        for (ResultatsExamens resultatsExamen: resultatsExamens) {
+                    %>
                     <div>
                         <h2>Examens et Resultats</h2>
                         <table class="table-fiche">
+
                             <tr>
-                                <td>Demande:</td>
-                                <td>Resultat</td>
-                            </tr>
-                            <tr>
-                                <td>Demande:</td>
-                                <td>Resultat</td>
-                            </tr>
-                            <tr>
-                                <td>Demande:</td>
-                                <td>Resultat</td>
-                            </tr>
-                            <tr>
-                                <td>Demande:</td>
-                                <td>Resultat</td>
-                            </tr>
-                            <tr>
-                                <td>Demande:</td>
-                                <td>Resultat</td>
-                            </tr>
-                            <tr>
-                                <td>Demande:</td>
-                                <td>Resultat</td>
-                            </tr>
-                            <tr>
-                                <td>Demande:</td>
-                                <td>Resultat</td>
+                                <% for (Question question: resultatsExamen.getQuestions()) {%>
+                                    <td>
+                                        <%= question%>
+                                    </td>
+                                <%}%>
+                                <% for (Examen examen : resultatsExamen.getExamen()) {%>
+                                    <td>
+                                        <%= examen%>
+                                    </td>
+                                <%}%>
                             </tr>
                         </table>
                     </div>
+                    <%
+                            }
+                        }
+                    %>
+
+                    <% if (!medicamentList.isEmpty()) {
+                        for (Medicament medicament: medicamentList){   %>
                     <div class="medicaments">
                         <h2>Medicaments</h2>
                         <div class="medicament-items">
-                            <p>Date</p>
+                            <p>Date de prescriptions: </p>
                             <ul>
-                                <li>Quinine</li>
-                                <li>Quinine</li>
-                                <li>Quinine</li>
-                                <li>Quinine</li>
-                                <li>Quinine</li>
-                                <li>Quinine</li>
-                            </ul>
-                        </div>
-
-                        <div class="medicament-items">
-                            <p>Date</p>
-                            <ul>
-                                <li>Quinine</li>
-                                <li>Quinine</li>
-                                <li>Quinine</li>
-                                <li>Quinine</li>
-                                <li>Quinine</li>
-                                <li>Quinine</li>
-                            </ul>
-                        </div>
-
-                        <div class="medicament-items">
-                            <p>Date</p>
-                            <ul>
-                                <li>Quinine</li>
-                                <li>Quinine</li>
-                                <li>Quinine</li>
-                                <li>Quinine</li>
-                                <li>Quinine</li>
-                                <li>Quinine</li>
+                                <li><%= medicament.getNom()%></li>
                             </ul>
                         </div>
                     </div>
+                    <%
+                            }
+                        }
+                    %>
                 </div>
             </div>
         </div>

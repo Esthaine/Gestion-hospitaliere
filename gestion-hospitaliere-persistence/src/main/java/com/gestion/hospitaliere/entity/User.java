@@ -26,7 +26,7 @@ public class User extends AbstractEntity{
 //    @JoinColumn(name = "analyze_id", referencedColumnName = "id", nullable = true)
 //    private Analyse analyse;
 
-    @ManyToOne(fetch = FetchType.EAGER, cascade = {CascadeType.PERSIST, CascadeType.MERGE})
+    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.MERGE)
     @JoinColumn(name = "department_id", referencedColumnName = "id")
     private Departement departement;
 
@@ -72,13 +72,6 @@ public class User extends AbstractEntity{
         this.person = person;
     }
 
-//    public Analyse getAnalyse() {
-//        return analyse;
-//    }
-//
-//    public void setAnalyse(Analyse analyse) {
-//        this.analyse = analyse;
-//    }
 
     public Departement getDepartement() {
         return departement;

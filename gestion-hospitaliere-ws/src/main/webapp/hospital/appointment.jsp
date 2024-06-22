@@ -20,11 +20,7 @@
     <div class="content">
 
         <div class="header-content">
-<%--            <button class="btn btn-green">Exporter liste des rendez-vouis medicales</button>--%>
-            <form>
-                <input type="search" placeholder="recherche par nom du patient">
-                <button>Recherche</button>
-            </form>
+            <h2>Liste des Rendez-vous</h2>
         </div>
         <table class="table-mapper">
             <thead>
@@ -87,19 +83,19 @@
                                     <%
                                         if (rendezvous.getStatus().equals(RendezVousStatus.NOUVEAU)){
                                     %>
-                                        <a href="<%= request.getContextPath()%>/hopital/patient/premierSoin?rendezVousId=<%=rendezvous.getId()%>&patientId=<%=rendezvous.getPerson().getId()%>" class="btn btn-purple">Voir</a>
-                                        <a href="<%= request.getContextPath()%>/hopital/patient/rendezVous?rendezVousId=<%=rendezvous.getId()%>&patientId=<%=rendezvous.getPerson().getId()%>" class="btn btn-green">Reprogrammer</a>
+                                        <a href="<%= request.getContextPath()%>/hopital/patient/premierSoin?rendezVousId=<%=rendezvous.getId()%>&patientId=<%= rendezvous.getPerson()!= null && rendezvous.getPerson().getId() != null ? rendezvous.getPerson().getId(): ""%>" class="btn btn-purple">Voir</a>
+                                        <a href="<%= request.getContextPath()%>/hopital/patient/rendezVous?rendezVousId=<%=rendezvous.getId()%>&patientId=<%= rendezvous.getPerson()!= null && rendezvous.getPerson().getId() != null ? rendezvous.getPerson().getId(): ""%>" class="btn btn-green">Reprogrammer</a>
                                         <a href="<%= request.getContextPath()%>/hopital/rendez-vous?action=cancel&rendezVousId=<%=rendezvous.getId()%>" class="btn btn-red">Annuler</a>
                                     <%}%>
                                     <% if (rendezvous.getStatus().equals(RendezVousStatus.ANNULER)) {%>
-                                        <a href="<%= request.getContextPath()%>/hopital/patient/premierSoin?rendezVousId=<%=rendezvous.getId()%>&patientId=<%=rendezvous.getPerson().getId()%>" class="btn btn-purple">Voir</a>
+                                        <a href="<%= request.getContextPath()%>/hopital/patient/premierSoin?rendezVousId=<%=rendezvous.getId()%>&patientId=<%= rendezvous.getPerson()!= null && rendezvous.getPerson().getId() != null ? rendezvous.getPerson().getId(): ""%>" class="btn btn-purple">Voir</a>
                                     <%}%>
                                     <% if (rendezvous.getStatus().equals(RendezVousStatus.REPROGRAMMER)) {%>
-                                        <a href="<%= request.getContextPath()%>/hopital/patient/premierSoin?rendezVousId=<%=rendezvous.getId()%>&patientId=<%=rendezvous.getPerson().getId()%>" class="btn btn-purple">Voir</a>
+                                        <a href="<%= request.getContextPath()%>/hopital/patient/premierSoin?rendezVousId=<%=rendezvous.getId()%>&patientId=<%= rendezvous.getPerson()!= null && rendezvous.getPerson().getId() != null ? rendezvous.getPerson().getId(): ""%>" class="btn btn-purple">Voir</a>
                                         <a href="<%= request.getContextPath()%>/hopital/rendez-vous?action=cancel&rendezVousId=<%=rendezvous.getId()%>" class="btn btn-red">Annuler</a>
                                     <%}%>
                                     <% if (rendezvous.getStatus().equals(RendezVousStatus.EN_COURS) || rendezvous.getStatus().equals(RendezVousStatus.TRAITER)) {%>
-                                        <a href="<%= request.getContextPath()%>/hopital/patient/premierSoin?rendezVousId=<%=rendezvous.getId()%>&patientId=<%=rendezvous.getPerson().getId()%>" class="btn btn-purple">Voir</a>
+                                        <a href="<%= request.getContextPath()%>/hopital/patient/premierSoin?rendezVousId=<%=rendezvous.getId()%>&patientId=<%= rendezvous.getPerson()!= null && rendezvous.getPerson().getId() != null ? rendezvous.getPerson().getId(): ""%>" class="btn btn-purple">Voir</a>
                                     <%}%>
                                 </td>
                             </tr>

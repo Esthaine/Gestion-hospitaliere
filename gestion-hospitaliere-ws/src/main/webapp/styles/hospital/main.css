@@ -282,7 +282,13 @@
 
 .medicaments .medicament-item{
     display: flex;
-    flex-direction: column;
+    align-items: center;
+}
+
+.medicaments .medicament-item input[type=checkbox]{
+    display: block;
+    box-shadow: none;
+    margin-right: 10px;
 }
 
 
@@ -320,5 +326,120 @@
 .action-minus {
     background-color: red;
 }
+
+.update-profile{
+    padding-top: 15px;
+    padding-bottom: 15px;
+    width: 600px;
+}
+form input, form textarea{
+    outline: none;
+    font-size: 14px;
+    font-weight: 400;
+    color:#333;
+    border-radius: 4px;
+    border: 1px solid #aaa;
+    padding: 0 15px;
+    height: 42px;
+    margin: 8px 0;
+}
+
+.form-group{
+    display: flex;
+    flex-direction: column;
+}
+
+form button{
+    padding: 10px  25px;
+    border: none;
+    border-radius: 5.5px;
+    height: 52px;
+    color: #fff;
+    background-color: green;
+    margin: 30px 0px;
+    font-size: 16px;
+    width: 100%;
+}
+
+.status{
+    border-radius: 5px;
+    padding: 10px 25px;
+    color: #fff;
+}
+.en_cours{
+    background-color: lightblue;
+}
+
+.annuler{
+    background-color: red;
+}
+.reprogrammer{
+    background-color: blueviolet;
+}
+.terminer{
+    background-color: green;
+}
+
+
+.form-member{
+    width: 800px;
+}
+.form-member form input, form textarea, select{
+    outline: none;
+    font-size: 14px;
+    font-weight: 400;
+    color:#333;
+    border-radius: 4px;
+    border: 1px solid #aaa;
+    padding: 0 15px;
+    height: 42px;
+    margin: 8px 0;
+}
+
+.form-group{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    flex: 0 0 50% ;
+}
+.phone{
+    display: flex;
+    align-items: center;
+}
+.phone input{
+    flex: 3;
+}
+.phone span{
+    border: 1px solid #333;
+    border-radius: 4px;
+    height: 42px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 1;
+}
+.form-group-item{
+    display: flex;
+    /* justify-content: space-between; */
+}
+
+form button{
+    padding: 10px  25px;
+    border: none;
+    border-radius: 5.5px;
+    height: 52px;
+    color: #fff;
+    background-color: green;
+    margin: 30px 0px;
+    font-size: 16px;
+    width: 100%;
+}
+
+.form-member h3{
+    margin: 10px 0 10px 0;
+    color: #333;
+}
+
+
 
 

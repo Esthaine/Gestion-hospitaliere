@@ -9,5 +9,6 @@ public interface IFicheService {
 
     void fichePatient(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException;
     void consultationPatient(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException;
+    void performPatientConsulation(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException;
 
 }

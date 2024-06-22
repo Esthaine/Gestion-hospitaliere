@@ -6,20 +6,21 @@
 <jsp:include page="components/topbar.jsp" />
 <%
     List<Rendezvous> rendezvousList = (List<Rendezvous>) request.getAttribute("rendezvousList");
-    PersonDao personDao = null;
+    PersonDao personDao;
     Person person = null;
     int index = 0;
     try{
         personDao = new PersonDaoImpl((Class<Person>) Class.forName("com.gestion.hospitaliere.entity.Person"));
-    }catch (Exception e){
-        e.printStackTrace();
+    }catch (ClassNotFoundException e){
+       throw new RuntimeException(e);
     }
 %>
 <div class="main">
     <jsp:include page="components/sidebar.jsp" />
     <div class="content">
         <div>
-            <h2>Consultation</h2>
+            <h2>Consultations</h2>
+<%--            <%= rendezvousList %>--%>
         </div>
         <div>
             <div>
@@ -31,19 +32,13 @@
                     </thead>
                     <tbody>
                     <%
-                        if (rendezvousList != null && !rendezvousList.isEmpty()) {
-                            for (Rendezvous r : rendezvousList) {
-                                index += 1;
-                                if (personDao != null){
-                                    try{
-                                        if (personDao.findByUserId(r.getPerson().getId()) != null){
-                                            person = personDao.findByUserId(r.getPerson().getId());
-                                        }
-                                    }catch (Exception e){
-                                        e.printStackTrace();
-                                    }
-                                }
+                        for (Rendezvous r : rendezvousList) {
+                            index += 1;
+                            person = personDao.findById(r.getPerson().getId());
                     %>
+<%--                    <%= personDao.findById(r.getPerson().getId()).getGivenName() %><br>--%>
+<%--                    <%= personDao.findById(r.getPerson().getId()).getFirstName() %><br>--%>
+<%--                    <%= personDao.findById(r.getPerson().getId()).getLastName() %><br>--%>
                         <tr>
                             <td>
                                 <%=index%>
@@ -61,7 +56,6 @@
                             </td>
                         </tr>
                     <%
-                            }
                         }
                     %>
                     </tbody>

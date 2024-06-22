@@ -8,10 +8,10 @@ import java.util.Set;
 @Entity
 public class ResultatsExamens extends AbstractEntity {
 
-    @OneToMany(cascade = CascadeType.MERGE)
+    @OneToMany(cascade = CascadeType.PERSIST)
     private Set<Question> questions;
 
-    @OneToMany(cascade = CascadeType.MERGE, fetch = FetchType.EAGER)
+    @OneToMany(cascade = CascadeType.PERSIST, fetch = FetchType.EAGER)
     private Set<Examen> examen;
 
     private String valeur;
@@ -21,6 +21,10 @@ public class ResultatsExamens extends AbstractEntity {
     private String interpretation;
 
     private String reference;
+
+    @ManyToOne(cascade = CascadeType.PERSIST)
+    @JoinColumn(columnDefinition = "fiche_id", referencedColumnName = "id")
+    private Fiche fiche;
 
     public ResultatsExamens() {
     }
@@ -63,5 +67,21 @@ public class ResultatsExamens extends AbstractEntity {
 
     public void setReference(String reference) {
         this.reference = reference;
+    }
+
+    public Set<Question> getQuestions() {
+        return questions;
+    }
+
+    public void setQuestions(Set<Question> questions) {
+        this.questions = questions;
+    }
+
+    public Fiche getFiche() {
+        return fiche;
+    }
+
+    public void setFiche(Fiche fiche) {
+        this.fiche = fiche;
     }
 }

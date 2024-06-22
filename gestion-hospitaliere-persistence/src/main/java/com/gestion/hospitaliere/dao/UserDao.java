@@ -1,14 +1,9 @@
 package com.gestion.hospitaliere.dao;
 
-import com.gestion.hospitaliere.config.Persistence;
 import com.gestion.hospitaliere.entity.User;
 import com.gestion.hospitaliere.model.UserDto;
-import jakarta.persistence.Query;
 
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
-import java.util.stream.Stream;
 
 public interface  UserDao extends JpaRepository<User>{
 
@@ -17,5 +12,6 @@ public interface  UserDao extends JpaRepository<User>{
 
   UserDto findUserByName(String username);
   List<User> listOfUserPerRole(String roleName);
+  List<User> listOfUserByDepartment(Long id);
 
 }

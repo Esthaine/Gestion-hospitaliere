@@ -10,11 +10,11 @@
         </div>
         <div class="nav_right">
             <ul>
-                <li>Covid</li>
-                <li id="open__search">
-                    <i class="lni lni-search-alt"></i>
-                    Recherche
-                </li>
+<%--                <li>Covid</li>--%>
+<%--                <li id="open__search">--%>
+<%--                    <i class="lni lni-search-alt"></i>--%>
+<%--                    Recherche--%>
+<%--                </li>--%>
                 <% UserDto userDto = (UserDto) session.getAttribute("authenticated");
                     if (userDto!=null){%>
                     <li><a href="<%= request.getContextPath() %>/deconnexion">Deconnexion</a> </li>
@@ -32,13 +32,13 @@
                     <li><a href="<%= request.getContextPath() %>/appointement">Prendre rendez-vous</a> </li>
                 </ul>
             </div>
-            <div class="menu_content_right">
-                <ul>
-                    <li>Urgence</li>
-                    <li>Hospitalisation</li>
-                    <li>Menu 9</li>
-                </ul>
-            </div>
+<%--            <div class="menu_content_right">--%>
+<%--                <ul>--%>
+<%--                    <li>Urgence</li>--%>
+<%--                    <li>Hospitalisation</li>--%>
+<%--                    <li>Menu 9</li>--%>
+<%--                </ul>--%>
+<%--            </div>--%>
         </div>
     </div>
     <div class="search" id="search">

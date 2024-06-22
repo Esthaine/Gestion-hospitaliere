@@ -6,5 +6,6 @@ public enum RendezVousStatus {
     ANNULER,
     TRAITER,
     REPROGRAMMER,
-    LABORATOIRE
+    LABORATOIRE,
+    PHARMACIE
 }

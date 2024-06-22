@@ -22,4 +22,14 @@ public class UserProfileServlet extends HttpServlet {
             throw new RuntimeException(e);
         }
     }
+
+    @Override
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        try{
+            IUserService userService = new UserServiceImpl();
+            userService.userOrganisationProfileUpdate(req, resp);
+        }catch (ClassNotFoundException e){
+            throw new RuntimeException(e);
+        }
+    }
 }

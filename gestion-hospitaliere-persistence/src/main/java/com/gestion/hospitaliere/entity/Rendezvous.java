@@ -52,4 +52,16 @@ public class Rendezvous extends AbstractEntity{
     public void setStatus(RendezVousStatus status) {
         this.status = status;
     }
+
+    @Override
+    public String toString() {
+        return "Rendezvous{" +
+                "person=" + person +
+                ", docteurSet=" + docteurSet +
+                ", dateRendezVous=" + dateRendezVous +
+                ", status=" + status +
+                ", createdAt=" + createdAt +
+                ", modifiedAt=" + modifiedAt +
+                '}';
+    }
 }

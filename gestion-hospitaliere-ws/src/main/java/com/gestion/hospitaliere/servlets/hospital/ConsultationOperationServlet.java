@@ -1,7 +1,9 @@
 package com.gestion.hospitaliere.servlets.hospital;
 
 import com.gestion.hospitaliere.service.IFicheService;
+import com.gestion.hospitaliere.service.IUserService;
 import com.gestion.hospitaliere.service.impl.FicheServiceImpl;
+import com.gestion.hospitaliere.service.impl.UserServiceImpl;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -19,6 +21,16 @@ public class ConsultationOperationServlet extends HttpServlet {
             IFicheService ficheService = new FicheServiceImpl();
             ficheService.consultationPatient(req, resp);
         } catch (ClassNotFoundException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    @Override
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        try{
+            IFicheService ficheService = new FicheServiceImpl();
+            ficheService.performPatientConsulation(req, resp);
+        }catch (ClassNotFoundException e){
             throw new RuntimeException(e);
         }
     }

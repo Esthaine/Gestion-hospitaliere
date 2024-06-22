@@ -6,6 +6,9 @@
 <%
     UserDto user = null;
     PersonDao personDao = null;
+    String error = (String) request.getAttribute("error");
+    String success = (String) request.getAttribute("success");
+
     if (session.getAttribute("authenticated") != null){
         user = (UserDto) session.getAttribute("authenticated");
     }
@@ -19,7 +22,7 @@
     <jsp:include page="components/sidebar.jsp" />
     <div class="content">
         <div>
-            <h2>Prolile urilisateur</h2>
+            <h2>Profile utilisateur</h2>
         </div>
         <div>
             <%
@@ -30,12 +33,50 @@
                     }
             %>
                 <h3>Infomation:</h3>
-                <p>Nom complet: </p>
+                <p>
+                    Nom complet:  <%= person != null && person.getGivenName() != null ? person.getGivenName() : "" %>
+                    <%= person != null && person.getFirstName() != null ? person.getFirstName() : "" %>
+                    <%= person != null && person.getLastName() != null ? person.getLastName() : "" %>
+                </p>
                 <p>Adresse: </p>
-                <p>Date de naissance: </p>
+                <p>Date de naissance:  <%= person != null && person.getDateOfBirth() != null ? person.getDateOfBirth() : "" %></p>
             <%}%>
         </div>
+        <div class="update-profile">
+            <h2>Modifier profile</h2>
 
+            <%
+                if (error != null){
+            %>
+                <span class="error"><%=error%></span>
+            <%
+                }
+            %>
+            <%
+                if (success != null){
+            %>
+                <span class="success"><%=success%></span>
+            <%
+                }
+            %>
+            <form action="<%= request.getContextPath()%>/hopital/profile" method="post">
+                <div class="form-group">
+                    <label>Ancien mot de passe *:</label>
+                    <input type="password" name="oldPassword"/>
+                </div>
+
+                <div class="form-group">
+                    <label>Nouveau mot de passe *:</label>
+                    <input type="password" name="newPassword"/>
+                </div>
+
+                <div class="form-group">
+                    <label>Comfirmer mot de passe *:</label>
+                    <input type="password" name="confirmPassword"/>
+                </div>
+                <button type="submit">Update Profile</button>
+            </form>
+        </div>
     </div>
 </div>
 <script src="<%= request.getContextPath()%>/js/admin.js"></script>

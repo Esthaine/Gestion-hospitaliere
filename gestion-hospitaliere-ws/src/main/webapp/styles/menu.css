@@ -6,14 +6,19 @@
   z-index: 9;
   left: 0;
   right: 0;
+  background-color: green;
 }
 
-.menu .close__menu{
+.menu .lni-close{
+  position: absolute;
+  top: 40px;
+  right: 40px;
   width: 40px;
   height: 40px;
-  font-size: 32px;
+  font-size: 24px;
   font-weight: bold;
   align-self: flex-end;
+  color: white;
 }
 
 .menu_content{

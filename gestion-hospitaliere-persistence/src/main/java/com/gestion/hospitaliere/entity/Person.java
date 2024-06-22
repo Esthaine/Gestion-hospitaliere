@@ -27,13 +27,24 @@ public class Person extends AbstractEntity{
     @JoinColumn(name = "user_id", referencedColumnName = "id")
     private User user;
 
-    @Embedded
-    @AttributeOverrides({
-            @AttributeOverride(name = "streetName", column = @Column(name = "streetname")),
-            @AttributeOverride(name = "houseNumber", column = @Column(name = "housenumber")),
-            @AttributeOverride(name = "township", column = @Column(name = "township")),
-    })
-    private Address address;
+    private String streetName;
+
+    private String houseNumber;
+
+    private String township;
+
+    @ManyToOne(cascade =   CascadeType.MERGE , fetch = FetchType.LAZY)
+    @JoinColumn(columnDefinition = "pays_id", referencedColumnName = "id")
+    private Pays pays;
+
+    @ManyToOne(cascade =  CascadeType.MERGE , fetch = FetchType.LAZY)
+    @JoinColumn(columnDefinition = "region_id", referencedColumnName = "id")
+    private Region region;
+
+    @ManyToOne(cascade =  CascadeType.MERGE , fetch = FetchType.LAZY)
+    @JoinColumn(columnDefinition = "ville_id", referencedColumnName = "id")
+    private Ville ville;
+
 
     public String getFirstName() {
         return firstName;
@@ -83,14 +94,6 @@ public class Person extends AbstractEntity{
         this.genre = genre;
     }
 
-    public Address getAddress() {
-        return address;
-    }
-
-    public void setAddress(Address address) {
-        this.address = address;
-    }
-
     public User getUser() {
         return user;
     }
@@ -105,5 +108,53 @@ public class Person extends AbstractEntity{
 
     public void setFiche(Fiche fiche) {
         this.fiche = fiche;
+    }
+
+    public String getStreetName() {
+        return streetName;
+    }
+
+    public void setStreetName(String streetName) {
+        this.streetName = streetName;
+    }
+
+    public String getHouseNumber() {
+        return houseNumber;
+    }
+
+    public void setHouseNumber(String houseNumber) {
+        this.houseNumber = houseNumber;
+    }
+
+    public String getTownship() {
+        return township;
+    }
+
+    public void setTownship(String township) {
+        this.township = township;
+    }
+
+    public Pays getPays() {
+        return pays;
+    }
+
+    public void setPays(Pays pays) {
+        this.pays = pays;
+    }
+
+    public Region getRegion() {
+        return region;
+    }
+
+    public void setRegion(Region region) {
+        this.region = region;
+    }
+
+    public Ville getVille() {
+        return ville;
+    }
+
+    public void setVille(Ville ville) {
+        this.ville = ville;
     }
 }

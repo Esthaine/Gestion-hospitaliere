@@ -20,5 +20,7 @@ public interface IRendezVousService {
 
     //Medecin
     void listerRendezVousPerDoctor(HttpServletRequest request , HttpServletResponse response) throws ServletException, IOException;
+    void listerRendezVousPerPharmacy(HttpServletRequest request , HttpServletResponse response) throws ServletException, IOException;
+    void listerRendezVousPerLaboratory(HttpServletRequest request , HttpServletResponse response) throws ServletException, IOException;
 
 }

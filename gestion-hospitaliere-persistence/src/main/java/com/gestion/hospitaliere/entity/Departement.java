@@ -11,9 +11,12 @@ public class Departement extends AbstractEntity{
     @JoinColumn(name = "user_id")
     private User manager;
 
+    @Column(unique = true)
     private String NomDepartement;
+    @Column(unique = true)
     private String code;
     private String Description;
+
     @OneToMany(cascade = CascadeType.MERGE)
     private Set<User> users;
 
@@ -47,5 +50,13 @@ public class Departement extends AbstractEntity{
 
     public void setUsers(Set<User> users) {
         this.users = users;
+    }
+
+    public String getCode() {
+        return code;
+    }
+
+    public void setCode(String code) {
+        this.code = code;
     }
 }

@@ -109,4 +109,23 @@ public class UserDaoImpl extends JpaRepositoryImpl<User> implements UserDao{
         }
         return users;
     }
+
+    @Override
+    public List<User> listOfUserByDepartment(Long id) {
+        List<User> users = new ArrayList<>();
+        try (EntityManagerFactory em =
+                     jakarta.persistence.Persistence.createEntityManagerFactory("gestion-hospitaliere-unit")) {
+            EntityManager entityManager = em.createEntityManager();
+            entityManager.getTransaction().begin();
+            Query findUsersByRole = entityManager.createQuery("From User u where u.departement.id =: departmentId");
+            findUsersByRole.setParameter("departmentId", id);
+            var resultList = findUsersByRole.getResultList();
+            if (!resultList.isEmpty()) {
+                users.addAll(resultList);
+            }
+            entityManager.getTransaction().commit();
+            entityManager.close();
+        }
+        return users;
+    }
 }

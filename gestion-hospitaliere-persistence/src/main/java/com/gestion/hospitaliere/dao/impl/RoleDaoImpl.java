@@ -8,6 +8,8 @@ import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.Query;
 import jakarta.transaction.Transactional;
 
+import java.util.List;
+
 
 @Transactional
 public class RoleDaoImpl extends JpaRepositoryImpl<Role> implements RoleDao {
@@ -33,6 +35,23 @@ public class RoleDaoImpl extends JpaRepositoryImpl<Role> implements RoleDao {
             entityManager.getTransaction().commit();
             entityManager.close();
             return role;
+        }
+    }
+
+    @Override
+    public List<Role> findRoleByUserNameDifferentDe(String roleName) {
+        List<Role> roles = null;
+        try (EntityManagerFactory em =
+                     jakarta.persistence.Persistence.createEntityManagerFactory("gestion-hospitaliere-unit")) {
+            EntityManager entityManager = em.createEntityManager();
+            entityManager.getTransaction().begin();
+            Query findUserByName = entityManager.createQuery("From Role r where r.name!=:roleName");
+            findUserByName.setParameter("roleName", roleName);
+
+            roles = findUserByName.getResultList();
+            entityManager.getTransaction().commit();
+            entityManager.close();
+            return roles;
         }
     }
 }

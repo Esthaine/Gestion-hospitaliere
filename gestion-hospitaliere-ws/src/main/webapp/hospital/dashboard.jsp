@@ -23,27 +23,27 @@
             <div class="info">
                 <div class="header">
                     <h3>Patients</h3>
-                    <i class="lni lni-cog"></i>
+                    <i class="fa fa-wheelchair" aria-hidden="true"></i>
                 </div>
                 <h2 class="header">
                     <%=patients.size()%>
                 </h2>
             </div>
 
-            <div class="info">
+            <div class="info" style="background-color: darkblue">
                 <div class="header">
                     <h3>Docteurs</h3>
-                    <i class="lni lni-cog"></i>
+                    <i class="fa fa-user-md" aria-hidden="true"></i>
                 </div>
                 <h2>
                     <%= doctors.size()%>
                 </h2>
             </div>
 
-            <div class="info">
+            <div class="info" style="background-color: lightseagreen">
                 <div class="header">
                     <h3>Infirmiere</h3>
-                    <i class="lni lni-cog"></i>
+                    <i class="fa fa-user-md" aria-hidden="true"></i>
                 </div>
                 <h2>
                     <%=nurses.size()%>
@@ -59,10 +59,10 @@
 <%--                    500--%>
 <%--                </h2>--%>
 <%--            </div>--%>
-            <div class="info">
+            <div class="info" style="background-color: deeppink">
                 <div class="header">
                     <h3>Utilisateurs</h3>
-                    <i class="lni lni-cog"></i>
+                    <i class="fa fa-users" aria-hidden="true"></i>
                 </div>
                 <h2>
                     <%=users.size()%>
