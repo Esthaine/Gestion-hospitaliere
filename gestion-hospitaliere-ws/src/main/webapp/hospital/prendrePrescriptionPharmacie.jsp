@@ -27,7 +27,7 @@
             <th>Prenom</th>
             <th>Nom</th>
             <th>Date</th>
-            <th>Voir</th>
+            <th>Envoyer par</th>
             <th>Action</th>
             </thead>
             <tbody>
@@ -79,23 +79,7 @@
                     <%}%>
                 </td>
                 <td>
-                    <%
-                        if (rendezvous.getStatus().equals(RendezVousStatus.NOUVEAU)){
-                    %>
-                    <a href="<%= request.getContextPath()%>/hopital/patient/premierSoin?rendezVousId=<%=rendezvous.getId()%>&patientId=<%=rendezvous.getPerson().getId()%>" class="btn btn-purple">Voir</a>
-                    <a href="<%= request.getContextPath()%>/hopital/patient/rendezVous?rendezVousId=<%=rendezvous.getId()%>&patientId=<%=rendezvous.getPerson().getId()%>" class="btn btn-green">Reprogrammer</a>
-                    <a href="<%= request.getContextPath()%>/hopital/rendez-vous?action=cancel&rendezVousId=<%=rendezvous.getId()%>" class="btn btn-red">Annuler</a>
-                    <%}%>
-                    <% if (rendezvous.getStatus().equals(RendezVousStatus.ANNULER)) {%>
-                    <a href="<%= request.getContextPath()%>/hopital/patient/premierSoin?rendezVousId=<%=rendezvous.getId()%>&patientId=<%=rendezvous.getPerson().getId()%>" class="btn btn-purple">Voir</a>
-                    <%}%>
-                    <% if (rendezvous.getStatus().equals(RendezVousStatus.REPROGRAMMER)) {%>
-                    <a href="<%= request.getContextPath()%>/hopital/patient/premierSoin?rendezVousId=<%=rendezvous.getId()%>&patientId=<%=rendezvous.getPerson().getId()%>" class="btn btn-purple">Voir</a>
-                    <a href="<%= request.getContextPath()%>/hopital/rendez-vous?action=cancel&rendezVousId=<%=rendezvous.getId()%>" class="btn btn-red">Annuler</a>
-                    <%}%>
-                    <% if (rendezvous.getStatus().equals(RendezVousStatus.EN_COURS) || rendezvous.getStatus().equals(RendezVousStatus.TRAITER)) {%>
-                    <a href="<%= request.getContextPath()%>/hopital/patient/premierSoin?rendezVousId=<%=rendezvous.getId()%>&patientId=<%=rendezvous.getPerson().getId()%>" class="btn btn-purple">Voir</a>
-                    <%}%>
+                    <a href="<%= request.getContextPath()%>/hopital/pharmacie/prescription/process?rendezVousId=<%=rendezvous.getId()%>&patientId=<%=rendezvous.getPerson().getId()%>" class="btn btn-purple">Voir</a>
                 </td>
             </tr>
             <%

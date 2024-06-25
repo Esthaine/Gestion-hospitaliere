@@ -62,10 +62,27 @@ public class MedicamentTests {
         med4.setDatePeremption(LocalDate.now());
         med4.setStock(Stock.IN);
 
+        Medicament med5 = new Medicament();
+        med5.setNom("Efferalgan");
+        med5.setPosologie("posoligie");
+        med5.setDescription("description");
+        med5.setPrixUnitaire(100);
+        med5.setDatePeremption(LocalDate.now());
+        med5.setStock(Stock.IN);
+
+        Medicament med6 = new Medicament();
+        med6.setNom("Efferalgan");
+        med6.setPosologie("posoligie");
+        med6.setDescription("description");
+        med6.setPrixUnitaire(100);
+        med6.setDatePeremption(LocalDate.now());
+        med6.setStock(Stock.IN);
+
         medicaments.add(med1);
         medicaments.add(med2);
         medicaments.add(med3);
         medicaments.add(med4);
+        medicaments.add(med5);
 
 
         medicamentDao.saveAll(medicaments.toArray(new Medicament[medicaments.size()]));

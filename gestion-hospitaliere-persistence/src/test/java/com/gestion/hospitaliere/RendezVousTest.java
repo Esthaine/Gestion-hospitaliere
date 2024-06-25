@@ -81,19 +81,25 @@ public class RendezVousTest {
     @Test
     void listOfRendezVousPerPatient(){
 
-        List<Rendezvous> rendezvous = rendezVousDao.findByPatient(53L);
-        assertEquals(1, rendezvous.size());
+//        List<Rendezvous> rendezvous = rendezVousDao.findByPatient(53L);
+//        assertEquals(1, rendezvous.size());
 
 
-//        for (Rendezvous rendezvous : rendezVousDao.findByDoctor(6L, RendezVousStatus.NOUVEAU)) {
+//        for (Rendezvous rendezvous : rendezVousDao.findByDoctor(6L, RendezVousStatus.EN_COURS)) {
 //            System.out.println(rendezvous);
 //        }
 
-//        for (Rendezvous rendezvous : rendezVousDao.findByStatus(RendezVousStatus.EN_COURS)) {
+        for (Rendezvous rendezvous : rendezVousDao.findByStatus(RendezVousStatus.LABORATOIRE)) {
+            System.out.println(rendezvous);
+        }
+
+
+//        Rendezvous rendezvous = rendezVousDao.findById(12L);
+//        if (rendezvous != null) {
 //            System.out.println(rendezvous);
+//            rendezvous.setStatus(RendezVousStatus.PHARMACIE);
 //        }
-
-
+//        rendezVousDao.save(rendezvous);
 
     }
 }

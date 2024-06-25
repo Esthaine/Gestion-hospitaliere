@@ -292,7 +292,7 @@ public class UserServiceImpl implements IUserService {
         newUser.setUsername(userName);
         newUser.setEmail(email);
 
-        if (!pwd.equals(confirmPwd)){
+        if (!action.equals("edit") && !pwd.equals(confirmPwd)){
             request.setAttribute("error", "Veuillez renseigner tous les elements.");
             request.getRequestDispatcher("/hopital/docteurs.jsp");
         }

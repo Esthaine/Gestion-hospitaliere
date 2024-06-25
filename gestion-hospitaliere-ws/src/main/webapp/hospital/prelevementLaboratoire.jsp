@@ -9,6 +9,7 @@
     List<Rendezvous> rendezvousList = (List<Rendezvous>) request.getAttribute("rendezvousList");
     PersonDao personDao;
     Person person = null;
+
     try {
         personDao = new PersonDaoImpl((Class<Person>) Class.forName("com.gestion.hospitaliere.entity.Person"));
     } catch (ClassNotFoundException e) {
@@ -20,20 +21,15 @@
     <div class="content">
 
         <div class="header-content">
-            <%--            <button class="btn btn-green">Exporter liste des rendez-vouis medicales</button>--%>
-            <form>
-                <input type="search" placeholder="recherche par nom du patient">
-                <button>Recherche</button>
-            </form>
         </div>
         <table class="table-mapper">
             <thead>
-            <th>No</th>
-            <th>Prenom</th>
-            <th>Nom</th>
-            <th>Date</th>
-            <th>Voir</th>
-            <th>Action</th>
+                <th>No</th>
+                <th>Prenom</th>
+                <th>Nom</th>
+                <th>Date</th>
+                <th>Envoyer par</th>
+                <th>Action</th>
             </thead>
             <tbody>
             <%
@@ -84,23 +80,8 @@
                     <%}%>
                 </td>
                 <td>
-                    <%
-                        if (rendezvous.getStatus().equals(RendezVousStatus.NOUVEAU)){
-                    %>
-                    <a href="<%= request.getContextPath()%>/hopital/patient/premierSoin?rendezVousId=<%=rendezvous.getId()%>&patientId=<%=rendezvous.getPerson().getId()%>" class="btn btn-purple">Voir</a>
-                    <a href="<%= request.getContextPath()%>/hopital/patient/rendezVous?rendezVousId=<%=rendezvous.getId()%>&patientId=<%=rendezvous.getPerson().getId()%>" class="btn btn-green">Reprogrammer</a>
-                    <a href="<%= request.getContextPath()%>/hopital/rendez-vous?action=cancel&rendezVousId=<%=rendezvous.getId()%>" class="btn btn-red">Annuler</a>
-                    <%}%>
-                    <% if (rendezvous.getStatus().equals(RendezVousStatus.ANNULER)) {%>
-                    <a href="<%= request.getContextPath()%>/hopital/patient/premierSoin?rendezVousId=<%=rendezvous.getId()%>&patientId=<%=rendezvous.getPerson().getId()%>" class="btn btn-purple">Voir</a>
-                    <%}%>
-                    <% if (rendezvous.getStatus().equals(RendezVousStatus.REPROGRAMMER)) {%>
-                    <a href="<%= request.getContextPath()%>/hopital/patient/premierSoin?rendezVousId=<%=rendezvous.getId()%>&patientId=<%=rendezvous.getPerson().getId()%>" class="btn btn-purple">Voir</a>
-                    <a href="<%= request.getContextPath()%>/hopital/rendez-vous?action=cancel&rendezVousId=<%=rendezvous.getId()%>" class="btn btn-red">Annuler</a>
-                    <%}%>
-                    <% if (rendezvous.getStatus().equals(RendezVousStatus.EN_COURS) || rendezvous.getStatus().equals(RendezVousStatus.TRAITER)) {%>
-                    <a href="<%= request.getContextPath()%>/hopital/patient/premierSoin?rendezVousId=<%=rendezvous.getId()%>&patientId=<%=rendezvous.getPerson().getId()%>" class="btn btn-purple">Voir</a>
-                    <%}%>
+
+                    <a href="<%= request.getContextPath()%>/hopital/labo/prelevement/process?rendezVousId=<%=rendezvous.getId()%>&patientId=<%=rendezvous.getPerson().getId()%>" class="btn btn-purple">Prelevement</a>
                 </td>
             </tr>
             <%

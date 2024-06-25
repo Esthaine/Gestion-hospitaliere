@@ -11,7 +11,7 @@ public class ResultatsExamens extends AbstractEntity {
     @OneToMany(cascade = CascadeType.PERSIST)
     private Set<Question> questions;
 
-    @OneToMany(cascade = CascadeType.PERSIST, fetch = FetchType.EAGER)
+    @OneToMany(cascade = CascadeType.PERSIST)
     private Set<Examen> examen;
 
     private String valeur;
@@ -22,7 +22,7 @@ public class ResultatsExamens extends AbstractEntity {
 
     private String reference;
 
-    @ManyToOne(cascade = CascadeType.PERSIST)
+    @ManyToOne(cascade = CascadeType.MERGE)
     @JoinColumn(columnDefinition = "fiche_id", referencedColumnName = "id")
     private Fiche fiche;
 

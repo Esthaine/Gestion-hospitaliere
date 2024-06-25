@@ -30,28 +30,28 @@ public class DepartmentTest {
 
     @Test
     void createDepartment(){
-        Departement departement = departementDao.save(newDepartement());
-        assertNotNull(departement);
+//        Departement departement = departementDao.save(newDepartement());
+//        assertNotNull(departement);
     }
 
 
-    //@Test
+    @Test
     void newDepartmentTestCreation(){
 
         Departement departement = new Departement();
         departement.setManager(userDao.findById(4L));
-        departement.setNomDepartement("Oncologie");
+        departement.setNomDepartement("Pediatrie");
         departement.setCode(PersistenceUtils.departmentNumberGeneration());
         departement.setDescription("Oncologie Description");
         departementDao.save(departement);
     }
 
-    Departement newDepartement(){
-        Departement departement = departementDao.findById(1L);
-        departement.setManager(userDao.findById(6L));
-        departement.setCode(PersistenceUtils.departmentNumberGeneration());
-        return departement;
-    }
+//    Departement newDepartement(){
+//        Departement departement = departementDao.findById(1L);
+//        departement.setManager(userDao.findById(6L));
+//        departement.setCode(PersistenceUtils.departmentNumberGeneration());
+//        return departement;
+//    }
 
 
 

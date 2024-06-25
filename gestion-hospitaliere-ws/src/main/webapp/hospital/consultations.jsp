@@ -34,7 +34,10 @@
                     <%
                         for (Rendezvous r : rendezvousList) {
                             index += 1;
-                            person = personDao.findById(r.getPerson().getId());
+                            if (r.getPerson() != null && r.getPerson().getId() != null ){
+                                person = personDao.findById(r.getPerson().getId());
+                            }
+
                     %>
 <%--                    <%= personDao.findById(r.getPerson().getId()).getGivenName() %><br>--%>
 <%--                    <%= personDao.findById(r.getPerson().getId()).getFirstName() %><br>--%>
@@ -51,7 +54,7 @@
                                 </p>
                             </td>
                             <td>
-                                <a href="<%=request.getContextPath()%>/hopital/patient/consultation/operation?patientId=<%= person != null && person.getId() != null?person.getId() :""%>" class="btn btn-green">Consulter</a>
+                                <a href="<%=request.getContextPath()%>/hopital/patient/consultation/operation?patientId=<%= person != null && person.getId() != null?person.getId() :""%>&rendezVousId=<%= r.getId() != null? r.getId(): ""%>" class="btn btn-green">Consulter</a>
                                 <a href="<%=request.getContextPath()%>/hopital/patient/fiche?patientId=<%=person != null && person.getId() != null?person.getId() :""%>" class="btn btn-blue">Voir fiche</a>
                             </td>
                         </tr>

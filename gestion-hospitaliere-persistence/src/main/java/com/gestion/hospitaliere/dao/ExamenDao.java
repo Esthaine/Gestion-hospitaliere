@@ -11,4 +11,6 @@ import java.util.stream.Stream;
 
 
 public interface ExamenDao extends JpaRepository<Examen>{
+
+    List<Examen> findByResultatExemens(Long id);
 }

@@ -19,11 +19,13 @@ const medicamentContainer = document.querySelector('.medicament-item-container')
 
 
 
+if (addAntecedent) {
+    addAntecedent.addEventListener('click', ()=>{
+        //alert("Antecedent");
+        addAntecedentDynamicFields();
+    });
+}
 
-addAntecedent.addEventListener('click', ()=>{
-    //alert("Antecedent");
-    addAntecedentDynamicFields();
-});
 
 
 addExamen.addEventListener('click', ()=>{
@@ -31,9 +33,9 @@ addExamen.addEventListener('click', ()=>{
 });
 
 
-addMedicament.addEventListener('click', ()=>{
-    addMedicamentAction()
-});
+// addMedicament.addEventListener('click', ()=>{
+//     addMedicamentAction()
+// });
 
 
 
@@ -214,36 +216,36 @@ function addExamenLabo(){
 
 
 
-function addMedicamentAction(){
-
-    const medicamentItem = document.createElement('div');
-    medicamentItem.className = 'medicament-item';
-
-    const labelMedicament = document.createElement("label");
-    labelMedicament.innerHTML = "Nom Medicament: "
-
-    const medicamentField = document.createElement("input");
-    medicamentField.type = "text";
-    medicamentField.name = "medicament";
-
-    medicamentItem.appendChild(labelMedicament);
-    medicamentItem.appendChild(medicamentField);
-
-
-
-    const remove = document.createElement('a');
-    remove.classList.add("action-button");
-    remove.classList.add("action-minus");
-    remove.innerHTML = "<i class='fa fa-minus' aria-hidden='true'></i>";
-
-
-    //removeAntecedent
-    remove.addEventListener('click', function() {
-        console.log('remove')
-        this.parentElement.remove();
-    });
-
-    medicamentItem.appendChild(remove);
-    medicamentContainer.appendChild(medicamentItem);
-
-}
+// function addMedicamentAction(){
+//
+//     const medicamentItem = document.createElement('div');
+//     medicamentItem.className = 'medicament-item';
+//
+//     const labelMedicament = document.createElement("label");
+//     labelMedicament.innerHTML = "Nom Medicament: "
+//
+//     const medicamentField = document.createElement("input");
+//     medicamentField.type = "text";
+//     medicamentField.name = "medicament";
+//
+//     medicamentItem.appendChild(labelMedicament);
+//     medicamentItem.appendChild(medicamentField);
+//
+//
+//
+//     const remove = document.createElement('a');
+//     remove.classList.add("action-button");
+//     remove.classList.add("action-minus");
+//     remove.innerHTML = "<i class='fa fa-minus' aria-hidden='true'></i>";
+//
+//
+//     //removeAntecedent
+//     remove.addEventListener('click', function() {
+//         console.log('remove')
+//         this.parentElement.remove();
+//     });
+//
+//     medicamentItem.appendChild(remove);
+//     medicamentContainer.appendChild(medicamentItem);
+//
+// }

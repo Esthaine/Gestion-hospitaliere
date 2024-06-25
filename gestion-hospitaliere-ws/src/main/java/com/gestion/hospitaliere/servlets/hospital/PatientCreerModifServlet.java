@@ -114,23 +114,12 @@ public class PatientCreerModifServlet extends HttpServlet {
 
         person.setPhoneNumber(phone);
 
-//        Ville findVille = villeDao.findById(Long.parseLong(villeId));
-//        Pays findPays = paysDao.findById(Long.parseLong(paysId));
+        Ville findVille = villeDao.findById(Long.parseLong(villeId));
+        Pays findPays = paysDao.findById(Long.parseLong(paysId));
 
-        Address address = new Address();
-
-//        if (findVille != null || findPays != null){
-//            address = new Address();
-//            address.setPays(findPays);
-//            address.setVille(findVille);
-//            if (findVille.getRegion() != null)
-//                address.setRegion(findVille.getRegion());
-//        }
-
-        address.setHouseNumber(streetNumber);
-        address.setStreetName(streetName);
-        address.setTownship(township);
-        //person.setAddress(address);
+        person.setHouseNumber(streetNumber);
+        person.setStreetName(streetName);
+        person.setTownship(township);
         person.setUser(user);
         person = personDao.save(person);
 

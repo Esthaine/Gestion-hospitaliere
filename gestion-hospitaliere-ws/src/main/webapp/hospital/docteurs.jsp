@@ -5,6 +5,7 @@
 <%@ page import="java.util.ArrayList" %>
 <%@ page import="java.util.HashSet" %>
 <%@ page import="com.gestion.hospitaliere.dao.UserDao" %>
+<%@ page import="com.gestion.hospitaliere.utils.AppConst" %>
 <jsp:include page="components/topbar.jsp" />
 <div class="main">
     <%
@@ -100,7 +101,7 @@
             %>
             <a href="<%=request.getContextPath()%>/hopital/docteurs" class="btn btn-blue">Retour</a>
             <div class="form-member">
-                <form action="<%= request.getContextPath()%>/hopital/patient/consultation/operation" method="post">
+                <form action="<%= request.getContextPath()%>/hopital/docteurs" method="post">
                     <div>
                         <h3>Information De la personne(Nouveau Membre)</h3>
                         <div class="form-group-item">
@@ -214,11 +215,11 @@
                                     if ( roles != null && !roles.isEmpty()){
                                 %>
                                 <select name="role">
-                                    <%
-                                        for (Role role : roles) {
-                                    %>
-                                        <option value="<%=role.getName()%>"><%= role.getName().toLowerCase()%></option>
-                                    <%}%>
+
+                                    <option value="<%=AppConst.MEDECIN%>"><%= AppConst.MEDECIN.toLowerCase()%></option>
+                                    <option value="<%=AppConst.INFIRMIER%>"><%= AppConst.INFIRMIER.toLowerCase()%></option>
+                                    <option value="<%=AppConst.LABORATOIRE%>"><%= AppConst.LABORATOIRE.toLowerCase()%></option>
+                                    <option value="<%=AppConst.PHARMACIE%>"><%= AppConst.PHARMACIE.toLowerCase()%></option>
                                 </select>
                                 <%
                                     }
@@ -258,9 +259,9 @@
                             </div>
                         <%}%>
                     </div>
+                    <input type="hidden" value="<%= action %>" name="action">
                      <% if (action.equals("edit")) {%>
-                        <input type="hidden" name="editUser" value="<%=editUser.getId()%>">
-                        <input type="hidden" value="<%= action %>" name="action">
+                        <input type="hidden" name="editUser" value="<%=editUser.getId()%>"
                     <%}%>
                     <button>Enregistrer</button>
                 </form>

@@ -45,8 +45,9 @@ public class RoleDaoImpl extends JpaRepositoryImpl<Role> implements RoleDao {
                      jakarta.persistence.Persistence.createEntityManagerFactory("gestion-hospitaliere-unit")) {
             EntityManager entityManager = em.createEntityManager();
             entityManager.getTransaction().begin();
-            Query findUserByName = entityManager.createQuery("From Role r where r.name!=:roleName");
+            Query findUserByName = entityManager.createQuery("From Role r where r.name!=:roleName or r.name!=:roleName2");
             findUserByName.setParameter("roleName", roleName);
+            findUserByName.setParameter("roleName2", "ADMIN");
 
             roles = findUserByName.getResultList();
             entityManager.getTransaction().commit();

@@ -24,7 +24,7 @@
     <jsp:include page="components/sidebar.jsp" />
     <div class="content">
         <div class="content-header">
-            <a href="<%=request.getContextPath()%>/hopital/patient/creerEtModifier" class="btn btn-blue">ajouter nouveau patient</a>
+            <a href="<%=request.getContextPath()%>/hopital/patient/creerEtModifier?action=add" class="btn btn-blue">ajouter nouveau patient</a>
             <button class="btn btn-green">Exporter liste des patients</button>
         </div>
 
@@ -63,7 +63,7 @@
                                         <%= person != null && person.getLastName() != null ? person.getLastName(): "" %>
                                     </td>
                                     <td>
-                                        <a href="<%=request.getContextPath()%>/hopital/patient/creerEtModifier?userId=<%=patient.getId()%>" class="btn btn-green">Editer</a>
+                                        <a href="<%=request.getContextPath()%>/hopital/patient/creerEtModifier?userId=<%=patient.getId()%>&action=edit" class="btn btn-green">Editer</a>
                                         <a href="<%=request.getContextPath()%>/hopital/patient/rendezVous?userId=<%=patient.getId()%>" class="btn btn-blue">Prendre un Rendez-vous</a>
                                     </td>
                                 </tr>

@@ -19,8 +19,12 @@ public class Medicament extends AbstractEntity{
     private LocalDate datePeremption;
     private String categorie;
 
-    @ManyToOne(cascade = CascadeType.PERSIST)
+    @ManyToOne(cascade = {CascadeType.MERGE, CascadeType.PERSIST})
+    @JoinColumn(columnDefinition = "fiche_id", referencedColumnName = "id")
     private Fiche fiche;
+
+    @Enumerated(EnumType.STRING)
+    private FOURNI fourni;
 
     public Medicament() {
     }
@@ -82,7 +86,24 @@ public class Medicament extends AbstractEntity{
         this.stock = stock;
     }
 
+    public FOURNI getFourni() {
+        return fourni;
+    }
+
+    public void setFourni(FOURNI fourni) {
+        this.fourni = fourni;
+    }
+
+    public void setFiche(Fiche fiche) {
+        this.fiche = fiche;
+    }
+
     public Fiche getFiche() {
         return fiche;
+    }
+
+    public enum FOURNI {
+        OUI,
+        NON
     }
 }

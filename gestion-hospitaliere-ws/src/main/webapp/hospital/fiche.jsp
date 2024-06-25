@@ -1,15 +1,9 @@
 <%@ page import="java.security.Permission" %>
-<%@ page import="com.gestion.hospitaliere.dao.PremierSoinDao" %>
-<%@ page import="com.gestion.hospitaliere.dao.impl.PremierSoinDaoImpl" %>
 <%@ page import="java.util.List" %>
 <%@ page import="java.util.ArrayList" %>
-<%@ page import="com.gestion.hospitaliere.dao.AntecedentMedicalDao" %>
-<%@ page import="com.gestion.hospitaliere.dao.impl.AntecdentMedicalDaoImpl" %>
-<%@ page import="com.gestion.hospitaliere.dao.ResultatsExamensDao" %>
-<%@ page import="com.gestion.hospitaliere.dao.impl.ResultatExamenDaoImpl" %>
 <%@ page import="com.gestion.hospitaliere.entity.*" %>
-<%@ page import="com.gestion.hospitaliere.dao.MedicamentDao" %>
-<%@ page import="com.gestion.hospitaliere.dao.impl.MedicamentDaoImpl" %>
+<%@ page import="com.gestion.hospitaliere.dao.*" %>
+<%@ page import="com.gestion.hospitaliere.dao.impl.*" %>
 <jsp:include page="components/topbar.jsp" />
 <%
 
@@ -22,12 +16,17 @@
     AntecedentMedicalDao antecedentMedicalDao = null;
     ResultatsExamensDao resultatsExamensDao = null;
     MedicamentDao medicamentDao = null;
+    ExamenDao examenDao = null;
+    QuestionDao questionDao = null;
 
     try{
         premierSoinDao = new PremierSoinDaoImpl((Class<PremierSoin>) Class.forName("com.gestion.hospitaliere.entity.PremierSoin"));
         antecedentMedicalDao = new AntecdentMedicalDaoImpl((Class<AntecedentMedical>) Class.forName("com.gestion.hospitaliere.entity.AntecedentMedical"));
         resultatsExamensDao = new ResultatExamenDaoImpl((Class<ResultatsExamens>) Class.forName("com.gestion.hospitaliere.entity.ResultatsExamens"));
         medicamentDao = new MedicamentDaoImpl((Class<Medicament>) Class.forName("com.gestion.hospitaliere.entity.Medicament"));
+        examenDao = new ExamenDaoImpl((Class<Examen>) Class.forName("com.gestion.hospitaliere.entity.Examen"));
+        questionDao = new QuestionDaoImpl((Class<Question>) Class.forName("com.gestion.hospitaliere.entity.Question"));
+
     } catch (Exception e){
         e.printStackTrace();
     }
@@ -160,16 +159,29 @@
                         <table class="table-fiche">
 
                             <tr>
-                                <% for (Question question: resultatsExamen.getQuestions()) {%>
+                                <%
+                                    if (questionDao.findByResultExamens(resultatsExamen.getId()) != null) {
+                                        for (Question question: questionDao.findByResultExamens(resultatsExamen.getId())) { %>
                                     <td>
-                                        <%= question%>
+                                        <%= question.getTitre()%>
+                                        <%= question.getAppreciation()%>
                                     </td>
-                                <%}%>
-                                <% for (Examen examen : resultatsExamen.getExamen()) {%>
+                                <%
+                                        }
+                                    }
+                                %>
+                                <%
+                                    if (examenDao.findByResultatExemens(resultatsExamen.getId()) != null){
+                                    for (Examen examen : examenDao.findByResultatExemens(resultatsExamen.getId())) {%>
                                     <td>
-                                        <%= examen%>
+                                        <%= examen.getResultat()!= null ? examen.getResultat(): ""%>
+                                        <%= examen.getType() != null ? examen.getType() : ""%>
+                                        <%= examen.getCommentaires() != null ? examen.getCommentaires(): "" %>
                                     </td>
-                                <%}%>
+                                <%
+                                     }
+                                    }
+                                %>
                             </tr>
                         </table>
                     </div>
@@ -183,7 +195,7 @@
                     <div class="medicaments">
                         <h2>Medicaments</h2>
                         <div class="medicament-items">
-                            <p>Date de prescriptions: </p>
+                            <p>Date de prescriptions: <%= medicamentList.get(0).getDatePeremption()%></p>
                             <ul>
                                 <li><%= medicament.getNom()%></li>
                             </ul>

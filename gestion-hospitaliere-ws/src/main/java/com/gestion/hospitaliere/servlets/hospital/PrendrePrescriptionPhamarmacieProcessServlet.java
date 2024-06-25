@@ -1,7 +1,7 @@
 package com.gestion.hospitaliere.servlets.hospital;
 
-import com.gestion.hospitaliere.service.IUserService;
-import com.gestion.hospitaliere.service.impl.UserServiceImpl;
+import com.gestion.hospitaliere.service.IFicheService;
+import com.gestion.hospitaliere.service.impl.FicheServiceImpl;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -10,16 +10,14 @@ import jakarta.servlet.http.HttpServletResponse;
 
 import java.io.IOException;
 
-
-@WebServlet(urlPatterns = {"/hopital/docteurs"})
-public class DocteursServlet extends HttpServlet {
+@WebServlet(urlPatterns = {"/hopital/pharmacie/prescription/process"})
+public class PrendrePrescriptionPhamarmacieProcessServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        //req.getRequestDispatcher("/hospital/docteurs.jsp").forward(req, resp);
         try {
-            IUserService userService = new UserServiceImpl();
-            userService.OrganizationMemberList(req, resp);
+            IFicheService ficheService = new FicheServiceImpl();
+            ficheService.getPrescriptionPharmacie(req, resp);
         } catch (ClassNotFoundException e) {
             throw new RuntimeException(e);
         }
@@ -28,8 +26,8 @@ public class DocteursServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         try {
-            IUserService userService = new UserServiceImpl();
-            userService.OrganisationRegistration(req, resp);
+            IFicheService ficheService = new FicheServiceImpl();
+            ficheService.processPrescriptionPharmacie(req, resp);
         } catch (ClassNotFoundException e) {
             throw new RuntimeException(e);
         }

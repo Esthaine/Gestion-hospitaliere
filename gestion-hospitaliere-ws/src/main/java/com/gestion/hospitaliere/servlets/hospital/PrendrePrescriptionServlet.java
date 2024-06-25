@@ -1,5 +1,7 @@
 package com.gestion.hospitaliere.servlets.hospital;
 
+import com.gestion.hospitaliere.service.IRendezVousService;
+import com.gestion.hospitaliere.service.impl.RendezVousServiceImpl;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -13,6 +15,11 @@ public class PrendrePrescriptionServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        req.getRequestDispatcher("/hospital/prendrePrescriptionPharmacie.jsp").forward(req, resp);
+        try {
+            IRendezVousService rendezVousService = new RendezVousServiceImpl();
+            rendezVousService.listerRendezVousPerPharmacy(req, resp);
+        } catch (ClassNotFoundException e) {
+            throw new RuntimeException(e);
+        }
     }
 }

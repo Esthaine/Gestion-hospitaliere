@@ -12,7 +12,7 @@ public class Question extends AbstractEntity{
 
     private String appreciation;
 
-    @ManyToOne(cascade = CascadeType.PERSIST)
+    @ManyToOne(cascade = {CascadeType.MERGE, CascadeType.MERGE})
     @JoinColumn(columnDefinition = "result_id", referencedColumnName = "id")
     private ResultatsExamens resultatsExamens;
 

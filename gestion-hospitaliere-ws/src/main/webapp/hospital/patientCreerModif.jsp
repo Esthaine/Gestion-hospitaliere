@@ -3,12 +3,33 @@
 <%@ page import="com.gestion.hospitaliere.entity.Pays" %>
 <%@ page import="com.gestion.hospitaliere.entity.User" %>
 <%@ page import="com.gestion.hospitaliere.entity.Person" %>
+<%@ page import="com.gestion.hospitaliere.dao.PersonDao" %>
+<%@ page import="com.gestion.hospitaliere.dao.impl.PersonDaoImpl" %>
+<%@ page import="com.gestion.hospitaliere.dao.UserDao" %>
+<%@ page import="com.gestion.hospitaliere.dao.impl.UserDaoImpl" %>
 <jsp:include page="components/topbar.jsp" />
 <%
     List<Ville> villes = (List<Ville>) request.getAttribute("villes");
     List<Pays> pays = (List<Pays>) request.getAttribute("pays");
-    User user = (User) request.getSession().getAttribute("user");
-    Person person = (Person) request.getSession().getAttribute("person");
+    User user = null;
+    String action = request.getParameter("action");
+    Person person = null;
+
+    String userId = request.getParameter("userId");
+    PersonDao personDao = null;
+    UserDao userDao = null;
+    try{
+        personDao = new PersonDaoImpl((Class<Person>) Class.forName("com.gestion.hospitaliere.entity.Person"));
+        userDao = new UserDaoImpl((Class<User>) Class.forName("com.gestion.hospitaliere.entity.User"));
+    }catch (Exception e) {
+    }
+
+    if (personDao.findByUserId(Long.parseLong(userId)) != null) {
+        person = personDao.findByUserId(Long.parseLong(userId));
+    }
+    if (userDao.findById(Long.parseLong(userId)) != null) {
+        user = userDao.findById(Long.parseLong(userId));
+    }
 %>
 
 <div class="main">
@@ -48,15 +69,15 @@
                 <div class="form-compose-item">
                     <div class="form-group-item">
                         <label>No :</label>
-                        <input type="number"name="streetNumber" value="<%=person!= null && person.getAddress()!= null && person.getAddress().getHouseNumber()!= null? person.getAddress().getHouseNumber():""%>">
+                        <input type="text" name="streetNumber" value="<%=person!= null && person.getHouseNumber()!= null ? person.getHouseNumber():""%>">
                     </div>
                     <div class="form-group-item">
                         <label>Avenue :</label>
-                        <input type="number" name="streetName" value="<%=person!= null && person.getAddress()!= null && person.getAddress().getStreetName()!= null? person.getAddress().getStreetName():""%>">
+                        <input type="text" name="streetName" value="<%=person!= null && person.getStreetName()!= null ? person.getStreetName():""%>">
                     </div>
                     <div class="form-group-item">
                         <label>Commnune :</label>
-                        <input type="number" name="townShip" value="<%=person!= null && person.getAddress()!= null && person.getAddress().getTownship()!= null? person.getAddress().getTownship():""%>">
+                        <input type="text" name="townShip" value="<%=person!= null && person.getTownship() != null ? person.getTownship():""%>">
                     </div>
                 </div>
                 <div class="form-group">
@@ -89,21 +110,24 @@
                     </select>
                 </div>
             </div>
-            <div>
-                <h3>Information d'utilisateur</h3>
-                <div class="form-group">
-                    <label>Nom d'utilisateur *: <%= user != null && user.getUsername() != null ? user.getUsername() : "" %></label>
-                    <input type="text" name="username">
+            <% if (action != null && action.equals("edit")) {%>
+                <div>
+                    <h3>Information d'utilisateur</h3>
+                    <div class="form-group">
+                        <label>Nom d'utilisateur *: <%= user != null && user.getUsername() != null ? user.getUsername() : "" %></label>
+                        <input type="text" name="username">
+                    </div>
+                    <div class="form-group">
+                        <label>Email *: <%= user != null && user.getEmail() != null ? user.getEmail() : "" %></label>
+                        <input type="text" name="email">
+                    </div>
+                    <div class="form-group">
+                        <label>Mot de passe</label>
+                        <input type="password" name="password">
+                    </div>
                 </div>
-                <div class="form-group">
-                    <label>Email *: <%= user != null && user.getEmail() != null ? user.getEmail() : "" %></label>
-                    <input type="text" name="email">
-                </div>
-                <div class="form-group">
-                    <label>Mot de passe</label>
-                    <input type="text" name="password">
-                </div>
-            </div>
+            <%}%>
+            <input type="hidden" name="userId" value="<%=userId%>" >
             <button class="btn btn-blue">Enregistrement Patient</button>
         </form>
     </div>

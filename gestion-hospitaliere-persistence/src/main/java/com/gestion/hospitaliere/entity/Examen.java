@@ -9,7 +9,7 @@ public class Examen extends AbstractEntity{
     private String type;
     private String commentaires;
 
-    @ManyToOne(cascade = CascadeType.PERSIST)
+    @ManyToOne(cascade = CascadeType.MERGE)
     @JoinColumn(name = "examen_id", referencedColumnName = "id")
     private ResultatsExamens resultatExamens;
 
