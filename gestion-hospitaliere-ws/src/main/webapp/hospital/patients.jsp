@@ -25,7 +25,7 @@
     <div class="content">
         <div class="content-header">
             <a href="<%=request.getContextPath()%>/hopital/patient/creerEtModifier?action=add" class="btn btn-blue">ajouter nouveau patient</a>
-            <button class="btn btn-green">Exporter liste des patients</button>
+<%--            <button class="btn btn-green">Exporter liste des patients</button>--%>
         </div>
 
         <div>

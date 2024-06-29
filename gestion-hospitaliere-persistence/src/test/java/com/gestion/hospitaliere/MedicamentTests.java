@@ -1,7 +1,10 @@
 package com.gestion.hospitaliere;
 
+import com.gestion.hospitaliere.dao.FicheDao;
 import com.gestion.hospitaliere.dao.MedicamentDao;
+import com.gestion.hospitaliere.dao.impl.FicheDaoImpl;
 import com.gestion.hospitaliere.dao.impl.MedicamentDaoImpl;
+import com.gestion.hospitaliere.entity.Fiche;
 import com.gestion.hospitaliere.entity.Medicament;
 import com.gestion.hospitaliere.entity.Stock;
 import org.junit.jupiter.api.BeforeEach;
@@ -14,13 +17,18 @@ import java.util.List;
 public class MedicamentTests {
 
     MedicamentDao medicamentDao;
+    FicheDao ficheDao;
     Class<Medicament> medicament;
+    Class<Fiche> fiche;
     List<Medicament> medicaments = new ArrayList<>();
+
 
     @BeforeEach
     void setUp() throws ClassNotFoundException {
         medicament = (Class<Medicament>) Class.forName("com.gestion.hospitaliere.entity.Medicament");
         medicamentDao = new MedicamentDaoImpl(medicament);
+        fiche = (Class<Fiche>) Class.forName("com.gestion.hospitaliere.entity.Fiche");
+        ficheDao = new FicheDaoImpl(fiche);
     }
 
 
@@ -86,6 +94,24 @@ public class MedicamentTests {
 
 
         medicamentDao.saveAll(medicaments.toArray(new Medicament[medicaments.size()]));
+
+    }
+
+    @Test
+    void getAllMedicament(){
+        medicamentDao.listMedicamentPerFiche(1L).forEach(System.out::println);
+    }
+
+    @Test
+    void saveMedicamentPerFiche(){
+
+        Fiche fiche1 = ficheDao.findById(1L);
+
+        medicamentDao.findAll().forEach(med -> {
+            med.setFiche(fiche1);
+            //medicaments.add(med);
+            medicamentDao.save(med);
+        });
 
     }
 }

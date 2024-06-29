@@ -231,3 +231,12 @@ form button{
     border: 1px solid lightgrey;
     border-radius: 4px;
 }
+
+.error{
+    width: 100%;
+    padding: 10px 5px;
+    background: pink;
+    color: red;
+    border: 1.5px solid red;
+    margin-bottom: 20px;
+}

@@ -155,28 +155,25 @@ public class AppTest
     void createUser(){
 
         User user = new User();
-        user.setEmail("yha@gmail.com");
-        user.setUsername("yha");
+        user.setEmail("chris@gmail.com");
+        user.setUsername("chris");
         user.setMotDePasse("123456");
 
         Role patient = roleDao.findRoleByName("PATIENT");
         user.setRole(patient);
 
-        Address address = new Address();
+       // Address address = new Address();
         Ville ville = villeDao.findById(1L);
         Pays pays = paysDao.findById(1L);
 
-        address.setHouseNumber("12");
-        address.setPays(pays);
-        address.setVille(ville);
-        address.setTownship("Ngaliema");
-        address.setRegion(ville.getRegion());
         Person person = new Person();
         person.setDateOfBirth(new Date());
-        person.setFirstName("yha");
-        person.setGivenName("Ya");
-        person.setLastName("Ya");
+        person.setFirstName("chris");
+        person.setGivenName("lubangu");
+        person.setLastName("isika");
         person.setPhoneNumber("08977902");
+        person.setVille(ville);
+        person.setPays(pays);
         //person.setAddress(address);
         person.setGenre(Genre.MASCULIN);
         person.setUser(user);

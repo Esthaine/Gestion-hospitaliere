@@ -28,6 +28,8 @@ public class MedicamentDaoImpl extends JpaRepositoryImpl<Medicament> implements 
             if (query.getResultList() != null) {
                 medicaments = (List<Medicament>) query.getResultList();
             }
+            entityManager.getTransaction().commit();
+            entityManager.close();
         }
         return medicaments;
     }

@@ -81,7 +81,6 @@ public class AppointmentServlet extends HttpServlet {
             rendezvous.setStatus(RendezVousStatus.NOUVEAU);
             rendezVousDao.save(rendezvous);
         }
-
-        request.getRequestDispatcher("/appointement.jsp").forward(request, response);
+        request.getRequestDispatcher("/index.jsp").forward(request, response);
     }
 }

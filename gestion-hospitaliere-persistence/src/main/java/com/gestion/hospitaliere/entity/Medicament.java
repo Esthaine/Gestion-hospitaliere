@@ -19,7 +19,7 @@ public class Medicament extends AbstractEntity{
     private LocalDate datePeremption;
     private String categorie;
 
-    @ManyToOne(cascade = {CascadeType.MERGE, CascadeType.PERSIST})
+    @ManyToOne(cascade =  CascadeType.ALL)
     @JoinColumn(columnDefinition = "fiche_id", referencedColumnName = "id")
     private Fiche fiche;
 

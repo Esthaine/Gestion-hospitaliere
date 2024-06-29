@@ -27,7 +27,7 @@
                 if (userDto!=null){
                 if (userDto.getRoleDto().get(0).getRoleName().equals(AppConst.INFIRMIER)){
             %>
-                <li><<i class="fa fa-wheelchair" aria-hidden="true"></i><a href="<%= request.getContextPath() %>/hopital/patients">Patients</a></li>
+                <li><i class="fa fa-wheelchair" aria-hidden="true"></i><a href="<%= request.getContextPath() %>/hopital/patients">Patients</a></li>
                 <li><i class="fa fa-calendar" aria-hidden="true"></i><a href="<%= request.getContextPath() %>/hopital/rendez-vous">Rendez-vous Medical</a></li>
             <%}}%>
             <%
@@ -50,7 +50,7 @@
                 if (userDto != null){
                     if (userDto.getRoleDto().get(0).getRoleName().equals(AppConst.PHARMACIE)){
             %>
-                <li><i class="fa fa-calendar" aria-hidden="true"></i><a href="<%= request.getContextPath()%>/hopital/prescription/pharmacie"></a> </li>
+                <li><i class="fa fa-calendar" aria-hidden="true"></i><a href="<%= request.getContextPath()%>/hopital/prescription/pharmacie">Prescriptions</a> </li>
             <%}}%>
 
             <li><i class="fa fa-user" aria-hidden="true"></i><a href="<%= request.getContextPath()%>/hopital/profile">Mon Profile</a></li>

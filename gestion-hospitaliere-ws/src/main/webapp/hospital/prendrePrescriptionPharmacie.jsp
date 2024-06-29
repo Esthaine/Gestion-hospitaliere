@@ -19,7 +19,7 @@
     <jsp:include page="components/sidebar.jsp" />
     <div class="content">
         <div class="header-content">
-            <h2>Prelevement</h2>
+            <h2>Prescriptions</h2>
         </div>
         <table class="table-mapper">
             <thead>
@@ -79,7 +79,7 @@
                     <%}%>
                 </td>
                 <td>
-                    <a href="<%= request.getContextPath()%>/hopital/pharmacie/prescription/process?rendezVousId=<%=rendezvous.getId()%>&patientId=<%=rendezvous.getPerson().getId()%>" class="btn btn-purple">Voir</a>
+                    <a href="<%= request.getContextPath()%>/hopital/pharmacie/prescription/process?rendezVousId=<%=rendezvous.getId()%>&patientId=<%=rendezvous.getPerson().getId()%>" class="btn btn-purple">Fournir</a>
                 </td>
             </tr>
             <%

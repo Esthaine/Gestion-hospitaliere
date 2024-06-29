@@ -112,9 +112,9 @@ public class FicheServiceImpl implements IFicheService {
 
         if (
                 (dateDebut != null && dateDebut.length > 0)
-                && (dateFin!= null && dateFin.length > 0)
-                && (type!= null && type.length > 0 )
-                && (descriptions!= null && descriptions.length > 0)
+                && (dateFin != null && dateFin.length > 0)
+                && (type != null && type.length > 0 )
+                && (descriptions != null && descriptions.length > 0)
         ){
             for (int i = 0; i < dateDebut.length ; i++ ) {
                 AntecedentMedical antecedentMedical = new AntecedentMedical();
@@ -125,6 +125,9 @@ public class FicheServiceImpl implements IFicheService {
                 antecedentMedical.setFiche(fiche);
                 antecedentMedicals.add(antecedentMedical);
             }
+        }else{
+            req.setAttribute("error", "Le patient n'a pas encore une fiche.");
+            req.getRequestDispatcher("").forward(req, resp);
         }
 
 
@@ -139,8 +142,11 @@ public class FicheServiceImpl implements IFicheService {
             for (int k = 0; k < medicaments.length ; k++ ) {
                 Medicament medicament = medicamentDao.findById(Long.parseLong(medicaments[k]));
                 medicament.setFiche(fiche);
-                medicamentList.add(medicament);
+                medicamentDao.save(medicament);
             }
+        }else{
+            req.setAttribute("error", "Le patient n'a pas encore une fiche.");
+            req.getRequestDispatcher("").forward(req, resp);
         }
 
 
@@ -152,15 +158,20 @@ public class FicheServiceImpl implements IFicheService {
 
         resultatsExamens = resultatsExamensDao.save(resultatsExamens);
         //Examen
-        for (int j = 0; j < questions.length ; j++ ) {
-            Question question = new Question();
-            question.setTitre(questions[j]);
-            question.setResultatsExamens(resultatsExamens);
-            question.setAppreciation(appreciationsQuestions[j]);
-            questionList.add(question);
+        if (questions.length > 0) {
+            for (int j = 0; j < questions.length; j++) {
+                Question question = new Question();
+                question.setTitre(questions[j]);
+                question.setResultatsExamens(resultatsExamens);
+                question.setAppreciation(appreciationsQuestions[j]);
+                questionList.add(question);
+            }
+        }else {
+            req.setAttribute("error", "Le patient n'a pas encore une fiche.");
+            req.getRequestDispatcher("").forward(req, resp);
         }
 
-         questionDao.saveAll(questionList.toArray(new Question[0]));
+
 
         Rendezvous rendezvous = rendezVousDao.findById(rendezVousId);
         if ( rendezvous != null ){
@@ -177,6 +188,7 @@ public class FicheServiceImpl implements IFicheService {
         }
 
         rendezVousDao.save(rendezvous);
+        questionDao.saveAll(questionList.toArray(new Question[0]));
 
         UserDto user = (UserDto) req.getSession().getAttribute("authenticated");
 
@@ -198,6 +210,30 @@ public class FicheServiceImpl implements IFicheService {
     @Override
     public void processPrescriptionPharmacie(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
+        String[] medicament = req.getParameterValues("medicament");
+        String rendezVousId = req.getParameter("rendezVousId");
+        String patientId = req.getParameter("patientId");
+        String ficheId   = req.getParameter("ficheId");
+
+        Fiche fiche = ficheDao.findById(Long.parseLong(ficheId));
+
+
+        Rendezvous rendezvous = rendezVousDao.findById(Long.parseLong(rendezVousId));
+
+        if (medicament != null && medicament.length >0) {
+            for (int i = 0; i < medicament.length ; i++) {
+                Medicament med = medicamentDao.findById(Long.parseLong(medicament[i]));
+                med.setFiche(fiche);
+                med.setFourni(Medicament.FOURNI.OUI);
+                medicamentDao.save(med);
+            }
+        }else{
+            req.setAttribute("error", "Veillez selectionner le medicament a fournir au patient");
+            req.getRequestDispatcher("/hospital/prendrePrescriptionPharmacieProcess.jsp").forward(req, resp);
+        }
+        rendezvous.setStatus(RendezVousStatus.EN_COURS);
+        rendezVousDao.save(rendezvous);
+        req.getRequestDispatcher("/hospital/prendrePrescriptionPharmacie.jsp").forward(req, resp);
     }
 
     @Override

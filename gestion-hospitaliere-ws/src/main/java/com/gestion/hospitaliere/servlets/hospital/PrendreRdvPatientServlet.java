@@ -27,11 +27,11 @@ public class PrendreRdvPatientServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-//        try {
-//            IRendezVousService rendezVousService = new RendezVousServiceImpl();
-//            rendezVousService.prendreUnRendezVous(req, resp);
-//        } catch (ClassNotFoundException e) {
-//            throw new RuntimeException(e);
-//        }
+        try {
+            IRendezVousService rendezVousService = new RendezVousServiceImpl();
+            rendezVousService.prendreUnRendezVous(req, resp);
+        } catch (ClassNotFoundException e) {
+            throw new RuntimeException(e);
+        }
     }
 }

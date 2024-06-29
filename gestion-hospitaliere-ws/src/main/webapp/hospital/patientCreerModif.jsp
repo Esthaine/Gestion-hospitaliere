@@ -11,6 +11,7 @@
 <%
     List<Ville> villes = (List<Ville>) request.getAttribute("villes");
     List<Pays> pays = (List<Pays>) request.getAttribute("pays");
+    String error = (String) request.getAttribute("error");
     User user = null;
     String action = request.getParameter("action");
     Person person = null;
@@ -24,10 +25,10 @@
     }catch (Exception e) {
     }
 
-    if (personDao.findByUserId(Long.parseLong(userId)) != null) {
+    if ( userId != null && personDao.findByUserId(Long.parseLong(userId)) != null) {
         person = personDao.findByUserId(Long.parseLong(userId));
     }
-    if (userDao.findById(Long.parseLong(userId)) != null) {
+    if ( userId!= null && userDao.findById(Long.parseLong(userId)) != null) {
         user = userDao.findById(Long.parseLong(userId));
     }
 %>
@@ -35,6 +36,9 @@
 <div class="main">
     <jsp:include page="components/sidebar.jsp" />
     <div class="content">
+        <span class="<%= error != null ? error: "" %>">
+            <%= error != null ? error: "" %>
+        </span>
         <form action="<%= request.getContextPath()%>/hopital/patient/creerEtModifier" method="post">
             <h3>Information Patient</h3>
             <div class="form-group">
@@ -51,7 +55,7 @@
             </div>
             <div class="form-group">
                 <label>Date de naissance :</label>
-                <input type="date" name="dob" value="<%=person!= null && person.getDateOfBirth()!= null? person.getDateOfBirth():""%>">
+                <input type="date" name="dob" value="<%= person!= null && person.getDateOfBirth()!= null? person.getDateOfBirth():""%>">
             </div>
             <div class="form-group">
                 <label>Sexe :</label>
@@ -110,24 +114,30 @@
                     </select>
                 </div>
             </div>
-            <% if (action != null && action.equals("edit")) {%>
+<%--            <% if (action != null && action.equals("add")) {%>--%>
                 <div>
                     <h3>Information d'utilisateur</h3>
                     <div class="form-group">
                         <label>Nom d'utilisateur *: <%= user != null && user.getUsername() != null ? user.getUsername() : "" %></label>
-                        <input type="text" name="username">
+                        <% if (user == null){%>
+                            <input type="text" name="username">
+                        <%}%>
                     </div>
                     <div class="form-group">
                         <label>Email *: <%= user != null && user.getEmail() != null ? user.getEmail() : "" %></label>
-                        <input type="text" name="email">
+                        <% if (user == null){%>
+                            <input type="text" name="email">
+                        <%}%>
                     </div>
                     <div class="form-group">
-                        <label>Mot de passe</label>
-                        <input type="password" name="password">
+                        <label>Mot de passe *</label>
+                        <% if (user == null){%>
+                            <input type="password" name="password">
+                        <%}%>
                     </div>
                 </div>
-            <%}%>
-            <input type="hidden" name="userId" value="<%=userId%>" >
+<%--            <%}%>--%>
+            <input type="hidden" name="userId" value="<%=userId != null ? userId: ""%>" >
             <button class="btn btn-blue">Enregistrement Patient</button>
         </form>
     </div>

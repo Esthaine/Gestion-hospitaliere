@@ -245,7 +245,7 @@ public class UserServiceImpl implements IUserService {
         //validation
 
         if (
-                prenom != null
+            prenom != null
             || nom != null
             || postnom != null
             || dob != null

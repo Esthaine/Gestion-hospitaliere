@@ -9,6 +9,7 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import org.apache.commons.lang3.StringUtils;
 
 import java.io.IOException;
 
@@ -62,28 +63,33 @@ public class PatientCreerModifServlet extends HttpServlet {
         String streetNumber = req.getParameter("streetNumber");
         String streetName = req.getParameter("streetName");
         String township = req.getParameter("townShip");
-        String villeId = req.getParameter("villeId");
-        String paysId = req.getParameter("paysId");
+        String villeId = req.getParameter("ville");
+        String paysId = req.getParameter("pays");
         String username = req.getParameter("username");
         String email = req.getParameter("email");
         String password = req.getParameter("password");
+        String userId = req.getParameter("userId");
 
         RoleDao roleDao;
         VilleDao villeDao;
         PaysDao paysDao;
         PersonDao personDao;
+        UserDao userDao;
         try {
             roleDao = new RoleDaoImpl((Class<Role>) Class.forName("com.gestion.hospitaliere.entity.Role"));
             villeDao = new VilleDaoImpl((Class<Ville>) Class.forName("com.gestion.hospitaliere.entity.Ville"));
             paysDao = new PaysDaoImpl((Class<Pays>) Class.forName("com.gestion.hospitaliere.entity.Pays"));
             personDao = new PersonDaoImpl((Class<Person>) Class.forName("com.gestion.hospitaliere.entity.Person"));
+            userDao = new UserDaoImpl((Class<User>) Class.forName("com.gestion.hospitaliere.entity.User"));
         } catch (ClassNotFoundException e) {
             System.out.println(e.getMessage());
             throw new RuntimeException(e);
         }
 
-        if (givenName == "" || name == "" || postnom == "" || dob == "" || gender == "" || phone == "" || streetNumber == "" || streetName == "" || township == "" || username == "" || email == "" || password == null ) {
+        if (givenName == "" || name == "" || postnom == "" || dob == "" || gender == "" || phone == "" || streetNumber == "" || streetName == "" || township == "" ) {
             req.setAttribute("error", "Tous les champs sont obligatoires!");
+            req.setAttribute("villes", villeDao.findAll());
+            req.setAttribute("pays", paysDao.findAll());
             req.getRequestDispatcher("/hospital/patientCreerModif.jsp").forward(req, resp);
         }
 
@@ -93,13 +99,30 @@ public class PatientCreerModifServlet extends HttpServlet {
             req.getRequestDispatcher( "/register.jsp").forward(req, resp);
         }
 
-        User user = new User();
-        user.setEmail(email);
-        user.setRole(role);
-        user.setUsername(username);
-        user.setMotDePasse(password);
+        User user = null;
+        Person person;
 
-        Person person = new Person();
+        if (userId.equals("")){
+            user = new User();
+        }else{
+            if (userId != null && StringUtils.isNumeric(userId)) {
+                user = userDao.findById(Long.parseLong(userId));
+            }
+        }
+
+        if (user.getId() != null){
+            person = personDao.findByUserId(user.getId());
+        }else{
+            person = new Person();
+        }
+
+        if (userId.equals("")){
+            user.setEmail(email);
+            user.setRole(role);
+            user.setUsername(username);
+            user.setMotDePasse(password);
+        }
+
         person.setGivenName(givenName);
         person.setFirstName(name);
         person.setLastName(postnom);
@@ -117,15 +140,27 @@ public class PatientCreerModifServlet extends HttpServlet {
         Ville findVille = villeDao.findById(Long.parseLong(villeId));
         Pays findPays = paysDao.findById(Long.parseLong(paysId));
 
+        if (findVille != null){
+            person.setVille(findVille);
+        }
+
+        if (findPays != null){
+            person.setPays(findPays);
+        }
+
         person.setHouseNumber(streetNumber);
         person.setStreetName(streetName);
         person.setTownship(township);
-        person.setUser(user);
+        if (userId.equals("")){
+            person.setUser(user);
+        }
         person = personDao.save(person);
 
         if (person == null){
-            req.setAttribute("error", "Probleme un problem est survenu lors de l'insertion des donnees du patients, " +
+            req.setAttribute("error", "Probleme survenu lors de l'insertion des donnees du patients, " +
                     "veuillez reesayer plutards ou contactez le systeme admin");
+            req.setAttribute("villes", villeDao.findAll());
+            req.setAttribute("pays", paysDao.findAll());
             req.getRequestDispatcher("/hospital/patientCreerModif.jsp").forward(req, resp);
         }
         req.getRequestDispatcher("/hospital/patients.jsp").forward(req, resp);
