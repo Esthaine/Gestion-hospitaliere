@@ -19,6 +19,7 @@ import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 
 import java.io.IOException;
+import java.text.ParseException;
 
 @WebServlet(urlPatterns = {"/appointement"})
 public class AppointmentServlet extends HttpServlet {
@@ -66,7 +67,11 @@ public class AppointmentServlet extends HttpServlet {
         Rendezvous rendezvous = new Rendezvous();
         if (department!=null && docteurId!=null) {
             User docteur = userDao.findById(Long.parseLong(docteurId));
-            rendezvous.setDateRendezVous(AppUtils.convertToLocalDateTimeViaInstant(AppUtils.convertToDateViaInstant(date)));
+            try {
+                rendezvous.setDateRendezVous(AppUtils.convertToLocalDateTimeViaInstant(date));
+            } catch (ParseException e) {
+                throw new RuntimeException(e);
+            }
             rendezvous.setPerson(patient);
             rendezvous.setDocteurSet(docteur);
             rendezvous.setStatus(RendezVousStatus.NOUVEAU);
@@ -75,7 +80,11 @@ public class AppointmentServlet extends HttpServlet {
         if (departement != null){
 
             doctor = userDao.listOfUserByDepartment(Long.parseLong(departement)).get(0);
-            rendezvous.setDateRendezVous(AppUtils.convertToLocalDateTimeViaInstant(AppUtils.convertToDateViaInstant(date)));
+            try {
+                rendezvous.setDateRendezVous(AppUtils.convertToLocalDateTimeViaInstant(date));
+            } catch (ParseException e) {
+                throw new RuntimeException(e);
+            }
             rendezvous.setPerson(patient);
             rendezvous.setDocteurSet(doctor);
             rendezvous.setStatus(RendezVousStatus.NOUVEAU);

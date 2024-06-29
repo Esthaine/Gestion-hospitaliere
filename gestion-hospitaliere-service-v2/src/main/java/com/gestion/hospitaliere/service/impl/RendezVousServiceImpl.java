@@ -86,7 +86,7 @@ public class RendezVousServiceImpl implements IRendezVousService {
                 Rendezvous rendezvous = rendezVousDao.findById(rendezVousId);
                 User user = userDao.findById(doctor);
                 if (rendezvous != null){
-                    rendezvous.setDateRendezVous(AppUtils.convertToLocalDateTimeViaInstant(AppUtils.convertToDateViaInstant(date)));
+                    rendezvous.setDateRendezVous(AppUtils.convertToLocalDateTimeViaInstant(date));
                     rendezvous.setStatus(RendezVousStatus.REPROGRAMMER);
                     rendezvous.setDocteurSet(user);
                     rendezVousDao.save(rendezvous);
@@ -94,7 +94,8 @@ public class RendezVousServiceImpl implements IRendezVousService {
             }catch (Exception e){
                 e.printStackTrace();
             }
-        }else if (request.getParameter("personId") != null){
+        }
+        if (request.getParameter("personId") != null){
             long userId = Long.parseLong(request.getParameter("personId"));
             long doctorId = Long.parseLong(request.getParameter("doctorId"));
             String date = request.getParameter("date_rendezvous");
@@ -104,7 +105,7 @@ public class RendezVousServiceImpl implements IRendezVousService {
                 Rendezvous rendezvous = new Rendezvous();
                 rendezvous.setStatus(RendezVousStatus.NOUVEAU);
                 rendezvous.setPerson(patient);
-                rendezvous.setDateRendezVous(AppUtils.convertToLocalDateTimeViaInstant(AppUtils.convertToDateViaInstant(date)));
+                rendezvous.setDateRendezVous(AppUtils.convertToLocalDateTimeViaInstant(date));
                 rendezvous.setDocteurSet(doctor);
                 rendezVousDao.save(rendezvous);
             }
