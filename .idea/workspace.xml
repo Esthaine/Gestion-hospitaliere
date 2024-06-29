@@ -12,9 +12,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5e79d91d-59bf-4f33-9107-d06ef1da79fc" name="Changes" comment="Prelevement et Prescription">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gestion-hospitaliere-persistence/src/main/resources/META-INF/persistence.xml" beforeDir="false" afterPath="$PROJECT_DIR$/gestion-hospitaliere-persistence/src/main/resources/META-INF/persistence.xml" afterDir="false" />
+    <list default="true" id="5e79d91d-59bf-4f33-9107-d06ef1da79fc" name="Changes" comment="Configuration2">
       <change beforePath="$PROJECT_DIR$/gestion-hospitaliere-persistence/src/test/java/com/gestion/hospitaliere/AppTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/gestion-hospitaliere-persistence/src/test/java/com/gestion/hospitaliere/AppTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -183,7 +181,7 @@
   <component name="RunDashboard">
     <option name="openRunningConfigInTab" value="true" />
   </component>
-  <component name="RunManager" selected="JUnit.RegionTest.creerPaysAvecDifferentRegionEtVille">
+  <component name="RunManager" selected="JUnit.AppTest.mappPrivilegesToRole">
     <configuration default="true" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 10.1.24" ALTERNATIVE_JRE_ENABLED="false">
       <option name="UPDATING_POLICY" value="restart-server" />
       <deployment />
@@ -278,6 +276,22 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="AppTest.createMedecin3" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="gestion-hospitaliere-persistence" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.gestion.hospitaliere.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.gestion.hospitaliere" />
+      <option name="MAIN_CLASS_NAME" value="com.gestion.hospitaliere.AppTest" />
+      <option name="METHOD_NAME" value="createMedecin3" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="AppTest.createPrivilege" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="gestion-hospitaliere-persistence" />
       <extension name="coverage">
@@ -294,7 +308,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="AppTest.createRole" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="AppTest.mappPrivilegesToRole" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="gestion-hospitaliere-persistence" />
       <extension name="coverage">
         <pattern>
@@ -304,23 +318,7 @@
       </extension>
       <option name="PACKAGE_NAME" value="com.gestion.hospitaliere" />
       <option name="MAIN_CLASS_NAME" value="com.gestion.hospitaliere.AppTest" />
-      <option name="METHOD_NAME" value="createRole" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="AppTest.createUser" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="gestion-hospitaliere-persistence" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.gestion.hospitaliere.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.gestion.hospitaliere" />
-      <option name="MAIN_CLASS_NAME" value="com.gestion.hospitaliere.AppTest" />
-      <option name="METHOD_NAME" value="createUser" />
+      <option name="METHOD_NAME" value="mappPrivilegesToRole" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -532,18 +530,18 @@
     </configuration>
     <list>
       <item itemvalue="JUnit.AppTest.createAdmin" />
+      <item itemvalue="JUnit.AppTest.createMedecin3" />
       <item itemvalue="JUnit.AppTest.createPrivilege" />
-      <item itemvalue="JUnit.AppTest.createRole" />
+      <item itemvalue="JUnit.AppTest.mappPrivilegesToRole" />
       <item itemvalue="JUnit.RegionTest.creerPaysAvecDifferentRegionEtVille" />
-      <item itemvalue="JUnit.AppTest.createUser" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.AppTest.mappPrivilegesToRole" />
+        <item itemvalue="JUnit.AppTest.createPrivilege" />
+        <item itemvalue="JUnit.AppTest.createMedecin3" />
         <item itemvalue="JUnit.RegionTest.creerPaysAvecDifferentRegionEtVille" />
         <item itemvalue="JUnit.AppTest.createAdmin" />
-        <item itemvalue="JUnit.AppTest.createRole" />
-        <item itemvalue="JUnit.AppTest.createPrivilege" />
-        <item itemvalue="JUnit.AppTest.createUser" />
       </list>
     </recent_temporary>
   </component>
@@ -691,7 +689,14 @@
       <option name="project" value="LOCAL" />
       <updated>1719351329057</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="Configuration2">
+      <created>1719666943302</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1719666943302</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -721,7 +726,8 @@
     <MESSAGE value="Medecin Consultation added" />
     <MESSAGE value="Fiche manipulation" />
     <MESSAGE value="Prelevement et Prescription" />
-    <option name="LAST_COMMIT_MESSAGE" value="Prelevement et Prescription" />
+    <MESSAGE value="Configuration2" />
+    <option name="LAST_COMMIT_MESSAGE" value="Configuration2" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

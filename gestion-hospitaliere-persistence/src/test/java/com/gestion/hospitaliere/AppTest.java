@@ -360,7 +360,7 @@ public class AppTest
    @Test   //premier
     void createPrivilege(){
 
-       /* Role adminRole = new Role();
+        /*Role adminRole = new Role();
         adminRole.setName("ADMIN");
         adminRole.setDescription("Admin role");
         roleDao.save(adminRole);
@@ -380,7 +380,7 @@ public class AppTest
         Role doctorRole = new Role();
         doctorRole.setName("MEDECIN");
         doctorRole.setDescription("Doctor role");
-        roleDao.save(doctorRole);
+        roleDao.save(doctorRole);*/
 
 
         //-----------------------------------
@@ -402,11 +402,11 @@ public class AppTest
         Privilege updatePrivilege = new Privilege();
         updatePrivilege.setName("UPDATE");
         updatePrivilege.setDescription("Update privilege");
-        privilegeDao.save(updatePrivilege);*/
+        privilegeDao.save(updatePrivilege);
 
     }
 
-    //@Test //Troisieme
+    @Test //Troisieme
     void mappPrivilegesToRole(){
 
         Role adminRole = roleDao.findRoleByName("ADMIN");
