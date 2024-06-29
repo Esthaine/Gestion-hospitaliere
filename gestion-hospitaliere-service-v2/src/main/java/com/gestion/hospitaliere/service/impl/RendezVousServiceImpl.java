@@ -14,6 +14,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
 import java.io.IOException;
+import java.text.ParseException;
 import java.util.List;
 
 public class RendezVousServiceImpl implements IRendezVousService {
@@ -105,7 +106,11 @@ public class RendezVousServiceImpl implements IRendezVousService {
                 Rendezvous rendezvous = new Rendezvous();
                 rendezvous.setStatus(RendezVousStatus.NOUVEAU);
                 rendezvous.setPerson(patient);
-                rendezvous.setDateRendezVous(AppUtils.convertToLocalDateTimeViaInstant(date));
+                try {
+                    rendezvous.setDateRendezVous(AppUtils.convertToLocalDateTimeViaInstant(date));
+                } catch (ParseException e) {
+                    throw new RuntimeException(e);
+                }
                 rendezvous.setDocteurSet(doctor);
                 rendezVousDao.save(rendezvous);
             }
