@@ -57,6 +57,7 @@
                     </select>
                 </div>
             </div>
+            <input type="hidden" name="personId" value="<%=person.getId()%>">
             <button type="submit" class="btn btn-blue">Soummettre la demande </button>
         </form>
     </div>

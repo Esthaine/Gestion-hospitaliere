@@ -13,6 +13,7 @@ import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 
 import java.io.IOException;
+import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -151,8 +152,8 @@ public class UserServiceImpl implements IUserService {
         String lastName = request.getParameter("lastname");
         String password = request.getParameter("password");
         String confirmPassword = request.getParameter("confirm-password");
-//        String pays = request.getParameter("country");
-//        String town = request.getParameter("town");
+        String pays = request.getParameter("country");
+        String town = request.getParameter("town");
 
 
         //Validation v )
@@ -192,18 +193,15 @@ public class UserServiceImpl implements IUserService {
         user.setRole(role);
 //        user = userRepository.save(user);
 
-//        Ville findVille = villeRepository.findById(Long.parseLong(town));
-//        Pays findPays = paysRepository.findById(Long.parseLong(pays));
+        Ville findVille = villeRepository.findById(Long.parseLong(town));
+        Pays findPays = paysRepository.findById(Long.parseLong(pays));
 
 //        Address address = null;
 //
-//        if (findVille != null || findPays != null){
-//            address = new Address();
-//            address.setPays(findPays);
-//            address.setVille(findVille);
-//            if (findVille.getRegion() != null)
-//                address.setRegion(findVille.getRegion());
-//        }
+        if (findVille != null || findPays != null){
+            person.setPays(findPays);
+            person.setVille(findVille);
+        }
 
         person.setFirstName(firstName);
         person.setLastName(lastName);
@@ -302,7 +300,11 @@ public class UserServiceImpl implements IUserService {
         newPerson.setLastName(postnom);
         newPerson.setUser(newUser);
         newPerson.setGenre(sexe);
-        newPerson.setDateOfBirth(AppUtils.convertToDateViaInstant(dob));
+        try {
+            newPerson.setDateOfBirth(AppUtils.convertStringToDate(dob));
+        } catch (ParseException e) {
+            throw new RuntimeException(e);
+        }
         newPerson.setHouseNumber(numero);
         newPerson.setStreetName(avenue);
         newPerson.setPhoneNumber(phoneNumber);
