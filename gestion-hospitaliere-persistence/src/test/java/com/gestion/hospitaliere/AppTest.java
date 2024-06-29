@@ -247,7 +247,7 @@ public class AppTest
 
     }
 
-    //@Test   //quatrieme
+    @Test   //quatrieme
     void createAdmin(){
         User user = new User();
         user.setEmail("admin2@gmail.com");
@@ -357,10 +357,10 @@ public class AppTest
         personDao.save(person);
     }
 
-   // @Test   //premier
+   @Test   //premier
     void createPrivilege(){
 
-        Role adminRole = new Role();
+       /* Role adminRole = new Role();
         adminRole.setName("ADMIN");
         adminRole.setDescription("Admin role");
         roleDao.save(adminRole);
@@ -402,7 +402,7 @@ public class AppTest
         Privilege updatePrivilege = new Privilege();
         updatePrivilege.setName("UPDATE");
         updatePrivilege.setDescription("Update privilege");
-        privilegeDao.save(updatePrivilege);
+        privilegeDao.save(updatePrivilege);*/
 
     }
 
