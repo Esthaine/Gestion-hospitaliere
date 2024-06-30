@@ -1,6 +1,9 @@
 <%@ page import="com.gestion.hospitaliere.entity.*" %>
 <%@ page import="com.gestion.hospitaliere.dao.*" %>
 <%@ page import="com.gestion.hospitaliere.dao.impl.*" %>
+<%@ page import="java.time.LocalDate" %>
+<%@ page import="java.util.Date" %>
+<%@ page import="java.time.ZoneId" %>
 <jsp:include page="components/topbar.jsp" />
 <%
     FicheDao ficheDao;
@@ -9,6 +12,7 @@
     MedicamentDao medicamentDao;
     String rendezVousId = request.getParameter("rendezVousId");
     String patientId = request.getParameter("patientId");
+    RendezVousDao rendezVousDao = null;
 
     try{
         ficheDao = new FicheDaoImpl((Class<Fiche>) Class.forName("com.gestion.hospitaliere.entity.Fiche"));
@@ -42,11 +46,23 @@
                 </tr>
                 <tr>
                     <td>Date de naissance: </td>
-                    <td><h4>26/09/1996</h4></td>
+                    <td><h4><%= person != null && person.getDateOfBirth() != null? person.getDateOfBirth(): ""%></h4></td>
                 </tr>
                 <tr>
+                    <%
+                        //comparting
+                        Date date = new Date();
+                        LocalDate localDate = date.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+                        LocalDate patientDob = null;
+                        if (person!= null && person.getDateOfBirth() != null){
+                            patientDob = person.getDateOfBirth().toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+                        }
+                        int currentYear  = localDate.getYear();
+                        int patientYear =  patientDob.getYear();
+                        int currentAge =  currentYear - patientYear;
+                    %>
                     <td>Age: </td>
-                    <td><h4>28</h4></td>
+                    <td><h4><%=currentAge%></h4></td>
                 </tr>
             </table>
         </div>

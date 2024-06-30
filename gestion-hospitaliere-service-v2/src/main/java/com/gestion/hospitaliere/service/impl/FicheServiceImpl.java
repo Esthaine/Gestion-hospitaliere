@@ -6,11 +6,13 @@ import com.gestion.hospitaliere.entity.*;
 import com.gestion.hospitaliere.model.UserDto;
 import com.gestion.hospitaliere.service.IFicheService;
 import com.gestion.hospitaliere.utils.AppConst;
+import com.gestion.hospitaliere.utils.AppUtils;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
 import java.io.IOException;
+import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -118,8 +120,16 @@ public class FicheServiceImpl implements IFicheService {
         ){
             for (int i = 0; i < dateDebut.length ; i++ ) {
                 AntecedentMedical antecedentMedical = new AntecedentMedical();
-                antecedentMedical.setDateDebut(null);
-                antecedentMedical.setDateFin(null);
+                try {
+                    antecedentMedical.setDateDebut(AppUtils.convertToLocalDateTimeViaInstant(dateDebut[i]));
+                } catch (ParseException e) {
+                    throw new RuntimeException(e);
+                }
+                try {
+                    antecedentMedical.setDateFin(AppUtils.convertToLocalDateTimeViaInstant(dateFin[i]));
+                } catch (ParseException e) {
+                    throw new RuntimeException(e);
+                }
                 antecedentMedical.setDescription(descriptions[i]);
                 antecedentMedical.setType(type[i]);
                 antecedentMedical.setFiche(fiche);
@@ -127,7 +137,7 @@ public class FicheServiceImpl implements IFicheService {
             }
         }else{
             req.setAttribute("error", "Le patient n'a pas encore une fiche.");
-            req.getRequestDispatcher("").forward(req, resp);
+            req.getRequestDispatcher("/hospital/consultationOperation.jsp").forward(req, resp);
         }
 
 
@@ -146,7 +156,7 @@ public class FicheServiceImpl implements IFicheService {
             }
         }else{
             req.setAttribute("error", "Le patient n'a pas encore une fiche.");
-            req.getRequestDispatcher("").forward(req, resp);
+            req.getRequestDispatcher("/hospital/consultationOperation.jsp").forward(req, resp);
         }
 
 
@@ -168,7 +178,7 @@ public class FicheServiceImpl implements IFicheService {
             }
         }else {
             req.setAttribute("error", "Le patient n'a pas encore une fiche.");
-            req.getRequestDispatcher("").forward(req, resp);
+            req.getRequestDispatcher("/hospital/consultationOperation.jsp").forward(req, resp);
         }
 
 
@@ -231,7 +241,7 @@ public class FicheServiceImpl implements IFicheService {
             req.setAttribute("error", "Veillez selectionner le medicament a fournir au patient");
             req.getRequestDispatcher("/hospital/prendrePrescriptionPharmacieProcess.jsp").forward(req, resp);
         }
-        rendezvous.setStatus(RendezVousStatus.EN_COURS);
+        rendezvous.setStatus(RendezVousStatus.TRAITER);
         rendezVousDao.save(rendezvous);
         req.getRequestDispatcher("/hospital/prendrePrescriptionPharmacie.jsp").forward(req, resp);
     }
@@ -270,7 +280,7 @@ public class FicheServiceImpl implements IFicheService {
         examenDao.saveAll(examenList.toArray(new Examen[0]));
         Rendezvous rendezvous = rendezVousDao.findById(Long.parseLong(rendezVousId));
         if (rendezvous != null){
-            rendezvous.setStatus(RendezVousStatus.EN_COURS);
+            rendezvous.setStatus(RendezVousStatus.TRAITER);
         }
         rendezVousDao.save(rendezvous);
         List<Rendezvous> rendezvousList = rendezVousDao.findByStatus(RendezVousStatus.LABORATOIRE);

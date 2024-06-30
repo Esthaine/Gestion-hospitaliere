@@ -203,6 +203,7 @@ public class UserServiceImpl implements IUserService {
             person.setVille(findVille);
         }
 
+        person.setGivenName(username);
         person.setFirstName(firstName);
         person.setLastName(lastName);
         //person.setAddress(address);
@@ -322,7 +323,7 @@ public class UserServiceImpl implements IUserService {
         }
 
         Departement departement = departmentRepository.findById(Long.parseLong(department));
-        if (departement != null){
+        if (departement != null && role!= null && role.equals(AppConst.MEDECIN)){
             newUser.setDepartement(departement);
         }
         //enregistrement

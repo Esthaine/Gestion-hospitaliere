@@ -1,6 +1,9 @@
 <%@ page import="com.gestion.hospitaliere.entity.*" %>
 <%@ page import="com.gestion.hospitaliere.dao.*" %>
 <%@ page import="com.gestion.hospitaliere.dao.impl.*" %>
+<%@ page import="java.util.Date" %>
+<%@ page import="java.time.LocalDate" %>
+<%@ page import="java.time.ZoneId" %>
 <jsp:include page="components/topbar.jsp" />
 <%
     FicheDao ficheDao = null;
@@ -35,6 +38,40 @@
 %>
 <div class="main">
     <jsp:include page="components/sidebar.jsp" />
+    <div class="patient-info">
+        <table>
+            <tr>
+                <td>Nom Complet:</td>
+                <td>
+                    <h4>
+                        <%= person != null && person.getGivenName() != null? person.getGivenName(): ""%>
+                        <%= person != null && person.getFirstName() != null? person.getFirstName(): ""%>
+                        <%= person != null && person.getLastName() != null? person.getLastName(): ""%>
+                    </h4>
+                </td>
+            </tr>
+            <tr>
+                <td>Date de naissance: </td>
+                <td><h4><%= person != null && person.getDateOfBirth() != null? person.getDateOfBirth(): ""%></h4></td>
+            </tr>
+            <tr>
+                <%
+                    //comparting
+                    Date date = new Date();
+                    LocalDate localDate = date.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+                    LocalDate patientDob = null;
+                    if (person!= null && person.getDateOfBirth() != null){
+                        patientDob = person.getDateOfBirth().toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+                    }
+                    int currentYear  = localDate.getYear();
+                    int patientYear =  patientDob.getYear();
+                    int currentAge =  currentYear - patientYear;
+                %>
+                <td>Age: </td>
+                <td><h4><%=currentAge%></h4></td>
+            </tr>
+        </table>
+    </div>
     <div class="content">
         <form action="<%=request.getContextPath()%>/hopital/labo/prelevement/process" method="post">
             <div class="demand__examens">

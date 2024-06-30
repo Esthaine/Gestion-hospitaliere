@@ -4,11 +4,15 @@
 <%@ page import="com.gestion.hospitaliere.utils.AppConst" %>
 <%@ page import="com.gestion.hospitaliere.dao.*" %>
 <%@ page import="com.gestion.hospitaliere.dao.impl.*" %>
+<%@ page import="java.util.Date" %>
+<%@ page import="java.time.LocalDate" %>
+<%@ page import="java.time.ZoneId" %>
 <jsp:include page="components/topbar.jsp" />
 
 <div class="main">
   <%
     List<Medicament> medicaments = (List<Medicament>) request.getAttribute("medicaments");
+    String error = request.getParameter("error");
     Long rendezVousId = Long.valueOf(request.getParameter("rendezVousId"));
     Fiche fiche = (Fiche) request.getAttribute("fiche");
     List<PremierSoin> premierSoin = new ArrayList<>();
@@ -18,8 +22,11 @@
     AntecedentMedicalDao antecedentMedicalDao = null;
     ResultatsExamensDao resultatsExamensDao = null;
     MedicamentDao medicamentDao = null;
+    ExamenDao examenDao = null;
+    QuestionDao questionDao = null;
     PersonDao personDao = null;
     Person person = null;
+    RendezVousDao rendezVousDao = null;
 
     try{
       premierSoinDao = new PremierSoinDaoImpl((Class<PremierSoin>) Class.forName("com.gestion.hospitaliere.entity.PremierSoin"));
@@ -27,6 +34,9 @@
       resultatsExamensDao = new ResultatExamenDaoImpl((Class<ResultatsExamens>) Class.forName("com.gestion.hospitaliere.entity.ResultatsExamens"));
       medicamentDao = new MedicamentDaoImpl((Class<Medicament>) Class.forName("com.gestion.hospitaliere.entity.Medicament"));
       personDao = new PersonDaoImpl((Class<Person>) Class.forName("com.gestion.hospitaliere.entity.Person"));
+      questionDao = new QuestionDaoImpl((Class<Question>) Class.forName("com.gestion.hospitaliere.entity.Question"));
+      examenDao = new ExamenDaoImpl((Class<Examen>) Class.forName("com.gestion.hospitaliere.entity.Examen"));
+      rendezVousDao = new RendezVousDaoImpl((Class<Rendezvous>) Class.forName("com.gestion.hospitaliere.entity.Rendezvous"));
     } catch (Exception e){
       e.printStackTrace();
     }
@@ -41,6 +51,12 @@
   <jsp:include page="components/sidebar.jsp" />
   <div class="content">
     <div class="info-patient">
+      <% if ( error!= null) {%>
+        <span class="error">
+          <%= error%>
+        </span>
+      <%}%>
+
       <table>
         <tr>
           <td>Nom Complet:</td>
@@ -60,10 +76,24 @@
             </h4>
           </td>
         </tr>
-<%--        <tr>--%>
-<%--          <td>Age: </td>--%>
-<%--          <td><h4>28</h4></td>--%>
-<%--        </tr>--%>
+        <tr>
+          <%
+            //comparting
+            Date date = new Date();
+            LocalDate localDate = date.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+            LocalDate patientDob = null;
+            int currentAge = 0;
+            if (person!= null && person.getDateOfBirth() != null){
+              patientDob = person.getDateOfBirth().toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+              int currentYear  = localDate.getYear();
+              int patientYear =  patientDob.getYear();
+              currentAge =  currentYear - patientYear;
+            }
+
+          %>
+          <td>Age: </td>
+          <td><h4><%=currentAge > 0 ? currentAge: ""%></h4></td>
+        </tr>
       </table>
     </div>
     <form class="form-fiche" action="<%=request.getContextPath()%>/hopital/patient/consultation/operation" method="post">
@@ -151,9 +181,6 @@
             <%}%>
           </div>
         </div>
-<%--        <a class="action-button action-add" id="add-medicament">--%>
-<%--          <i class="fa fa-plus" aria-hidden="true"></i>--%>
-<%--        </a>--%>
       </div>
       <div class="envoyer-vers">
 

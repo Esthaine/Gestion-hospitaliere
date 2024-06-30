@@ -145,8 +145,18 @@ public class RendezVousServiceImpl implements IRendezVousService {
 
     @Override
     public void historyRendezVousPerPatient(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        String action  = request.getParameter("action");
+        String rendezVousId = request.getParameter("rendezVousId");
         UserDto userDto = (UserDto) request.getSession().getAttribute("authenticated");
         Person patient = personDao.findByUserId(userDto.getUserId());
+
+        if (action != null && action.equals("cancel")){
+            if (rendezVousId != null && rendezVousDao.findById(Long.parseLong(rendezVousId))!= null){
+                Rendezvous rendezvous = rendezVousDao.findById(Long.parseLong(rendezVousId));
+                rendezvous.setStatus(RendezVousStatus.ANNULER);
+                rendezVousDao.save(rendezvous);
+            }
+        }
         List<Rendezvous> rendezvousList = rendezVousDao.findByPatient(patient.getId());
         request.setAttribute("rendezvousList", rendezvousList);
         request.getRequestDispatcher("/historiqueRendezVous.jsp").forward(request, response);

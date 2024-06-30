@@ -22,7 +22,7 @@ public class ResultatExamensTests {
 
     @Test
     void testFindResultByFiche(){
-        List<ResultatsExamens> resultatsExamensList = resultatsExamensDao.findFicheById(1L);
+        List<ResultatsExamens> resultatsExamensList = resultatsExamensDao.findFicheById(2L);
         assertEquals(0, resultatsExamensList.size());
     }
 }

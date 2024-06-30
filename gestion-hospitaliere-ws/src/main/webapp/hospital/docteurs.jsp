@@ -32,7 +32,6 @@
         <% if (action == null) {%>
         <div class="header-content">
             <a href="<%= request.getContextPath()%>/hopital/docteurs?action=add" class="btn btn-blue">Ajouter un Membre</a>
-            <button class="btn btn-green">Exporter liste des membres du corp medicale</button>
         </div>
 
         <table class="table-mapper">
@@ -81,7 +80,6 @@
                                 %>
                             </td>
                             <td>
-                                <a href="" class="btn btn-green">Activate</a>
                                 <a href="<%=request.getContextPath()%>/hopital/docteurs?userId=<%=user.getId()%>&action=edit" class="btn btn-purple">Modify</a>
                             </td>
                         </tr>

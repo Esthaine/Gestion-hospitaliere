@@ -12,14 +12,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5e79d91d-59bf-4f33-9107-d06ef1da79fc" name="Changes" comment="Ajout et modification de l'utilsateur">
+    <list default="true" id="5e79d91d-59bf-4f33-9107-d06ef1da79fc" name="Changes" comment="try catch added to date  conversion">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gestion-hospitaliere-service-v2/src/main/java/com/gestion/hospitaliere/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/gestion-hospitaliere-service-v2/src/main/java/com/gestion/hospitaliere/App.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gestion-hospitaliere-persistence/src/test/java/com/gestion/hospitaliere/ResultatExamensTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/gestion-hospitaliere-persistence/src/test/java/com/gestion/hospitaliere/ResultatExamensTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gestion-hospitaliere-service-v2/src/main/java/com/gestion/hospitaliere/service/impl/FicheServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/gestion-hospitaliere-service-v2/src/main/java/com/gestion/hospitaliere/service/impl/FicheServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/gestion-hospitaliere-service-v2/src/main/java/com/gestion/hospitaliere/service/impl/RendezVousServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/gestion-hospitaliere-service-v2/src/main/java/com/gestion/hospitaliere/service/impl/RendezVousServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/gestion-hospitaliere-service-v2/src/main/java/com/gestion/hospitaliere/service/impl/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/gestion-hospitaliere-service-v2/src/main/java/com/gestion/hospitaliere/service/impl/UserServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gestion-hospitaliere-service-v2/src/main/java/com/gestion/hospitaliere/utils/AppUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/gestion-hospitaliere-service-v2/src/main/java/com/gestion/hospitaliere/utils/AppUtils.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gestion-hospitaliere-ws/src/main/java/com/gestion/hospitaliere/servlets/AppointmentServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/gestion-hospitaliere-ws/src/main/java/com/gestion/hospitaliere/servlets/AppointmentServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gestion-hospitaliere-ws/src/main/webapp/hospital/prendreRdvPatient.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/gestion-hospitaliere-ws/src/main/webapp/hospital/prendreRdvPatient.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gestion-hospitaliere-ws/src/main/webapp/hospital/consultationOperation.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/gestion-hospitaliere-ws/src/main/webapp/hospital/consultationOperation.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gestion-hospitaliere-ws/src/main/webapp/hospital/docteurs.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/gestion-hospitaliere-ws/src/main/webapp/hospital/docteurs.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gestion-hospitaliere-ws/src/main/webapp/hospital/prelevementLaboratoireProcess.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/gestion-hospitaliere-ws/src/main/webapp/hospital/prelevementLaboratoireProcess.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gestion-hospitaliere-ws/src/main/webapp/hospital/prendrePrescriptionPharmacieProcess.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/gestion-hospitaliere-ws/src/main/webapp/hospital/prendrePrescriptionPharmacieProcess.jsp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -135,7 +137,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "SONARLINT_PRECOMMIT_ANALYSIS": "true",
-    "Tomcat Server.Tomcat 10.1.17.executor": "Debug",
+    "Tomcat Server.Tomcat 10.1.17.executor": "Run",
     "Tomcat Server.Tomcat 10.1.24.executor": "Debug",
     "git-widget-placeholder": "master",
     "ignore.preview.features.used": "true",
@@ -187,7 +189,7 @@
   <component name="RunDashboard">
     <option name="openRunningConfigInTab" value="true" />
   </component>
-  <component name="RunManager" selected="Application.App">
+  <component name="RunManager" selected="Tomcat Server.Tomcat 10.1.17">
     <configuration name="App" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.gestion.hospitaliere.App" />
       <module name="gestion-hospitaliere-service-v2" />
@@ -212,22 +214,6 @@
       <option name="PACKAGE_NAME" value="com.gestion.hospitaliere" />
       <option name="MAIN_CLASS_NAME" value="com.gestion.hospitaliere.AppTest" />
       <option name="METHOD_NAME" value="createUser" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="CreateFicheTest.findFicheByPatient" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="gestion-hospitaliere-persistence" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.gestion.hospitaliere.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.gestion.hospitaliere" />
-      <option name="MAIN_CLASS_NAME" value="com.gestion.hospitaliere.CreateFicheTest" />
-      <option name="METHOD_NAME" value="findFicheByPatient" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -260,6 +246,22 @@
       <option name="PACKAGE_NAME" value="com.gestion.hospitaliere" />
       <option name="MAIN_CLASS_NAME" value="com.gestion.hospitaliere.MedicamentTests" />
       <option name="METHOD_NAME" value="saveMedicamentPerFiche" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ResultatExamensTests.testFindResultByFiche" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="gestion-hospitaliere-persistence" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.gestion.hospitaliere.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.gestion.hospitaliere" />
+      <option name="MAIN_CLASS_NAME" value="com.gestion.hospitaliere.ResultatExamensTests" />
+      <option name="METHOD_NAME" value="testFindResultByFiche" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -523,7 +525,7 @@
     <list>
       <item itemvalue="Application.App" />
       <item itemvalue="JUnit.AppTest.createUser" />
-      <item itemvalue="JUnit.CreateFicheTest.findFicheByPatient" />
+      <item itemvalue="JUnit.ResultatExamensTests.testFindResultByFiche" />
       <item itemvalue="JUnit.MedicamentTests.getAllMedicament" />
       <item itemvalue="JUnit.MedicamentTests.saveMedicamentPerFiche" />
       <item itemvalue="Tomcat Server.Tomcat 10.1.17" />
@@ -531,11 +533,11 @@
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.ResultatExamensTests.testFindResultByFiche" />
         <item itemvalue="Application.App" />
         <item itemvalue="JUnit.AppTest.createUser" />
         <item itemvalue="JUnit.MedicamentTests.getAllMedicament" />
         <item itemvalue="JUnit.MedicamentTests.saveMedicamentPerFiche" />
-        <item itemvalue="JUnit.CreateFicheTest.findFicheByPatient" />
       </list>
     </recent_temporary>
   </component>
@@ -588,7 +590,7 @@
       <workItem from="1718259934780" duration="253000" />
       <workItem from="1719071190621" duration="62355000" />
       <workItem from="1719587801141" duration="9000" />
-      <workItem from="1719644863266" duration="17057000" />
+      <workItem from="1719644863266" duration="28294000" />
     </task>
     <task id="LOCAL-00001" summary="Iniatialisation du projet">
       <created>1700246058549</created>
@@ -691,7 +693,23 @@
       <option name="project" value="LOCAL" />
       <updated>1719658709198</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="RENDEZ-VOUS medicl resolu, date resolu">
+      <option name="closed" value="true" />
+      <created>1719667480140</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1719667480140</updated>
+    </task>
+    <task id="LOCAL-00015" summary="try catch added to date  conversion">
+      <option name="closed" value="true" />
+      <created>1719668032864</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1719668032864</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -722,7 +740,9 @@
     <MESSAGE value="Fiche manipulation" />
     <MESSAGE value="Prelevement et Prescription" />
     <MESSAGE value="Ajout et modification de l'utilsateur" />
-    <option name="LAST_COMMIT_MESSAGE" value="Ajout et modification de l'utilsateur" />
+    <MESSAGE value="RENDEZ-VOUS medicl resolu, date resolu" />
+    <MESSAGE value="try catch added to date  conversion" />
+    <option name="LAST_COMMIT_MESSAGE" value="try catch added to date  conversion" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -733,49 +753,14 @@
           <option name="timeStamp" value="38" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/gestion-hospitaliere-service-v2/src/main/java/com/gestion/hospitaliere/service/impl/FicheServiceImpl.java</url>
-          <line>153</line>
-          <option name="timeStamp" value="84" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/gestion-hospitaliere-ws/src/main/webapp/hospital/prelevementLaboratoireProcess.jsp</url>
-          <line>54</line>
+          <line>91</line>
           <option name="timeStamp" value="99" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/gestion-hospitaliere-ws/src/main/java/com/gestion/hospitaliere/servlets/hospital/PatientCreerModifServlet.java</url>
           <line>156</line>
           <option name="timeStamp" value="122" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/gestion-hospitaliere-service-v2/src/main/java/com/gestion/hospitaliere/service/impl/RendezVousServiceImpl.java</url>
-          <line>81</line>
-          <option name="timeStamp" value="129" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/gestion-hospitaliere-service-v2/src/main/java/com/gestion/hospitaliere/service/impl/RendezVousServiceImpl.java</url>
-          <line>83</line>
-          <option name="timeStamp" value="130" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/gestion-hospitaliere-service-v2/src/main/java/com/gestion/hospitaliere/service/impl/RendezVousServiceImpl.java</url>
-          <line>86</line>
-          <option name="timeStamp" value="131" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/gestion-hospitaliere-service-v2/src/main/java/com/gestion/hospitaliere/service/impl/RendezVousServiceImpl.java</url>
-          <line>87</line>
-          <option name="timeStamp" value="132" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/gestion-hospitaliere-service-v2/src/main/java/com/gestion/hospitaliere/service/impl/RendezVousServiceImpl.java</url>
-          <line>91</line>
-          <option name="timeStamp" value="133" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/gestion-hospitaliere-service-v2/src/main/java/com/gestion/hospitaliere/service/impl/RendezVousServiceImpl.java</url>
-          <line>80</line>
-          <option name="timeStamp" value="149" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/gestion-hospitaliere-ws/src/main/webapp/js/admin.js</url>
