@@ -247,7 +247,7 @@ public class AppTest
 
     }
 
-    //@Test   //quatrieme
+    @Test   //quatrieme
     void createAdmin(){
         User user = new User();
         user.setEmail("admin2@gmail.com");
@@ -349,6 +349,7 @@ public class AppTest
         Person person = new Person();
         person.setDateOfBirth(new Date());
         person.setGenre(Genre.MASCULIN);
+        person.setFirstName("freddy");
         person.setGivenName("Kabamba");
         person.setLastName("Banza");
         person.setUser(user);
@@ -357,10 +358,33 @@ public class AppTest
         personDao.save(person);
     }
 
-   // @Test   //premier
+    @Test
+    void createMedecin4(){
+
+        User user = new User();
+        user.setEmail("david@gmail.com");
+        user.setUsername("david");
+        user.setMotDePasse("123456");
+
+        Role patient = roleDao.findRoleByName("MEDECIN");
+        user.setRole(patient);
+
+        Person person = new Person();
+        person.setDateOfBirth(new Date());
+        person.setGenre(Genre.MASCULIN);
+        person.setFirstName("david");
+        person.setGivenName("Mwenze");
+        person.setLastName("Kongolo");
+        person.setUser(user);
+
+
+        personDao.save(person);
+    }
+
+   @Test   //premier
     void createPrivilege(){
 
-        Role adminRole = new Role();
+        /*Role adminRole = new Role();
         adminRole.setName("ADMIN");
         adminRole.setDescription("Admin role");
         roleDao.save(adminRole);
@@ -380,7 +404,7 @@ public class AppTest
         Role doctorRole = new Role();
         doctorRole.setName("MEDECIN");
         doctorRole.setDescription("Doctor role");
-        roleDao.save(doctorRole);
+        roleDao.save(doctorRole);*/
 
 
         //-----------------------------------
@@ -406,7 +430,7 @@ public class AppTest
 
     }
 
-    //@Test //Troisieme
+    @Test //Troisieme
     void mappPrivilegesToRole(){
 
         Role adminRole = roleDao.findRoleByName("ADMIN");
