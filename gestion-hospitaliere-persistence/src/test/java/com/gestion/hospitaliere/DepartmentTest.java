@@ -39,12 +39,48 @@ public class DepartmentTest {
     void newDepartmentTestCreation(){
 
         Departement departement = new Departement();
-        departement.setManager(userDao.findById(4L));
+        departement.setManager(userDao.findById(6L));
         departement.setNomDepartement("Pediatrie");
         departement.setCode(PersistenceUtils.departmentNumberGeneration());
         departement.setDescription("Oncologie Description");
         departementDao.save(departement);
     }
+
+    @Test
+    void newDepartmentTestCreation2(){
+
+        Departement departement = new Departement();
+        departement.setManager(userDao.findById(4L));
+        departement.setNomDepartement("Cardiologie");
+        departement.setCode(PersistenceUtils.departmentNumberGeneration());
+        departement.setDescription("Cardio Description");
+        departementDao.save(departement);
+    }
+
+    @Test
+    void newDepartmentTestCreation3(){
+
+        Departement departement = new Departement();
+        departement.setManager(userDao.findById(13L));
+        departement.setNomDepartement("Dermatologie");
+        departement.setCode(PersistenceUtils.departmentNumberGeneration());
+        departement.setDescription("Derma Description");
+        departementDao.save(departement);
+    }
+
+    @Test
+    void newDepartmentTestCreation4(){
+
+        Departement departement = new Departement();
+        departement.setManager(userDao.findById(16L));
+        departement.setNomDepartement("Gynecologie");
+        departement.setCode(PersistenceUtils.departmentNumberGeneration());
+        departement.setDescription("Gyneco Description");
+        departementDao.save(departement);
+    }
+
+
+
 
 //    Departement newDepartement(){
 //        Departement departement = departementDao.findById(1L);

@@ -48,7 +48,7 @@ public class MedicamentTests {
         Medicament med2 = new Medicament();
         med2.setNom("Tetracycline");
         med2.setPosologie("posologie");
-        med2.setDescription("description");
+        med2.setDescription("description Tetracycline");
         med2.setPrixUnitaire(150);
         med2.setDatePeremption(LocalDate.now());
         med2.setStock(Stock.IN);
@@ -65,24 +65,24 @@ public class MedicamentTests {
         Medicament med4 = new Medicament();
         med4.setNom("Dipirone");
         med4.setPosologie("posologie");
-        med4.setDescription("description");
-        med4.setPrixUnitaire(100);
+        med4.setDescription("description dipirone");
+        med4.setPrixUnitaire(120);
         med4.setDatePeremption(LocalDate.now());
         med4.setStock(Stock.IN);
 
         Medicament med5 = new Medicament();
         med5.setNom("Efferalgan");
         med5.setPosologie("posoligie");
-        med5.setDescription("description");
-        med5.setPrixUnitaire(100);
+        med5.setDescription("description efferalgan");
+        med5.setPrixUnitaire(160);
         med5.setDatePeremption(LocalDate.now());
         med5.setStock(Stock.IN);
 
         Medicament med6 = new Medicament();
-        med6.setNom("Efferalgan");
+        med6.setNom("Paracetamol");
         med6.setPosologie("posoligie");
-        med6.setDescription("description");
-        med6.setPrixUnitaire(100);
+        med6.setDescription("description paracetamol");
+        med6.setPrixUnitaire(180);
         med6.setDatePeremption(LocalDate.now());
         med6.setStock(Stock.IN);
 
@@ -91,6 +91,7 @@ public class MedicamentTests {
         medicaments.add(med3);
         medicaments.add(med4);
         medicaments.add(med5);
+        medicaments.add(med6);
 
 
         medicamentDao.saveAll(medicaments.toArray(new Medicament[medicaments.size()]));

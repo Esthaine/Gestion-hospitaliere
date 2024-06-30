@@ -12,7 +12,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5e79d91d-59bf-4f33-9107-d06ef1da79fc" name="Changes" comment="Configuration2" />
+    <list default="true" id="4d474753-330f-4a57-aa70-983f84ab943f" name="Changes" comment="Configuration2">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gestion-hospitaliere-persistence/src/test/java/com/gestion/hospitaliere/AppTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/gestion-hospitaliere-persistence/src/test/java/com/gestion/hospitaliere/AppTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gestion-hospitaliere-persistence/src/test/java/com/gestion/hospitaliere/DepartmentTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/gestion-hospitaliere-persistence/src/test/java/com/gestion/hospitaliere/DepartmentTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gestion-hospitaliere-persistence/src/test/java/com/gestion/hospitaliere/MedicamentTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/gestion-hospitaliere-persistence/src/test/java/com/gestion/hospitaliere/MedicamentTests.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -172,14 +177,14 @@
       <command value="mvn clean verify" />
       <command value="mvn clean install -U" />
       <command value="mvn clean install" />
-      <command value="mvn clean package" />
       <command value="mvn clean" />
+      <command value="mvn clean package" />
     </option>
   </component>
   <component name="RunDashboard">
     <option name="openRunningConfigInTab" value="true" />
   </component>
-  <component name="RunManager" selected="JUnit.AppTest.mappPrivilegesToRole">
+  <component name="RunManager" selected="JUnit.DepartmentTest.newDepartmentTestCreation">
     <configuration default="true" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 10.1.24" ALTERNATIVE_JRE_ENABLED="false">
       <option name="UPDATING_POLICY" value="restart-server" />
       <deployment />
@@ -258,7 +263,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="AppTest.createAdmin" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="DepartmentTest.newDepartmentTestCreation" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="gestion-hospitaliere-persistence" />
       <extension name="coverage">
         <pattern>
@@ -267,14 +272,14 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="com.gestion.hospitaliere" />
-      <option name="MAIN_CLASS_NAME" value="com.gestion.hospitaliere.AppTest" />
-      <option name="METHOD_NAME" value="createAdmin" />
+      <option name="MAIN_CLASS_NAME" value="com.gestion.hospitaliere.DepartmentTest" />
+      <option name="METHOD_NAME" value="newDepartmentTestCreation" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="AppTest.createMedecin3" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="DepartmentTest.newDepartmentTestCreation3" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="gestion-hospitaliere-persistence" />
       <extension name="coverage">
         <pattern>
@@ -283,14 +288,14 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="com.gestion.hospitaliere" />
-      <option name="MAIN_CLASS_NAME" value="com.gestion.hospitaliere.AppTest" />
-      <option name="METHOD_NAME" value="createMedecin3" />
+      <option name="MAIN_CLASS_NAME" value="com.gestion.hospitaliere.DepartmentTest" />
+      <option name="METHOD_NAME" value="newDepartmentTestCreation3" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="AppTest.createPrivilege" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="DepartmentTest.newDepartmentTestCreation4" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="gestion-hospitaliere-persistence" />
       <extension name="coverage">
         <pattern>
@@ -299,14 +304,14 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="com.gestion.hospitaliere" />
-      <option name="MAIN_CLASS_NAME" value="com.gestion.hospitaliere.AppTest" />
-      <option name="METHOD_NAME" value="createPrivilege" />
+      <option name="MAIN_CLASS_NAME" value="com.gestion.hospitaliere.DepartmentTest" />
+      <option name="METHOD_NAME" value="newDepartmentTestCreation4" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="AppTest.mappPrivilegesToRole" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="DepartmentTest.newDepartmentTestCreation5" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="gestion-hospitaliere-persistence" />
       <extension name="coverage">
         <pattern>
@@ -315,14 +320,14 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="com.gestion.hospitaliere" />
-      <option name="MAIN_CLASS_NAME" value="com.gestion.hospitaliere.AppTest" />
-      <option name="METHOD_NAME" value="mappPrivilegesToRole" />
+      <option name="MAIN_CLASS_NAME" value="com.gestion.hospitaliere.DepartmentTest" />
+      <option name="METHOD_NAME" value="newDepartmentTestCreation5" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="RegionTest.creerPaysAvecDifferentRegionEtVille" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="DepartmentTest.newDepartmentTestCreation6" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="gestion-hospitaliere-persistence" />
       <extension name="coverage">
         <pattern>
@@ -331,8 +336,8 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="com.gestion.hospitaliere" />
-      <option name="MAIN_CLASS_NAME" value="com.gestion.hospitaliere.RegionTest" />
-      <option name="METHOD_NAME" value="creerPaysAvecDifferentRegionEtVille" />
+      <option name="MAIN_CLASS_NAME" value="com.gestion.hospitaliere.DepartmentTest" />
+      <option name="METHOD_NAME" value="newDepartmentTestCreation6" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -527,19 +532,19 @@
       </method>
     </configuration>
     <list>
-      <item itemvalue="JUnit.AppTest.createAdmin" />
-      <item itemvalue="JUnit.AppTest.createMedecin3" />
-      <item itemvalue="JUnit.AppTest.createPrivilege" />
-      <item itemvalue="JUnit.AppTest.mappPrivilegesToRole" />
-      <item itemvalue="JUnit.RegionTest.creerPaysAvecDifferentRegionEtVille" />
+      <item itemvalue="JUnit.DepartmentTest.newDepartmentTestCreation" />
+      <item itemvalue="JUnit.DepartmentTest.newDepartmentTestCreation5" />
+      <item itemvalue="JUnit.DepartmentTest.newDepartmentTestCreation6" />
+      <item itemvalue="JUnit.DepartmentTest.newDepartmentTestCreation3" />
+      <item itemvalue="JUnit.DepartmentTest.newDepartmentTestCreation4" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.AppTest.mappPrivilegesToRole" />
-        <item itemvalue="JUnit.AppTest.createPrivilege" />
-        <item itemvalue="JUnit.AppTest.createMedecin3" />
-        <item itemvalue="JUnit.RegionTest.creerPaysAvecDifferentRegionEtVille" />
-        <item itemvalue="JUnit.AppTest.createAdmin" />
+        <item itemvalue="JUnit.DepartmentTest.newDepartmentTestCreation" />
+        <item itemvalue="JUnit.DepartmentTest.newDepartmentTestCreation4" />
+        <item itemvalue="JUnit.DepartmentTest.newDepartmentTestCreation3" />
+        <item itemvalue="JUnit.DepartmentTest.newDepartmentTestCreation6" />
+        <item itemvalue="JUnit.DepartmentTest.newDepartmentTestCreation5" />
       </list>
     </recent_temporary>
   </component>
@@ -554,7 +559,7 @@
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="5e79d91d-59bf-4f33-9107-d06ef1da79fc" name="Changes" comment="Config" />
+      <changelist id="4d474753-330f-4a57-aa70-983f84ab943f" name="Changes" comment="" />
       <created>1700240834387</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
@@ -759,102 +764,102 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/gestion-hospitaliere-service-v2/src/main/java/com/gestion/hospitaliere/service/impl/RendezVousServiceImpl.java</url>
-          <line>81</line>
+          <line>82</line>
           <option name="timeStamp" value="129" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/gestion-hospitaliere-service-v2/src/main/java/com/gestion/hospitaliere/service/impl/RendezVousServiceImpl.java</url>
-          <line>83</line>
+          <line>84</line>
           <option name="timeStamp" value="130" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/gestion-hospitaliere-service-v2/src/main/java/com/gestion/hospitaliere/service/impl/RendezVousServiceImpl.java</url>
-          <line>86</line>
+          <line>87</line>
           <option name="timeStamp" value="131" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/gestion-hospitaliere-service-v2/src/main/java/com/gestion/hospitaliere/service/impl/RendezVousServiceImpl.java</url>
-          <line>87</line>
+          <line>88</line>
           <option name="timeStamp" value="132" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/gestion-hospitaliere-service-v2/src/main/java/com/gestion/hospitaliere/service/impl/RendezVousServiceImpl.java</url>
-          <line>91</line>
+          <line>92</line>
           <option name="timeStamp" value="133" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/gestion-hospitaliere-service-v2/src/main/java/com/gestion/hospitaliere/service/impl/RendezVousServiceImpl.java</url>
-          <line>96</line>
+          <line>97</line>
           <option name="timeStamp" value="134" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/gestion-hospitaliere-service-v2/src/main/java/com/gestion/hospitaliere/service/impl/RendezVousServiceImpl.java</url>
-          <line>101</line>
+          <line>102</line>
           <option name="timeStamp" value="135" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/gestion-hospitaliere-service-v2/src/main/java/com/gestion/hospitaliere/service/impl/RendezVousServiceImpl.java</url>
-          <line>103</line>
+          <line>104</line>
           <option name="timeStamp" value="136" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/gestion-hospitaliere-service-v2/src/main/java/com/gestion/hospitaliere/service/impl/RendezVousServiceImpl.java</url>
-          <line>108</line>
+          <line>113</line>
           <option name="timeStamp" value="137" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/gestion-hospitaliere-service-v2/src/main/java/com/gestion/hospitaliere/service/impl/RendezVousServiceImpl.java</url>
-          <line>111</line>
+          <line>116</line>
           <option name="timeStamp" value="138" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/gestion-hospitaliere-service-v2/src/main/java/com/gestion/hospitaliere/service/impl/RendezVousServiceImpl.java</url>
-          <line>112</line>
+          <line>117</line>
           <option name="timeStamp" value="139" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/gestion-hospitaliere-service-v2/src/main/java/com/gestion/hospitaliere/service/impl/RendezVousServiceImpl.java</url>
-          <line>113</line>
+          <line>118</line>
           <option name="timeStamp" value="140" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/gestion-hospitaliere-service-v2/src/main/java/com/gestion/hospitaliere/service/impl/RendezVousServiceImpl.java</url>
-          <line>104</line>
+          <line>105</line>
           <option name="timeStamp" value="141" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/gestion-hospitaliere-service-v2/src/main/java/com/gestion/hospitaliere/service/impl/RendezVousServiceImpl.java</url>
-          <line>105</line>
+          <line>106</line>
           <option name="timeStamp" value="142" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/gestion-hospitaliere-service-v2/src/main/java/com/gestion/hospitaliere/service/impl/RendezVousServiceImpl.java</url>
-          <line>106</line>
+          <line>107</line>
           <option name="timeStamp" value="143" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/gestion-hospitaliere-service-v2/src/main/java/com/gestion/hospitaliere/service/impl/RendezVousServiceImpl.java</url>
-          <line>107</line>
+          <line>108</line>
           <option name="timeStamp" value="144" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/gestion-hospitaliere-service-v2/src/main/java/com/gestion/hospitaliere/service/impl/RendezVousServiceImpl.java</url>
-          <line>97</line>
+          <line>98</line>
           <option name="timeStamp" value="145" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/gestion-hospitaliere-service-v2/src/main/java/com/gestion/hospitaliere/service/impl/RendezVousServiceImpl.java</url>
-          <line>98</line>
+          <line>99</line>
           <option name="timeStamp" value="146" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/gestion-hospitaliere-service-v2/src/main/java/com/gestion/hospitaliere/service/impl/RendezVousServiceImpl.java</url>
-          <line>99</line>
+          <line>100</line>
           <option name="timeStamp" value="147" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/gestion-hospitaliere-service-v2/src/main/java/com/gestion/hospitaliere/service/impl/RendezVousServiceImpl.java</url>
-          <line>100</line>
+          <line>101</line>
           <option name="timeStamp" value="148" />
         </line-breakpoint>
       </breakpoints>

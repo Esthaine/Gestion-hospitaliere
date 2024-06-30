@@ -349,8 +349,32 @@ public class AppTest
         Person person = new Person();
         person.setDateOfBirth(new Date());
         person.setGenre(Genre.MASCULIN);
+        person.setFirstName("freddy");
         person.setGivenName("Kabamba");
         person.setLastName("Banza");
+        person.setUser(user);
+
+
+        personDao.save(person);
+    }
+
+    @Test
+    void createMedecin4(){
+
+        User user = new User();
+        user.setEmail("david@gmail.com");
+        user.setUsername("david");
+        user.setMotDePasse("123456");
+
+        Role patient = roleDao.findRoleByName("MEDECIN");
+        user.setRole(patient);
+
+        Person person = new Person();
+        person.setDateOfBirth(new Date());
+        person.setGenre(Genre.MASCULIN);
+        person.setFirstName("david");
+        person.setGivenName("Mwenze");
+        person.setLastName("Kongolo");
         person.setUser(user);
 
 
